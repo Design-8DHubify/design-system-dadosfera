@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Fundamentos | Dadosfera Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+<link rel="stylesheet" href="../css/tokens.css" />
+<link rel="stylesheet" href="../css/base.css" />
+<link rel="stylesheet" href="../css/components.css" />
+<link rel="stylesheet" href="../css/showcase.css" />
+<script>(function(){try{var t=localStorage.getItem('ds-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<script src="../js/ds-auth.js"></script><script>DSAuth.guard();</script>
+</head>
+<body>
+  <div id="ds-shell" data-active="fundamentos"></div>
+
+  <main class="docs-main">
+    <div class="docs-topbar">
+      <button class="docs-burger" data-burger aria-label="Menu"><i class="fi fi-rr-menu-burger"></i></button>
+      <strong style="font-family:var(--ds-font-display)">Fundamentos</strong>
+      <button class="ds-theme-toggle" data-theme-toggle aria-label="Tema"><i class="fi fi-rr-moon-stars"></i></button>
+    </div>
+
+    <div class="docs-content">
+      <header class="docs-hero">
+        <span class="ds-overline">Fundação</span>
+        <h1>Fundamentos da marca</h1>
+        <p class="ds-lead">A base visual da Dadosfera: cores, tipografia e escala. Clique em qualquer cor para copiar o HEX.</p>
+      </header>
+
+      <!-- CORES -->
+      <section class="docs-block" id="cores">
+        <h2>Paleta de cores</h2>
+        <p class="sub">Cores oficiais extraídas da identidade Dadosfera. Clique para copiar.</p>
+        <div class="ds-grid ds-grid-4">
+          <div class="ds-swatch" data-copy-hex="#1700A2"><div class="ds-swatch__color" style="background:#1700A2"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Núcleo</div><div class="ds-swatch__hex">#1700A2</div></div></div>
+          <div class="ds-swatch" data-copy-hex="#0D003B"><div class="ds-swatch__color" style="background:#0D003B"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Profundo</div><div class="ds-swatch__hex">#0D003B</div></div></div>
+          <div class="ds-swatch" data-copy-hex="#1863DC"><div class="ds-swatch__color" style="background:#1863DC"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Ação</div><div class="ds-swatch__hex">#1863DC</div></div></div>
+          <div class="ds-swatch" data-copy-hex="#3BBFF0"><div class="ds-swatch__color" style="background:#3BBFF0"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Ciano</div><div class="ds-swatch__hex">#3BBFF0</div></div></div>
+          <div class="ds-swatch" data-copy-hex="#A79EE8"><div class="ds-swatch__color" style="background:#A79EE8"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Lavanda</div><div class="ds-swatch__hex">#A79EE8</div></div></div>
+          <div class="ds-swatch" data-copy-hex="#FF9800"><div class="ds-swatch__color" style="background:#FF9800"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Laranja</div><div class="ds-swatch__hex">#FF9800</div></div></div>
+          <div class="ds-swatch" data-copy-hex="#212121"><div class="ds-swatch__color" style="background:#212121"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Tinta</div><div class="ds-swatch__hex">#212121</div></div></div>
+          <div class="ds-swatch" data-copy-hex="#F7F8FC"><div class="ds-swatch__color" style="background:#F7F8FC;border-bottom:1px solid #E1E3EF"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Cinza 50</div><div class="ds-swatch__hex">#F7F8FC</div></div></div>
+        </div>
+      </section>
+
+      <!-- GRADIENTES -->
+      <section class="docs-block" id="gradientes">
+        <h2>Gradientes</h2>
+        <p class="sub">Combinações oficiais para heros e destaques.</p>
+        <div class="ds-grid ds-grid-3">
+          <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#1700A2,#1863DC)"><div class="ds-swatch__color" style="background:var(--ds-gradient-nucleo)"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Núcleo</div><div class="ds-swatch__hex">#1700A2 → #1863DC</div></div></div>
+          <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#0D003B,#1700A2)"><div class="ds-swatch__color" style="background:var(--ds-gradient-profundo)"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Profundo</div><div class="ds-swatch__hex">#0D003B → #1700A2</div></div></div>
+          <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#1863DC,#3BBFF0)"><div class="ds-swatch__color" style="background:var(--ds-gradient-ciano)"></div><div class="ds-swatch__meta"><div class="ds-swatch__name">Ciano</div><div class="ds-swatch__hex">#1863DC → #3BBFF0</div></div></div>
+        </div>
+      </section>
+
+      <!-- TIPOGRAFIA -->
+      <section class="docs-block" id="tipografia">
+        <h2>Tipografia</h2>
+        <p class="sub"><strong>Menco</strong> (display, proprietária — fallback Sora) para títulos · <strong>Nunito</strong> (Google Fonts) para corpo. Pesos 400 / 600 / 700.</p>
+        <div class="ds-demo">
+          <div class="ds-demo__preview" style="flex-direction:column;align-items:flex-start;gap:1rem">
+            <div class="ds-display">Display 72</div>
+            <h1>Heading 1 — 52px</h1>
+            <h2>Heading 2 — 40px</h2>
+            <h3>Heading 3 — 30px</h3>
+            <h4>Heading 4 — 24px</h4>
+            <p class="ds-lead">Lead / subtítulo — 18px, usado em chamadas e introduções de seção.</p>
+            <p>Parágrafo padrão — 16px Nunito. Texto de corpo confortável para leitura em landing pages, com altura de linha 1.6 e ótimo contraste.</p>
+            <p class="ds-overline">Overline · monoespaçada</p>
+          </div>
+          <div class="ds-demo__bar"><span>tokens: --ds-text-display … --ds-text-overline</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/ds-auth.js"></script>
+  <script src="../js/ds-clipboard.js"></script>
+  <script src="../js/ds-ui.js"></script>
+  <script src="../js/ds-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* ============================================================
+   DADOSFERA DS — BUILDER (UI da ferramenta)
+   Estilos do construtor RD Station. O CÓDIGO GERADO traz seu
+   próprio <style> namespaced .ds-dadosfera-* (não depende disto).
+   ============================================================ */
+
+.bld { display:grid; grid-template-columns: 340px 1fr; gap: var(--ds-space-5); align-items:start; }
+.bld__panel { background: var(--ds-surface); border:1px solid var(--ds-border); border-radius: var(--ds-radius-lg); padding: var(--ds-space-5); position:sticky; top: var(--ds-space-5); }
+.bld__panel h4 { margin-bottom: var(--ds-space-4); }
+
+.bld__types { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin-bottom: var(--ds-space-5); }
+.bld__type { padding:.7rem; border:1.5px solid var(--ds-border-strong); border-radius: var(--ds-radius-md); background:transparent; cursor:pointer; font-weight:700; font-size: var(--ds-text-body-sm); color: var(--ds-text); transition: all var(--ds-dur-fast); }
+.bld__type.is-active { background: var(--ds-color-nucleo); color:#fff; border-color: var(--ds-color-nucleo); }
+
+.bld__items { display:flex; flex-direction:column; gap: var(--ds-space-4); }
+.bld__item { border:1px solid var(--ds-border); border-radius: var(--ds-radius-md); padding: var(--ds-space-4); position:relative; background: var(--ds-bg-soft); }
+.bld__item-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem; }
+.bld__item-head strong { font-size: var(--ds-text-body-sm); }
+.bld__del { background:none; border:none; color: var(--ds-color-danger); cursor:pointer; font-size: var(--ds-text-body-sm); font-weight:700; }
+.bld__field { display:flex; flex-direction:column; gap:.25rem; margin-bottom:.6rem; }
+.bld__field label { font-size: var(--ds-text-caption); font-weight:700; color: var(--ds-text-soft); }
+.bld__field input, .bld__field select, .bld__field textarea {
+  font-family: var(--ds-font-base); font-size: var(--ds-text-body-sm); padding:.5rem .6rem;
+  border:1px solid var(--ds-border-strong); border-radius: var(--ds-radius-sm); background: var(--ds-surface); color: var(--ds-text);
+}
+.bld__field textarea { min-height:60px; resize:vertical; }
+.bld__row { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+.bld__add { width:100%; margin-top: var(--ds-space-4); }
+
+.bld__global { border-top:1px solid var(--ds-border); margin-top: var(--ds-space-4); padding-top: var(--ds-space-4); }
+
+.bld__preview { background: var(--ds-bg-soft); border:1px solid var(--ds-border); border-radius: var(--ds-radius-lg); padding: var(--ds-space-6); min-height:320px; }
+.bld__output { margin-top: var(--ds-space-5); }
+.bld__output-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:.6rem; }
+
+@media (max-width: 920px){ .bld { grid-template-columns:1fr; } .bld__panel{ position:static; } }

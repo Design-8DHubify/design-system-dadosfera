@@ -1,0 +1,93 @@
+/* ============================================================
+   DADOSFERA DESIGN SYSTEM — SHOWCASE
+   Layout exclusivo da documentação (não vai para LPs).
+   Pre-header 8D Hubify + sidebar ScrollSpy + blocos de código.
+   ============================================================ */
+
+/* ---------- PRE-HEADER 8D HUBIFY ---------- */
+.ds-prehead {
+  position: sticky; top: 0; z-index: var(--ds-z-sticky);
+  background: var(--ds-color-nucleo);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  gap: .6rem; padding: .45rem 1rem; min-height: 34px;
+}
+.ds-prehead__brand { display:flex; align-items:center; gap:.55rem; }
+.ds-prehead__label { font-size:10px; letter-spacing:.12em; text-transform:uppercase; opacity:.75; font-weight:600; }
+.ds-prehead__client { opacity:.7; font-size:10px; }
+.ds-prehead a { color:#fff; }
+
+/* ---------- LAYOUT DOCS ---------- */
+.docs { display:flex; min-height:100vh; }
+.docs-side {
+  width:268px; flex-shrink:0; position:sticky; top:0; align-self:flex-start;
+  height:100vh; overflow-y:auto; background: var(--ds-bg-soft);
+  border-right:1px solid var(--ds-border); padding: var(--ds-space-5) var(--ds-space-4);
+  display:flex; flex-direction:column; gap: var(--ds-space-5);
+}
+.docs-side__brand { display:flex; align-items:center; gap:.6rem; padding:.25rem .5rem var(--ds-space-2); }
+.docs-side__brand .ds-logo-mark{ width:34px; height:34px; }
+.docs-side__brand strong { font-family: var(--ds-font-display); font-size:1.05rem; letter-spacing:-.02em; }
+.docs-side__group { display:flex; flex-direction:column; gap:.15rem; }
+.docs-side__title { font-size: var(--ds-text-overline); text-transform:uppercase; letter-spacing:.14em; color: var(--ds-text-soft); font-weight:700; padding:.4rem .6rem; }
+.docs-side__link {
+  display:flex; align-items:center; gap:.6rem; padding:.55rem .7rem; border-radius: var(--ds-radius-sm);
+  color: var(--ds-text); font-size: var(--ds-text-body-sm); font-weight:600; transition: background var(--ds-dur-fast), color var(--ds-dur-fast);
+}
+.docs-side__link:hover { background: var(--ds-surface-2); }
+.docs-side__link.is-active { background: var(--ds-color-nucleo); color:#fff; }
+.docs-side__link .dot { width:20px; height:20px; border-radius:6px; background: var(--ds-color-nucleo-10); color: var(--ds-color-nucleo); display:grid; place-items:center; font-size:11px; font-weight:800; flex-shrink:0; }
+.docs-side__footer { margin-top:auto; padding-top: var(--ds-space-4); }
+
+.ds-logout {
+  width:100%; display:flex; align-items:center; gap:.5rem; justify-content:center;
+  background:transparent; border:1px solid var(--ds-border-strong); color: var(--ds-text);
+  padding:.6rem; border-radius: var(--ds-radius-md); cursor:pointer; font-size: var(--ds-text-body-sm); font-weight:600;
+}
+.ds-logout:hover { background: var(--ds-color-danger); color:#fff; border-color: var(--ds-color-danger); }
+
+.docs-main { flex:1; min-width:0; }
+.docs-topbar { display:flex; justify-content:space-between; align-items:center; padding: var(--ds-space-4) var(--ds-space-6); border-bottom:1px solid var(--ds-border); position:sticky; top:0; background: color-mix(in srgb, var(--ds-bg) 88%, transparent); backdrop-filter: blur(8px); z-index: var(--ds-z-header); }
+.docs-content { padding: var(--ds-space-7) var(--ds-space-6); max-width:1080px; }
+
+.docs-hero { margin-bottom: var(--ds-space-7); }
+.docs-hero h1 { font-size: var(--ds-text-display); }
+
+.docs-block { margin-block: var(--ds-space-7); scroll-margin-top:72px; }
+.docs-block > h2 { display:flex; align-items:center; gap:.6rem; margin-bottom: var(--ds-space-2); }
+.docs-block > p.sub { color: var(--ds-text-soft); margin-bottom: var(--ds-space-5); }
+
+/* preview + código */
+.ds-demo { border:1px solid var(--ds-border); border-radius: var(--ds-radius-lg); overflow:hidden; margin-bottom: var(--ds-space-5); }
+.ds-demo__preview { padding: var(--ds-space-6); background: var(--ds-bg-soft); display:flex; flex-wrap:wrap; gap: var(--ds-space-4); align-items:center; }
+.ds-demo__bar { display:flex; justify-content:space-between; align-items:center; padding:.5rem .9rem; background: var(--ds-surface); border-top:1px solid var(--ds-border); }
+.ds-demo__bar span { font-size: var(--ds-text-caption); color: var(--ds-text-soft); font-family: var(--ds-font-mono); }
+
+.ds-code {
+  background: var(--ds-color-cinza-900); color:#E6E6F0; font-family: var(--ds-font-mono);
+  font-size: var(--ds-text-body-sm); padding: var(--ds-space-5); border-radius: var(--ds-radius-md);
+  overflow:auto; line-height:1.6; position:relative;
+}
+.ds-copy-btn {
+  background: var(--ds-color-nucleo); color:#fff; border:none; cursor:pointer; font-size: var(--ds-text-caption);
+  font-weight:700; padding:.4rem .8rem; border-radius: var(--ds-radius-sm); display:inline-flex; align-items:center; gap:.4rem;
+}
+.ds-copy-btn:hover { background: var(--ds-color-nucleo-90); }
+.ds-copy-btn.copied { background: var(--ds-color-success); }
+
+/* swatches de cor */
+.ds-swatch { border:1px solid var(--ds-border); border-radius: var(--ds-radius-md); overflow:hidden; cursor:pointer; transition: transform var(--ds-dur-fast); }
+.ds-swatch:hover { transform: translateY(-3px); }
+.ds-swatch__color { height:88px; }
+.ds-swatch__meta { padding:.6rem .8rem; background: var(--ds-surface); }
+.ds-swatch__name { font-size: var(--ds-text-body-sm); font-weight:700; }
+.ds-swatch__hex { font-family: var(--ds-font-mono); font-size: var(--ds-text-caption); color: var(--ds-text-soft); }
+
+.ds-theme-toggle { background:transparent; border:1px solid var(--ds-border-strong); border-radius: var(--ds-radius-pill); width:40px; height:40px; cursor:pointer; display:grid; place-items:center; color: var(--ds-text); }
+
+/* mobile */
+.docs-burger { display:none; }
+@media (max-width: 920px){
+  .docs-side { position:fixed; left:0; top:0; z-index: var(--ds-z-modal); transform: translateX(-100%); transition: transform var(--ds-dur) var(--ds-ease); box-shadow: var(--ds-shadow-lg); }
+  .docs.nav-open .docs-side { transform:none; }
+  .docs-burger { display:grid; place-items:center; width:40px; height:40px; border:1px solid var(--ds-border-strong); border-radius: var(--ds-radius-md); background:transparent; cursor:pointer; color:var(--ds-text); }
+}

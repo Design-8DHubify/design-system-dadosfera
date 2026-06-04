@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>RD Station Builder | Dadosfera Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+<link rel="stylesheet" href="../css/tokens.css" />
+<link rel="stylesheet" href="../css/base.css" />
+<link rel="stylesheet" href="../css/components.css" />
+<link rel="stylesheet" href="../css/showcase.css" />
+<link rel="stylesheet" href="../css/builder.css" />
+<script>(function(){try{var t=localStorage.getItem('ds-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<script src="../js/ds-auth.js"></script><script>DSAuth.guard();</script>
+</head>
+<body>
+  <div id="ds-shell" data-active="builder"></div>
+
+  <main class="docs-main">
+    <div class="docs-topbar">
+      <button class="docs-burger" data-burger aria-label="Menu"><i class="fi fi-rr-menu-burger"></i></button>
+      <strong style="font-family:var(--ds-font-display)">RD Station Builder</strong>
+      <button class="ds-theme-toggle" data-theme-toggle aria-label="Tema"><i class="fi fi-rr-moon-stars"></i></button>
+    </div>
+
+    <div class="docs-content" style="max-width:1320px">
+      <header class="docs-hero">
+        <span class="ds-overline">Plug &amp; Play · RD Station</span>
+        <h1>RD Station Builder</h1>
+        <p class="ds-lead">Monte componentes, edite o conteúdo e copie o código <strong>autocontido e namespaced</strong> (<code>.ds-dadosfera-*</code>). Cole direto num bloco HTML do RD Station — vários componentes na mesma página, sem conflito de CSS/JS.</p>
+      </header>
+
+      <div id="bld-root" class="bld">
+        <!-- PAINEL -->
+        <div class="bld__panel">
+          <h4>1. Componente</h4>
+          <div class="bld__types" id="bld-types">
+            <button class="bld__type is-active" data-type="cards">Cards</button>
+            <button class="bld__type" data-type="accordion">Accordion</button>
+            <button class="bld__type" data-type="tabs">Tabs</button>
+            <button class="bld__type" data-type="carousel">Carousel</button>
+          </div>
+
+          <h4>2. Conteúdo</h4>
+          <div class="bld__items" id="bld-items"></div>
+          <button class="ds-btn ds-btn--secondary bld__add" id="bld-add"><i class="fi fi-rr-plus"></i> Adicionar item</button>
+
+          <div class="bld__global">
+            <div class="bld__field">
+              <label>Cor de destaque</label>
+              <input type="color" id="bld-color" value="#1700A2" style="height:40px;padding:2px">
+            </div>
+          </div>
+        </div>
+
+        <!-- PREVIEW + OUTPUT -->
+        <div>
+          <h4 style="margin-bottom:.6rem">Pré-visualização (isolada em iframe)</h4>
+          <iframe id="bld-frame" class="bld__preview" style="width:100%;border:0;min-height:360px;border-radius:var(--ds-radius-lg)" title="Pré-visualização"></iframe>
+
+          <div class="bld__output">
+            <div class="bld__output-bar">
+              <h4>Código plug &amp; play</h4>
+              <button class="ds-copy-btn" data-copy-target="#bld-output"><i class="fi fi-rr-copy"></i> Copiar código</button>
+            </div>
+            <pre class="ds-code" style="max-height:360px"><code id="bld-output"></code></pre>
+            <p class="ds-text-soft" style="font-size:var(--ds-text-caption);margin-top:.5rem"><i class="fi fi-rr-info"></i> Para ícones nos Cards, o RD Station precisa do CSS Uicons no &lt;head&gt;: <code>https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/ds-clipboard.js"></script>
+  <script src="../js/ds-ui.js"></script>
+  <script src="../js/ds-builder.js"></script>
+  <script src="../js/ds-shell.js"></script>
+</body>
+</html>
