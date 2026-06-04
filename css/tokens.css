@@ -9,14 +9,15 @@
   /* -------------------------------------------------------- */
   /* CORES DE MARCA                                           */
   /* -------------------------------------------------------- */
-  --ds-color-nucleo:       #1700A2; /* indigo elétrico — primária  */
-  --ds-color-profundo:     #0D003B; /* roxo profundo — base escura */
-  --ds-color-acao:         #1863DC; /* azul de ação — CTA          */
-  --ds-color-ciano:        #3BBFF0; /* ciano — apoio/destaque      */
+  --ds-color-nucleo:       #1700A2; /* indigo elétrico — primária (títulos/CTA) */
+  --ds-color-nucleo-hover: #110080; /* hover da primária (oficial)  */
+  --ds-color-profundo:     #0D003B; /* roxo profundo — texto/base escura */
+  --ds-color-acao:         #1863DC; /* azul de ação — CTA alternativo */
+  --ds-color-ciano:        #3BBFF0; /* ciano (aurora) — eyebrow/destaque */
   --ds-color-lavanda:      #A79EE8; /* lavanda — apoio suave       */
-  --ds-color-laranja:      #FF9800; /* laranja — acento/atenção    */
+  --ds-color-laranja:      #FF9800; /* laranja — acento/CTA secundário */
   --ds-color-branco:       #FFFFFF;
-  --ds-color-tinta:        #212121; /* texto principal             */
+  --ds-color-tinta:        #0D003B; /* texto principal (profundo, oficial) */
 
   /* Escalas do Núcleo (indigo) */
   --ds-color-nucleo-90:    #2D1AB0;
@@ -26,15 +27,19 @@
   --ds-color-nucleo-20:    #D1CCEF;
   --ds-color-nucleo-10:    #ECEAF9;
 
-  /* Escalas neutras */
-  --ds-color-cinza-900:    #16161D;
+  /* Escalas neutras (extraídas do site oficial) */
+  --ds-color-cinza-900:    #0D003B;
   --ds-color-cinza-800:    #222228;
   --ds-color-cinza-700:    #3A3A44;
-  --ds-color-cinza-500:    #6B7280;
-  --ds-color-cinza-300:    #C9CCEC;
+  --ds-color-cinza-600:    #4B5563; /* muted (oficial) */
+  --ds-color-cinza-500:    #6B7280; /* muted-soft (oficial) */
+  --ds-color-cinza-400:    #C0BDD4; /* placeholders (oficial) */
+  --ds-color-cinza-300:    #C9CCEC; /* chart-bar (oficial) */
+  --ds-color-cinza-250:    #D7D7E2; /* card-border-hover (oficial) */
   --ds-color-cinza-200:    #E1E3EF;
-  --ds-color-cinza-100:    #ECECF2;
-  --ds-color-cinza-50:     #F7F8FC;
+  --ds-color-cinza-100:    #ECECF2; /* card-border (oficial) */
+  --ds-color-cinza-neutral:#F2EFF4; /* bg neutro lavanda (oficial) */
+  --ds-color-cinza-50:     #F7F8FC; /* bg-soft (oficial) */
 
   /* Semânticas */
   --ds-color-success:      #1DBF73;
@@ -45,13 +50,15 @@
   /* -------------------------------------------------------- */
   /* GRADIENTES                                               */
   /* -------------------------------------------------------- */
-  --ds-gradient-nucleo:    linear-gradient(135deg, #1700A2 0%, #1863DC 100%);
+  --ds-gradient-nucleo:    linear-gradient(135deg, #1700A2 0%, #3BBFF0 100%);
   --ds-gradient-profundo:  linear-gradient(135deg, #0D003B 0%, #1700A2 100%);
-  --ds-gradient-ciano:     linear-gradient(135deg, #1863DC 0%, #3BBFF0 100%);
+  --ds-gradient-ciano:     linear-gradient(135deg, #1700A2 0%, #3BBFF0 100%);
   --ds-gradient-hero:      linear-gradient(135deg, #0D003B 0%, #1700A2 55%, #1863DC 100%);
+  /* Aurora — fundo claro assinatura da Dadosfera (radiais ciano + lavanda) */
   --ds-gradient-aurora:
       radial-gradient(900px 520px at 92% 6%, rgba(59,191,240,.18), transparent 62%),
       radial-gradient(880px 480px at 8% 96%, rgba(167,158,232,.22), transparent 62%),
+      radial-gradient(700px 440px at 50% 50%, rgba(255,255,255,.9), transparent 70%),
       linear-gradient(180deg, #FAFAFE 0%, #F4F1F8 100%);
 
   /* -------------------------------------------------------- */
@@ -102,17 +109,19 @@
   --ds-space-9:  6rem;
 
   /* RAIO */
-  --ds-radius-sm:   6px;
-  --ds-radius-md:   10px;
-  --ds-radius-lg:   16px;
-  --ds-radius-xl:   24px;
+  --ds-radius-sm:   8px;
+  --ds-radius-md:   12px;
+  --ds-radius-lg:   18px;
+  --ds-radius-xl:   22px;
+  --ds-radius-2xl:  28px;
   --ds-radius-pill: 999px;
 
-  /* SOMBRAS */
-  --ds-shadow-sm: 0 1px 2px rgba(13,0,59,.06), 0 1px 3px rgba(13,0,59,.08);
-  --ds-shadow-md: 0 4px 12px rgba(13,0,59,.10);
-  --ds-shadow-lg: 0 12px 32px rgba(13,0,59,.14);
-  --ds-shadow-glow: 0 8px 28px rgba(23,0,162,.32);
+  /* SOMBRAS (extraídas do site oficial — base #0D003B) */
+  --ds-shadow-sm: 0 4px 20px rgba(13,0,59,.07);
+  --ds-shadow-md: 0 10px 22px -12px rgba(13,0,59,.12);
+  --ds-shadow-lg: 0 22px 44px -22px rgba(13,0,59,.22);
+  --ds-shadow-xl: 0 32px 64px -24px rgba(13,0,59,.22), 0 8px 24px -12px rgba(13,0,59,.1);
+  --ds-shadow-glow: 0 10px 20px -10px rgba(23,0,162,.45);
 
   /* TRANSIÇÕES */
   --ds-ease:     cubic-bezier(.4,0,.2,1);
@@ -130,13 +139,15 @@
   /* TEMA CLARO (padrão)                                      */
   /* -------------------------------------------------------- */
   --ds-bg:          #FFFFFF;
-  --ds-bg-soft:     var(--ds-color-cinza-50);
+  --ds-bg-soft:     var(--ds-color-cinza-50);     /* #F7F8FC */
+  --ds-bg-neutral:  var(--ds-color-cinza-neutral);/* #F2EFF4 lavanda */
   --ds-surface:     #FFFFFF;
   --ds-surface-2:   var(--ds-color-cinza-100);
-  --ds-text:        var(--ds-color-tinta);
-  --ds-text-soft:   var(--ds-color-cinza-500);
-  --ds-border:      var(--ds-color-cinza-200);
-  --ds-border-strong: var(--ds-color-cinza-300);
+  --ds-heading:     var(--ds-color-nucleo);       /* títulos em indigo (oficial) */
+  --ds-text:        var(--ds-color-profundo);     /* corpo profundo */
+  --ds-text-soft:   var(--ds-color-cinza-600);    /* #4B5563 */
+  --ds-border:      var(--ds-color-cinza-100);    /* #ECECF2 */
+  --ds-border-strong: var(--ds-color-cinza-250);  /* #D7D7E2 */
 }
 
 /* -------------------------------------------------------- */

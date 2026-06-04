@@ -110,7 +110,7 @@
   function shell(ns,css,inner,js,head){
     var wrapCss='.'+ns+'-wrap{'+bgCss(state.bg)+'font-family:"Nunito",system-ui,sans-serif}\n'+
       '.'+ns+'-head{text-align:center;max-width:640px;margin:0 auto 32px}\n'+
-      '.'+ns+'-head h2{font-family:"Sora",sans-serif;font-size:30px;margin:0 0 8px;color:'+txtColor(state.bg)+'}\n'+
+      '.'+ns+'-head h2{font-family:"Sora",sans-serif;font-weight:600;font-size:30px;margin:0 0 8px;color:'+((state.bg==='dark'||state.bg==='gradient')?'#fff':state.color)+'}\n'+
       '.'+ns+'-head p{margin:0;color:'+subColor(state.bg)+';font-size:16px}';
     return '<!-- Dadosfera Design System · componente gerado -->\n<style>\n'+wrapCss+'\n'+css+'\n</style>\n<div class="'+ns+'-wrap">'+(head||'')+'\n'+inner+'\n</div>'+(js?'\n<script>\n'+js+'\n<\/script>':'');
   }

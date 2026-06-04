@@ -17,10 +17,12 @@
               background var(--ds-dur) var(--ds-ease), color var(--ds-dur) var(--ds-ease);
 }
 .ds-btn:active { transform: translateY(1px); }
-.ds-btn--primary { background: var(--ds-gradient-nucleo); color: #fff; }
-.ds-btn--primary:hover { box-shadow: var(--ds-shadow-glow); transform: translateY(-2px); color:#fff; }
-.ds-btn--secondary { background: transparent; color: var(--ds-color-nucleo); border-color: var(--ds-color-nucleo); }
-.ds-btn--secondary:hover { background: var(--ds-color-nucleo-10); }
+.ds-btn--primary { background: var(--ds-color-nucleo); color: #fff; box-shadow: var(--ds-shadow-glow); }
+.ds-btn--primary:hover { background: var(--ds-color-nucleo-hover); transform: translateY(-1px); color:#fff; box-shadow: 0 14px 26px -10px rgba(23,0,162,.5); }
+.ds-btn--secondary { background: #fff; color: var(--ds-color-nucleo); border-color: var(--ds-border-strong); }
+.ds-btn--secondary:hover { border-color: var(--ds-color-nucleo); }
+.ds-btn--orange { background: var(--ds-color-laranja); color:#fff; }
+.ds-btn--orange:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(255,152,0,.4); color:#fff; }
 .ds-btn--ghost { background: transparent; color: var(--ds-text); border-color: transparent; }
 .ds-btn--ghost:hover { background: var(--ds-surface-2); }
 .ds-btn--dark { background: var(--ds-color-profundo); color:#fff; }
@@ -175,9 +177,19 @@
 .ds-hero { position:relative; overflow:hidden; background: var(--ds-gradient-hero); color:#fff; padding-block: var(--ds-space-9); }
 .ds-hero::after { content:""; position:absolute; inset:0; background: radial-gradient(700px 360px at 85% 10%, rgba(59,191,240,.35), transparent 60%); pointer-events:none; }
 .ds-hero__inner { position:relative; z-index:1; max-width:760px; }
-.ds-hero h1 { color:#fff; font-size: var(--ds-text-display); }
+.ds-hero h1 { color:#fff; font-size: var(--ds-text-display); font-weight: var(--ds-weight-bold); line-height:1.08; }
 .ds-hero p  { color: rgba(255,255,255,.82); font-size: var(--ds-text-body-lg); margin-top: var(--ds-space-4); }
 .ds-hero__cta { display:flex; gap: var(--ds-space-4); margin-top: var(--ds-space-6); flex-wrap:wrap; }
+
+/* Aurora — hero claro oficial da Dadosfera (fundo aurora + título indigo) */
+.ds-hero--aurora { background: var(--ds-gradient-aurora); color: var(--ds-text); text-align:center; }
+.ds-hero--aurora::before { content:""; position:absolute; inset:0; background: radial-gradient(360px 260px at 78% 38%, rgba(59,191,240,.14), transparent 65%), radial-gradient(420px 320px at 22% 70%, rgba(23,0,162,.08), transparent 65%); pointer-events:none; }
+.ds-hero--aurora::after { display:none; }
+.ds-hero--aurora .ds-hero__inner { max-width:1000px; margin-inline:auto; }
+.ds-hero--aurora h1 { color: var(--ds-color-nucleo); font-size: var(--ds-text-display); }
+.ds-hero--aurora h1 .ds-hero__dark { color: var(--ds-text); display:block; }
+.ds-hero--aurora p { color: var(--ds-text-soft); }
+.ds-hero--aurora .ds-hero__cta { justify-content:center; }
 
 /* ========================= 10. FOOTER ================== */
 .ds-footer { background: var(--ds-color-profundo); color:#fff; padding-block: var(--ds-space-8) var(--ds-space-6); }
