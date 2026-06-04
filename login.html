@@ -1,113 +1,392 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex, nofollow" />
-<title>Acesso | Dadosfera Design System</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Acesso | Dadosfera Design System</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" />
-<link rel="stylesheet" href="css/tokens.css" />
-<link rel="stylesheet" href="css/base.css" />
-<script src="js/ds-auth.js"></script>
+  <script src="js/ds-auth.js"></script>
 
-<style>
-  body { height:100vh; display:flex; overflow:hidden; }
-  .login-art {
-    width:50%; position:relative; display:flex; align-items:center; justify-content:center;
-    background: var(--ds-gradient-hero); color:#fff; overflow:hidden; padding:0 5rem;
-  }
-  .login-art::before, .login-art::after { content:""; position:absolute; border-radius:50%; filter:blur(8px); opacity:.5; }
-  .login-art::before { width:520px; height:520px; border:1px dashed rgba(255,255,255,.25); animation: spin 60s linear infinite; }
-  .login-art::after { width:340px; height:340px; background: radial-gradient(circle, rgba(59,191,240,.5), transparent 70%); }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .login-orb {
-    position:absolute; width:200px; height:200px; border-radius:50%;
-    background: radial-gradient(circle at 35% 30%, #3BBFF0, #1700A2 60%, #0D003B);
-    box-shadow: 0 30px 80px rgba(0,0,0,.45); animation: float 6s ease-in-out infinite;
-  }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
-  .login-art__txt { position:relative; z-index:2; }
-  .login-art__txt h1 { color:#fff; font-size: clamp(2.5rem,4vw,3.5rem); line-height:1.1; }
-  .login-art__txt em { font-style:normal; color: var(--ds-color-ciano); }
-  .login-art__txt .outline { -webkit-text-stroke:1px rgba(255,255,255,.7); color:transparent; }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  .login-form { width:50%; display:flex; flex-direction:column; padding:3rem; background: var(--ds-bg); }
-  .login-inner { max-width:380px; width:100%; margin:auto; display:flex; flex-direction:column; height:100%; justify-content:space-between; }
-  .login-head { display:flex; align-items:center; gap:1rem; padding-top:1rem; }
-  .login-head .x { opacity:.3; font-size:1.25rem; font-weight:300; }
-  .login-main { padding:3rem 0; }
-  .login-main h2 { font-size:2rem; margin-bottom:.5rem; }
-  .login-err { display:none; gap:.5rem; align-items:center; background:#FDE8E8; border:1px solid #F5C2C2; color:#B12B2B; padding:.75rem 1rem; border-radius: var(--ds-radius-md); font-size:.85rem; margin-bottom:1rem; }
-  .login-err.show { display:flex; }
-  .login-foot { display:flex; align-items:center; gap:.5rem; color: var(--ds-text-soft); padding-bottom:1rem; font-size:.65rem; text-transform:uppercase; letter-spacing:.1em; font-family: var(--ds-font-mono); }
-  @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)} 40%{transform:translateX(7px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)} }
-  .shake { animation: shake .35s ease; }
-  @media (max-width:900px){ .login-art{display:none} .login-form{width:100%} }
-</style>
+  <!-- Tipografia da marca -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  </style>
+
+  <!-- Bibliotecas -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Sora', 'sans-serif'],
+            sans: ['Nunito', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            cometa: '#1700A2',
+            'cometa-light': '#3BBFF0',
+            base: '#0D003B',
+            creme: '#F7F8FC',
+            surface: 'rgba(247,248,252,0.035)',
+            'surface-2': 'rgba(247,248,252,0.06)',
+            dsborder: 'rgba(247,248,252,0.08)',
+            'dsborder-strong': 'rgba(247,248,252,0.16)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .noise-bg {
+      position: absolute; top:0; left:0; width:100%; height:100%;
+      pointer-events:none; z-index:0; opacity:0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+    .ds-input {
+      background: rgba(13,0,59,0.04);
+      border: 1px solid rgba(13,0,59,0.15);
+      color: #0D003B;
+      transition: all 0.3s ease;
+    }
+    .ds-input:focus {
+      border-color: #1700A2;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(23,0,162,.15);
+      background: rgba(13,0,59,0.02);
+    }
+    .ds-input::placeholder { color: rgba(13,0,59,0.4); }
+    .ds-input.error {
+      border-color: rgba(220,50,50,.7);
+      box-shadow: 0 0 0 3px rgba(220,50,50,.12);
+    }
+    .brand-glow:hover {
+      filter: drop-shadow(0 0 12px #3BBFF0);
+      transition: filter 0.3s ease;
+    }
+    .text-outline {
+      -webkit-text-stroke: 1px #F7F8FC;
+      color: transparent;
+    }
+    @keyframes shake {
+      0%,100%{transform:translateX(0)}
+      20%{transform:translateX(-7px)}
+      40%{transform:translateX(7px)}
+      60%{transform:translateX(-5px)}
+      80%{transform:translateX(5px)}
+    }
+    .shake { animation: shake .35s ease; }
+  </style>
 </head>
-<body>
+<body class="bg-base text-creme font-sans h-screen w-full flex overflow-hidden selection:bg-cometa selection:text-creme">
 
-  <div class="login-art">
-    <div class="login-orb"></div>
-    <div class="login-art__txt">
-      <h1>Dados em<br/><em>esfera</em><br/><span class="outline">inteligente</span></h1>
+  <div class="noise-bg"></div>
+
+  <!-- ── Coluna Esquerda: 3D + texto ── -->
+  <div class="hidden lg:flex w-1/2 relative items-center justify-center border-r border-dsborder-strong z-10 bg-base overflow-hidden" id="canvas-container">
+
+    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+
+    <div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none z-10">
+      <div class="w-[500px] h-[500px] border-[1px] border-dashed border-cometa/40 rounded-full animate-[spin_60s_linear_infinite] absolute"></div>
+    </div>
+
+    <div class="z-20 w-full text-left max-w-lg px-12 lg:px-20 gs-reveal pointer-events-none">
+      <h1 class="font-display text-5xl lg:text-6xl mb-6 leading-[1.1] tracking-[-0.03em] text-creme">
+        Dados em<br/>
+        <em class="text-cometa-light not-italic">esfera</em><br/>
+        <span class="text-outline">inteligente</span>
+      </h1>
     </div>
   </div>
 
-  <div class="login-form">
-    <div class="login-inner">
-      <header class="login-head">
-        <svg viewBox="0 0 40 40" style="width:34px;height:34px"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1700A2"/><stop offset="1" stop-color="#3BBFF0"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="url(#lg)"/><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.5"/><circle cx="20" cy="20" r="4.5" fill="#fff"/></svg>
-        <span class="x">×</span>
-        <strong style="font-family:var(--ds-font-display);font-size:1.1rem">8D Hubify</strong>
+  <!-- ── Coluna Direita: Formulário ── -->
+  <div class="w-full lg:w-1/2 flex flex-col relative z-10 bg-creme text-base p-8 lg:p-12 xl:p-16">
+
+    <div class="w-full max-w-sm mx-auto flex flex-col h-full justify-between">
+
+      <!-- Header: 8D × Dadosfera -->
+      <header class="w-full flex justify-between items-center gs-form-item pt-4">
+        <div class="flex items-center gap-4">
+          <!-- Símbolo 8D Hubify -->
+          <svg viewBox="0 0 469.28 333.7" class="w-8 h-auto fill-base flex-shrink-0">
+            <path d="M298.45,295.98c-8.94-64.31-58.65-115.58-122.2-126.82,63.55-11.25,113.26-62.51,122.2-126.82,8.94,64.31,58.65,115.58,122.2,126.82-63.54,11.25-113.26,62.51-122.2,126.82M313.01,0h-14.46c-.03.25-.06.51-.09.76-.03-.25-.06-.51-.1-.76H1.54C.53,7.02,0,14.2,0,21.51c0,73.84,53.37,135.21,123.64,147.65C53.37,181.59,0,242.96,0,316.8c0,5.71.33,11.35.95,16.9h312.08c86.3-.01,156.25-69.97,156.25-156.28v-21.15C469.28,69.97,399.32,0,313.01,0"/>
+          </svg>
+
+          <span class="text-base/20 font-light text-xl">×</span>
+
+          <!-- Logo Dadosfera (marinho — fundo claro) -->
+          <span class="flex items-center gap-2">
+            <svg viewBox="0 0 40 40" class="h-7 w-7"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1700A2"/><stop offset="1" stop-color="#3BBFF0"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="url(#lg)"/><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.6"/><circle cx="20" cy="20" r="4.5" fill="#fff"/></svg>
+            <span class="font-display font-extrabold text-lg tracking-[-0.02em] text-base">dadosfera</span>
+          </span>
+        </div>
       </header>
 
-      <main class="login-main">
-        <h2>Acesso restrito</h2>
-        <p class="ds-text-soft" style="font-size:.9rem;margin-bottom:2rem">Insira suas credenciais para acessar o design system.</p>
+      <!-- Centro: Formulário -->
+      <main class="w-full flex flex-col justify-center py-12">
+        <div class="mb-10 gs-form-item text-left">
+          <h2 class="font-display text-4xl mb-3 tracking-[-0.02em] text-base">Acesso restrito</h2>
+          <p class="text-base/70 text-sm font-light">Insira suas credenciais corporativas.</p>
+        </div>
 
-        <div class="login-err" id="err"><i class="fi fi-rr-exclamation"></i><span>Usuário ou senha incorretos.</span></div>
+        <!-- Mensagem de erro -->
+        <div id="err-box" class="hidden mb-4 px-4 py-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm font-medium flex items-center gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+          <span id="err-msg">Usuário ou senha incorretos.</span>
+        </div>
 
-        <form id="form" novalidate class="ds-stack">
-          <div class="ds-field">
-            <label class="ds-label" for="user">Identificação</label>
-            <input class="ds-input" id="user" type="text" placeholder="seu usuário" autocomplete="username" />
+        <form id="login-form" class="space-y-6" novalidate>
+
+          <!-- Usuário -->
+          <div class="space-y-2 gs-form-item">
+            <label for="user-input" class="text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-base/70 font-mono">Identificação</label>
+            <div class="relative">
+              <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-base/60"></i>
+              <input type="text" id="user-input" placeholder="seu usuário" autocomplete="username" spellcheck="false"
+                class="ds-input w-full py-3 pl-11 pr-4 rounded-lg text-sm">
+            </div>
           </div>
-          <div class="ds-field">
-            <label class="ds-label" for="pass">Chave de acesso</label>
-            <input class="ds-input" id="pass" type="password" placeholder="••••••••" autocomplete="current-password" />
+
+          <!-- Senha -->
+          <div class="space-y-2 gs-form-item">
+            <div class="flex justify-between items-center">
+              <label for="pass-input" class="text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-base/70 font-mono">Chave de Acesso</label>
+            </div>
+            <div class="relative">
+              <i data-lucide="lock" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-base/60"></i>
+              <input type="password" id="pass-input" placeholder="••••••••" autocomplete="current-password"
+                class="ds-input w-full py-3 pl-11 pr-10 rounded-lg text-sm">
+              <button type="button" id="toggle-pass" class="absolute right-4 top-1/2 -translate-y-1/2 text-base/60 hover:text-base transition-colors">
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+            </div>
           </div>
-          <button class="ds-btn ds-btn--primary ds-btn--lg" id="btn" type="submit" style="width:100%;margin-top:.5rem">
-            <span id="btn-lbl">Inicializar sessão</span> <i class="fi fi-rr-arrow-right"></i>
-          </button>
+
+          <!-- Botão -->
+          <div class="pt-2 gs-form-item">
+            <button type="submit" id="submit-btn"
+              class="magnetic-btn w-full bg-gradient-to-br from-cometa to-[#1863DC] text-creme font-semibold py-3.5 rounded-full text-sm tracking-wide hover:shadow-[0_4px_20px_rgba(23,0,162,0.4)] transition-all flex items-center justify-center gap-2 relative overflow-hidden group">
+              <span class="relative z-10" id="btn-label">INICIALIZAR SESSÃO</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" id="btn-icon"></i>
+            </button>
+          </div>
         </form>
       </main>
 
-      <footer class="login-foot">Powered by <strong style="color:var(--ds-color-nucleo)">8D&nbsp;Hubify</strong></footer>
+      <!-- Footer: Assinatura 8D -->
+      <footer class="w-full flex justify-start items-center gs-form-item pb-4">
+        <div class="flex items-center gap-2 text-base/60 group cursor-pointer">
+          <span class="text-[0.65rem] font-mono uppercase tracking-[0.1em]">Powered by</span>
+          <div class="flex items-center gap-2 brand-glow transition-all duration-300">
+            <svg viewBox="0 0 955.19 130.19" class="w-20 h-auto fill-current group-hover:text-cometa transition-colors">
+              <path d="M521.93,74.53c0,32.56-24.42,54.38-61.22,54.38s-61.04-21.83-61.04-54.38V4.22c0-.6.49-1.09,1.09-1.09h43.32c.6,0,1.09.49,1.09,1.09v71.24c0,11.09,10.75,19.37,21.3,15.96,6.14-1.99,9.96-7.29,9.96-14.49V4.22c0-.6.49-1.09,1.09-1.09h43.32c.6,0,1.09.49,1.09,1.09v70.31Z"/>
+              <path d="M631.62,63.06c12.02,3.33,18.13,11.47,18.13,24.6,0,26.27-17.02,39.4-51.24,39.4h-63.46c-.6,0-1.09-.49-1.09-1.09V4.22c0-.6.49-1.09,1.09-1.09h61.8c32.74,0,49.02,11.47,49.02,34.4,0,12.02-4.81,20.35-14.24,24.79v.74ZM595.36,52.15c4.81,0,7.21-2.41,7.21-7.4s-2.4-7.4-7.03-7.4h-15c-.6,0-1.09.49-1.09,1.09v12.62c0,.6.49,1.09,1.09,1.09h14.82ZM596.84,93.58c4.62,0,7.03-2.4,7.03-7.4s-2.22-7.4-6.84-7.4h-16.48c-.6,0-1.09.49-1.09,1.09v12.62c0,.6.49,1.09,1.09,1.09h16.3Z"/>
+              <path d="M701.55,127.06h-43.32c-.6,0-1.09-.49-1.09-1.09V4.22c0-.6.49-1.09,1.09-1.09h43.32c.6,0,1.09.49,1.09,1.09v121.75c0,.6-.49,1.09-1.09,1.09"/>
+              <path d="M954.1,3.13h-49.02c-.43,0-.83.26-1,.66l-18.95,43.55h-.55l-18.77-43.55c-.17-.4-.57-.66-1-.66h-148.13c-.6,0-1.09.49-1.09,1.09v121.75c0,.6.49,1.09,1.09,1.09h43.32c.6,0,1.09-.49,1.09-1.09v-42.21c0-.6.49-1.09,1.09-1.09h38.14c.6,0,1.09-.49,1.09-1.09v-32.22c0-.6-.49-1.09-1.09-1.09h-38.14c-.6,0-1.09-.49-1.09-1.09v-6.51c0-.6.49-1.09,1.09-1.09h72.41l27.46,48.4c.09.16.14.35.14.54v37.46c0,.6.49,1.09,1.09,1.09h43.32c.6,0,1.09-.49,1.09-1.09v-37.46c0-.19.05-.37.14-.54l47.21-83.21c.41-.73-.11-1.63-.95-1.63"/>
+              <path d="M102.74,62.96v-.78c9.91-4.66,14.96-13.41,14.96-26.04C117.7,12.05,100.6,0,66.21,0h-10.64C21.18,0,4.08,12.05,4.08,36.14c0,12.63,5.05,21.38,14.96,26.04v.78C6.41,66.46,0,75,0,88.8c0,27.59,17.88,41.39,53.82,41.39h14.13c35.95,0,53.82-13.8,53.82-41.39,0-13.8-6.41-22.34-19.04-25.84M56.93,35.95h7.91c4.86,0,7.38,2.53,7.38,7.77s-2.53,7.77-7.58,7.77h-7.53c-5.05,0-7.58-2.53-7.58-7.77s2.53-7.77,7.38-7.77M66.21,95.02h-10.64c-4.86,0-7.38-2.53-7.38-7.77s2.33-7.77,7.19-7.77h11.02c4.86,0,7.19,2.53,7.19,7.77s-2.53,7.77-7.38,7.77"/>
+              <path d="M385.23,2.77h-43.57c-.6,0-1.1.49-1.1,1.1v42.08c0,.61-.49,1.1-1.1,1.1h-28.32c-.61,0-1.1-.49-1.1-1.1V3.87c0-.61-.49-1.1-1.1-1.1h-43.57c-.61,0-1.1.49-1.1,1.1v77.16c11.21,3.41,19.38,13.84,19.38,26.15v2.42c0,6.8-2.51,13.03-6.64,17.82h31.92c.61,0,1.1-.49,1.1-1.1v-41.9c0-.6.49-1.1,1.1-1.1h28.32c.61,0,1.1.49,1.1,1.1v41.9c0,.61.49,1.1,1.1,1.1h43.57c.6,0,1.1-.49,1.1-1.1V3.87c0-.61-.49-1.1-1.1-1.1"/>
+              <path d="M199.25,85.26c-3.14,3.88-8.32,5.73-15.54,5.73h-5.75c-.6,0-1.09-.49-1.09-1.09v-48.87c0-.6.49-1.09,1.09-1.09h5.75c7.21,0,12.39,1.85,15.54,5.55,3.15,3.88,4.81,10.54,4.81,19.61s-1.66,16.09-4.81,20.16M217.14,108.65c-3.81-4.67-6.02-10.61-6.02-16.84,0-1.26.09-2.54.27-3.8.67-4.65,4.72-8.15,9.41-8.15h28.53c.76-4.59,1.15-9.5,1.15-14.75,0-20.16-5.92-35.7-17.76-46.43-11.47-10.36-27.74-15.54-48.83-15.54h-51.44c-.6,0-1.09.49-1.09,1.09v121.75c0,.6.49,1.09,1.09,1.09h48.29c11.61,0,21.76-1.3,30.47-3.9.48-5.37,2.58-10.42,5.91-14.51"/>
+              <path d="M267.85,108.89c-6.45,1.42-11.48,6.66-12.58,13.23-.01.09-.13.09-.15,0-1.1-6.57-6.12-11.81-12.57-13.23-.09-.02-.09-.13,0-.15,6.45-1.42,11.48-6.66,12.57-13.23.02-.09.13-.09.15,0,1.1,6.57,6.12,11.81,12.58,13.23.09.02.09.13,0,.15M256.34,87.85h-35.53c-.75,0-1.38.55-1.49,1.29-.13.88-.19,1.78-.19,2.67,0,7.36,4.28,13.84,10.67,16.84-6.39,3-10.67,9.48-10.67,16.84,0,.69.04,1.4.12,2.1.08.76.73,1.33,1.49,1.33h35.6c10.65,0,19.32-8.67,19.32-19.32v-2.42c0-10.66-8.67-19.33-19.33-19.33"/>
+            </svg>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 
   <script>
-    if (DSAuth.isAuthed()) location.replace('index.html');
-    var form = document.getElementById('form'), err = document.getElementById('err'),
-        u = document.getElementById('user'), p = document.getElementById('pass'),
-        btn = document.getElementById('btn'), lbl = document.getElementById('btn-lbl');
-    function fail(msg){ err.querySelector('span').textContent = msg || 'Usuário ou senha incorretos.'; err.classList.add('show','shake'); setTimeout(function(){err.classList.remove('shake')},400); }
-    [u,p].forEach(function(i){ i.addEventListener('input', function(){ err.classList.remove('show'); }); });
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(!u.value.trim() || !p.value){ fail('Preencha todos os campos.'); return; }
-      btn.disabled = true; lbl.textContent = 'Verificando…';
-      setTimeout(function(){
-        if(DSAuth.login(u.value.trim(), p.value)){ lbl.textContent = 'Acesso concedido'; setTimeout(function(){location.replace('index.html')},400); }
-        else { fail(); btn.disabled = false; lbl.textContent = 'Inicializar sessão'; p.value=''; p.focus(); }
-      }, 450);
+    lucide.createIcons();
+
+    // ── Toggle senha ──
+    const toggleBtn = document.getElementById('toggle-pass');
+    const passInput = document.getElementById('pass-input');
+    toggleBtn.addEventListener('click', () => {
+      const isHidden = passInput.type === 'password';
+      passInput.type = isHidden ? 'text' : 'password';
+      toggleBtn.querySelector('i').setAttribute('data-lucide', isHidden ? 'eye-off' : 'eye');
+      lucide.createIcons();
     });
-    u.focus();
+
+
+    // ── Login ──
+    const form    = document.getElementById('login-form');
+    const userInp = document.getElementById('user-input');
+    const passInp = document.getElementById('pass-input');
+    const errBox  = document.getElementById('err-box');
+    const errMsg  = document.getElementById('err-msg');
+    const btnLabel = document.getElementById('btn-label');
+    const btnIcon  = document.getElementById('btn-icon');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (window.DSAuth && DSAuth.isAuthed()) window.location.replace('index.html');
+
+    function showError(msg) {
+      errMsg.textContent = msg || 'Usuário ou senha incorretos.';
+      errBox.classList.remove('hidden');
+      errBox.classList.add('flex');
+      userInp.classList.add('error');
+      passInp.classList.add('error');
+      errBox.classList.add('shake');
+      setTimeout(() => errBox.classList.remove('shake'), 400);
+    }
+
+    function clearError() {
+      errBox.classList.add('hidden');
+      errBox.classList.remove('flex');
+      userInp.classList.remove('error');
+      passInp.classList.remove('error');
+    }
+
+    userInp.addEventListener('input', clearError);
+    passInp.addEventListener('input', clearError);
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const u = userInp.value.trim();
+      const p = passInp.value;
+      if (!u || !p) { showError('Preencha todos os campos.'); return; }
+
+      submitBtn.disabled = true;
+      btnLabel.textContent = 'Verificando…';
+      btnIcon.setAttribute('data-lucide', 'loader');
+      lucide.createIcons();
+
+      setTimeout(() => {
+        if (window.DSAuth && window.DSAuth.login(u, p)) {
+          btnLabel.textContent = 'Acesso concedido';
+          btnIcon.setAttribute('data-lucide', 'check');
+          lucide.createIcons();
+          setTimeout(() => window.location.replace('index.html'), 500);
+        } else {
+          showError('Usuário ou senha incorretos.');
+          submitBtn.disabled = false;
+          btnLabel.textContent = 'INICIALIZAR SESSÃO';
+          btnIcon.setAttribute('data-lucide', 'arrow-right');
+          lucide.createIcons();
+          passInp.value = '';
+          passInp.focus();
+        }
+      }, 500);
+    });
+
+    // ── 3D Three.js ──
+    (function initHero3D() {
+      const container = document.getElementById('canvas-container');
+      const canvas = document.getElementById('hero-canvas');
+      if (!container || !canvas) return;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(container.clientWidth, container.clientHeight);
+
+      const scene  = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+      camera.position.z = 4.0;
+
+      const pointLight = new THREE.PointLight(0x1700A2, 5, 20);
+      scene.add(pointLight);
+      const pointLight2 = new THREE.PointLight(0xF7F8FC, 2.5, 20);
+      scene.add(pointLight2);
+      scene.add(new THREE.AmbientLight(0xF7F8FC, 0.15));
+
+      const material = new THREE.MeshPhysicalMaterial({
+        color: 0x0D003B, metalness: 0.2, roughness: 0.15,
+        transmission: 0.9, ior: 1.8, thickness: 2.0
+      });
+      const wireMaterial = new THREE.LineDashedMaterial({
+        color: 0x3BBFF0, transparent: true, opacity: 0.8,
+        dashSize: 0, gapSize: 100
+      });
+
+      const heroGroup = new THREE.Group();
+      scene.add(heroGroup);
+
+      // Esfera de dados (icosaedro) — identidade Dadosfera
+      const geo = new THREE.IcosahedronGeometry(1.2, 1);
+      const mesh = new THREE.Mesh(geo, material);
+      const edges = new THREE.EdgesGeometry(geo);
+      const line  = new THREE.LineSegments(edges, wireMaterial);
+      line.computeLineDistances();
+      heroGroup.add(mesh);
+      heroGroup.add(line);
+      gsap.timeline({ repeat: -1, yoyo: true })
+        .to(wireMaterial, { dashSize: 100, duration: 3, ease: 'power2.inOut' });
+
+      let mX = 0, mY = 0;
+      container.addEventListener('mousemove', e => {
+        const r = container.getBoundingClientRect();
+        mX =  ((e.clientX - r.left) / r.width)  * 2 - 1;
+        mY = -((e.clientY - r.top)  / r.height) * 2 + 1;
+      });
+
+      window.addEventListener('resize', () => {
+        if (container.clientWidth > 0) {
+          camera.aspect = container.clientWidth / container.clientHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+      });
+
+      const clock = new THREE.Clock();
+      (function animate() {
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+        if (heroGroup.children.length) {
+          heroGroup.rotation.y += 0.003;
+          heroGroup.position.y  = Math.sin(t * 0.8) * 0.1;
+          heroGroup.rotation.z  = Math.sin(t * 0.3) * 0.05 + mX * 0.1;
+          heroGroup.rotation.x  = Math.cos(t * 0.4) * 0.05 - mY * 0.1;
+        }
+        pointLight.position.x += (mX * 3 - pointLight.position.x) * 0.05;
+        pointLight.position.y += (mY * 3 - pointLight.position.y) * 0.05;
+        pointLight.position.z  = 2;
+        pointLight2.position.x = Math.cos(t * 0.5) * 3;
+        pointLight2.position.z = Math.sin(t * 0.5) * 3 - 1;
+        renderer.render(scene, camera);
+      })();
+
+      gsap.fromTo(camera.position, { z: 6.5 }, { z: 4.0, duration: 2.5, ease: 'power3.out' });
+    })();
+
+    // ── Animações GSAP ──
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.fromTo('.gs-reveal',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: 'power3.out', delay: 0.2 }
+      );
+      gsap.fromTo('.gs-form-item',
+        { x: 20, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power2.out', delay: 0.4 }
+      );
+
+      const magneticBtn = document.querySelector('.magnetic-btn');
+      if (magneticBtn) {
+        magneticBtn.addEventListener('mousemove', e => {
+          const r = magneticBtn.getBoundingClientRect();
+          gsap.to(magneticBtn, {
+            x: (e.clientX - r.left - r.width  / 2) * 0.15,
+            y: (e.clientY - r.top  - r.height / 2) * 0.15,
+            duration: 0.4, ease: 'power2.out'
+          });
+        });
+        magneticBtn.addEventListener('mouseleave', () => {
+          gsap.to(magneticBtn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1,0.3)' });
+        });
+      }
+
+      userInp.focus();
+    });
   </script>
 </body>
 </html>
