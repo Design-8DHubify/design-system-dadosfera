@@ -65,7 +65,7 @@
 .ds-code {
   background: var(--ds-color-cinza-900); color:#E6E6F0; font-family: var(--ds-font-mono);
   font-size: var(--ds-text-body-sm); padding: var(--ds-space-5); border-radius: var(--ds-radius-md);
-  overflow:auto; line-height:1.6; position:relative;
+  overflow:auto; line-height:1.6; position:relative; min-width:0; max-width:100%;
 }
 .ds-copy-btn {
   background: var(--ds-color-nucleo); color:#fff; border:none; cursor:pointer; font-size: var(--ds-text-caption);

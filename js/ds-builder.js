@@ -247,14 +247,24 @@
   }
 
   /* ---------- RENDER ---------- */
+  function fitFrame(){
+    try {
+      var doc = el.frame.contentDocument;
+      if (!doc || !doc.body) return;
+      var h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+      el.frame.style.height = (h + 8) + 'px';
+    } catch (e) {}
+  }
   function render(){
     var code=build();
     el.output.textContent=code;
     var doc='<!doctype html><html><head><meta charset="utf-8">'+
       '<link rel="preconnect" href="https://fonts.googleapis.com">'+
       '<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css">'+
-      '<style>body{margin:0;padding:24px;background:#fff}</style></head><body>'+code+'</body></html>';
+      '<style>html,body{margin:0}body{padding:24px;background:#fff;box-sizing:border-box;overflow-x:hidden}*{box-sizing:border-box}</style></head><body>'+code+'</body></html>';
     el.frame.srcdoc=doc;
+    // ajusta a altura do iframe ao conteúdo (evita corte/scroll interno)
+    el.frame.onload = function(){ fitFrame(); setTimeout(fitFrame, 250); setTimeout(fitFrame, 800); };
   }
 
   /* ---------- EVENTOS ---------- */
