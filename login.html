@@ -12,12 +12,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Tipografia da marca Dadosfera -->
-  <link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css" /><!-- Menco (Adobe Typekit) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css"><!-- Menco (Adobe Typekit) -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
   </style>
 
   <!-- Bibliotecas -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
@@ -103,9 +106,9 @@
 
     <div class="z-20 w-full text-left max-w-lg px-12 lg:px-20 gs-reveal pointer-events-none">
       <h1 class="font-display text-5xl lg:text-6xl mb-6 leading-[1.1] tracking-[-0.03em] text-creme">
-        Organize seus<br/>
+        Plataforma de<br/>
         <em class="text-cometa-light not-italic">Dados</em><br/>
-        <span class="text-outline">Otimize Decisões</span>
+        <span class="text-outline">com IA</span>
       </h1>
     </div>
   </div>
@@ -138,7 +141,8 @@
         </div>
 
         <!-- Mensagem de erro -->
-        <div id="err-box" class="hidden mb-4 px-4 py-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm font-medium">
+        <div id="err-box" class="hidden mb-4 px-4 py-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm font-medium flex items-center gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
           <span id="err-msg">Usuário ou senha incorretos.</span>
         </div>
 
@@ -148,8 +152,9 @@
           <div class="space-y-2 gs-form-item">
             <label for="user-input" class="text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-base/70 font-mono">Identificação</label>
             <div class="relative">
+              <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-base/60"></i>
               <input type="text" id="user-input" placeholder="seu usuário" autocomplete="username" spellcheck="false"
-                class="ds-input w-full py-3 px-4 rounded-lg text-sm">
+                class="ds-input w-full py-3 pl-11 pr-4 rounded-lg text-sm">
             </div>
           </div>
 
@@ -159,9 +164,12 @@
               <label for="pass-input" class="text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-base/70 font-mono">Chave de Acesso</label>
             </div>
             <div class="relative">
+              <i data-lucide="lock" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-base/60"></i>
               <input type="password" id="pass-input" placeholder="••••••••" autocomplete="current-password"
-                class="ds-input w-full py-3 pl-4 pr-20 rounded-lg text-sm">
-              <button type="button" id="toggle-pass" class="absolute right-3 top-1/2 -translate-y-1/2 text-[0.65rem] font-mono uppercase tracking-[0.08em] text-base/60 hover:text-cometa transition-colors">Mostrar</button>
+                class="ds-input w-full py-3 pl-11 pr-10 rounded-lg text-sm">
+              <button type="button" id="toggle-pass" class="absolute right-4 top-1/2 -translate-y-1/2 text-base/60 hover:text-base transition-colors">
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
             </div>
           </div>
 
@@ -170,6 +178,7 @@
             <button type="submit" id="submit-btn"
               class="magnetic-btn w-full bg-gradient-to-br from-cometa to-[#1863DC] text-creme font-semibold py-3.5 rounded-full text-sm tracking-wide hover:shadow-[0_4px_20px_rgba(23,0,162,0.4)] transition-all flex items-center justify-center gap-2 relative overflow-hidden group">
               <span class="relative z-10" id="btn-label">INICIALIZAR SESSÃO</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" id="btn-icon"></i>
             </button>
           </div>
         </form>
@@ -197,14 +206,18 @@
   </div>
 
   <script>
+    lucide.createIcons();
+
     // ── Toggle senha ──
     const toggleBtn = document.getElementById('toggle-pass');
     const passInput = document.getElementById('pass-input');
     toggleBtn.addEventListener('click', () => {
       const isHidden = passInput.type === 'password';
       passInput.type = isHidden ? 'text' : 'password';
-      toggleBtn.textContent = isHidden ? 'Ocultar' : 'Mostrar';
+      toggleBtn.querySelector('i').setAttribute('data-lucide', isHidden ? 'eye-off' : 'eye');
+      lucide.createIcons();
     });
+
 
     // ── Login ──
     const form    = document.getElementById('login-form');
@@ -213,13 +226,13 @@
     const errBox  = document.getElementById('err-box');
     const errMsg  = document.getElementById('err-msg');
     const btnLabel = document.getElementById('btn-label');
+    const btnIcon  = document.getElementById('btn-icon');
     const submitBtn = document.getElementById('submit-btn');
-
-    if (window.DSAuth && DSAuth.isAuthed()) window.location.replace('index.html');
 
     function showError(msg) {
       errMsg.textContent = msg || 'Usuário ou senha incorretos.';
       errBox.classList.remove('hidden');
+      errBox.classList.add('flex');
       userInp.classList.add('error');
       passInp.classList.add('error');
       errBox.classList.add('shake');
@@ -228,6 +241,7 @@
 
     function clearError() {
       errBox.classList.add('hidden');
+      errBox.classList.remove('flex');
       userInp.classList.remove('error');
       passInp.classList.remove('error');
     }
@@ -243,28 +257,32 @@
 
       submitBtn.disabled = true;
       btnLabel.textContent = 'Verificando…';
+      btnIcon.setAttribute('data-lucide', 'loader');
+      lucide.createIcons();
 
       setTimeout(() => {
         if (window.DSAuth && window.DSAuth.login(u, p)) {
           btnLabel.textContent = 'Acesso concedido';
+          btnIcon.setAttribute('data-lucide', 'check');
+          lucide.createIcons();
           setTimeout(() => window.location.replace('index.html'), 500);
         } else {
           showError('Usuário ou senha incorretos.');
           submitBtn.disabled = false;
           btnLabel.textContent = 'INICIALIZAR SESSÃO';
+          btnIcon.setAttribute('data-lucide', 'arrow-right');
+          lucide.createIcons();
           passInp.value = '';
           passInp.focus();
         }
       }, 500);
     });
 
-    // ── 3D Three.js (ampulheta — idêntico ao modelo 8D) ──
+    // ── 3D Three.js ──
     (function initHero3D() {
       const container = document.getElementById('canvas-container');
       const canvas = document.getElementById('hero-canvas');
       if (!container || !canvas) return;
-      // respeita preferência de movimento reduzido — não inicia o 3D
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
