@@ -4,35 +4,40 @@
      Dispara quando o mouse sai pelo topo (desktop) ou após 25s.
      ============================================================ -->
 <style>
-  .dsf-exit-ov{position:fixed;inset:0;background:rgba(13,0,59,.55);backdrop-filter:blur(3px);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;font-family:'Nunito',system-ui,sans-serif}
+  .dsf-exit-ov{position:fixed;inset:0;background:rgba(13,0,59,.6);backdrop-filter:blur(4px);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;font-family:'menco','Nunito',system-ui,sans-serif}
   .dsf-exit-ov.dsf-on{display:flex;animation:dsfFade .25s ease}
   @keyframes dsfFade{from{opacity:0}to{opacity:1}}
-  .dsf-exit{position:relative;width:460px;max-width:100%;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(13,0,59,.4);animation:dsfPop .3s ease}
-  @keyframes dsfPop{from{transform:translateY(20px) scale(.96);opacity:0}to{transform:none;opacity:1}}
-  .dsf-exit__top{background:linear-gradient(135deg,#0D003B,#1700A2 55%,#1863DC);padding:28px 32px;color:#fff}
-  .dsf-exit__top h2{margin:0 0 6px;font-family:'menco','Nunito',sans-serif;font-size:24px;line-height:1.2}
-  .dsf-exit__top p{margin:0;font-size:14px;color:rgba(255,255,255,.8)}
-  .dsf-exit__body{padding:24px 32px 28px}
-  .dsf-exit__body input{width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #C9CCEC;border-radius:10px;font-size:15px;margin-bottom:12px;font-family:inherit}
+  .dsf-exit{position:relative;width:480px;max-width:100%;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 28px 70px rgba(13,0,59,.45);animation:dsfPop .32s cubic-bezier(.4,0,.2,1)}
+  @keyframes dsfPop{from{transform:translateY(22px) scale(.96);opacity:0}to{transform:none;opacity:1}}
+  .dsf-exit__top{position:relative;background:linear-gradient(135deg,#0D003B 0%,#1700A2 55%,#1863DC 100%);padding:30px 34px 26px;color:#fff;overflow:hidden}
+  .dsf-exit__top::after{content:"";position:absolute;top:-40px;right:-30px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(59,191,240,.5),transparent 70%)}
+  .dsf-exit__brand{position:relative;display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .dsf-exit__brand img{width:26px;height:26px;border-radius:6px;display:block}
+  .dsf-exit__brand span{font-size:15px;font-weight:800;color:#fff}
+  .dsf-exit__top h2{position:relative;margin:0 0 6px;font-size:25px;line-height:1.18;font-weight:800}
+  .dsf-exit__top p{position:relative;margin:0;font-size:14px;color:rgba(255,255,255,.82);line-height:1.5}
+  .dsf-exit__body{padding:24px 34px 30px}
+  .dsf-exit__body input{width:100%;box-sizing:border-box;padding:13px 15px;border:1.5px solid #D7D7E2;border-radius:11px;font-size:15px;margin-bottom:12px;font-family:'Nunito',sans-serif;color:#0D003B}
   .dsf-exit__body input:focus{outline:none;border-color:#1700A2;box-shadow:0 0 0 4px rgba(23,0,162,.14)}
-  .dsf-exit__btn{width:100%;border:0;cursor:pointer;background:#1700A2;color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:999px;font-family:inherit}
-  .dsf-exit__btn:hover{background:#1863DC}
-  .dsf-exit__close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.2);border:0;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1}
+  .dsf-exit__btn{width:100%;border:0;cursor:pointer;background:#1700A2;color:#fff;font-weight:800;font-size:15px;padding:15px;border-radius:999px;font-family:'Nunito',sans-serif;transition:background .2s}
+  .dsf-exit__btn:hover{background:#110080}
+  .dsf-exit__close{position:absolute;top:14px;right:16px;z-index:2;background:rgba(255,255,255,.22);border:0;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:20px;line-height:1}
   .dsf-exit__note{text-align:center;font-size:12px;color:#6B7280;margin:12px 0 0}
 </style>
 
 <div class="dsf-exit-ov" id="dsfExit">
-  <div class="dsf-exit" role="dialog" aria-modal="true">
-    <button class="dsf-exit__close" aria-label="Fechar">×</button>
+  <div class="dsf-exit" role="dialog" aria-modal="true" aria-label="Oferta antes de sair">
+    <button class="dsf-exit__close" aria-label="Fechar">&times;</button>
     <div class="dsf-exit__top">
-      <h2>Espere! Não vá embora 👋</h2>
-      <p>Leve o nosso guia gratuito de Dados &amp; IA antes de sair.</p>
+      <div class="dsf-exit__brand"><img src="https://dadosfera.ai/wp-content/uploads/2022/01/icone-base.png" alt=""><span>dadosfera</span></div>
+      <h2>Antes de ir, leve um atalho para decisões melhores</h2>
+      <p>Receba o Guia de Dados &amp; IA para 2026 — direto no seu e-mail, sem custo.</p>
     </div>
     <div class="dsf-exit__body">
-      <form onsubmit="event.preventDefault();this.parentNode.innerHTML='<p style=&quot;text-align:center;padding:20px 0;color:#0E8A50;font-weight:700&quot;>✓ Enviado! Verifique seu e-mail.</p>';">
-        <input type="email" placeholder="Seu melhor e-mail" required>
+      <form onsubmit="event.preventDefault();this.parentNode.innerHTML='<p style=&quot;text-align:center;padding:24px 0;color:#0E8A50;font-weight:800&quot;>Pronto! Verifique sua caixa de entrada.</p>';">
+        <input type="email" placeholder="Seu melhor e-mail corporativo" required>
         <button class="dsf-exit__btn" type="submit">Quero o guia gratuito</button>
-        <p class="dsf-exit__note">Sem spam. Cancele quando quiser.</p>
+        <p class="dsf-exit__note">Conteúdo prático. Sem spam, cancele quando quiser.</p>
       </form>
     </div>
   </div>
@@ -44,7 +49,7 @@
   function open(){if(shown)return;try{if(sessionStorage.getItem(KEY))return;}catch(e){}shown=true;ov.classList.add('dsf-on');try{sessionStorage.setItem(KEY,'1');}catch(e){}}
   function close(){ov.classList.remove('dsf-on');}
   document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0)open();});
-  setTimeout(open,25000); // fallback mobile/tempo
+  setTimeout(open,25000);
   ov.addEventListener('click',function(e){if(e.target===ov||e.target.closest('.dsf-exit__close'))close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();

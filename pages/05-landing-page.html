@@ -4,160 +4,473 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Landing Page Modelo | Dadosfera</title>
+<title>Plataforma de Dados e IA para empresas | Dadosfera</title>
+<meta name="description" content="Integre suas fontes de dados, aplique IA e gere decisões mais rápidas. Agende uma demonstração da Dadosfera." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css" /><!-- Menco (Adobe Typekit) -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css" /><!-- Menco -->
 <link rel="stylesheet" href="../css/tokens.css" />
 <link rel="stylesheet" href="../css/base.css" />
 <link rel="stylesheet" href="../css/components.css" />
 <style>
-  .lp-nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--ds-border); }
-  .lp-nav__in { display:flex; align-items:center; justify-content:space-between; padding:.75rem 0; }
-  .lp-back { position:fixed; bottom:1rem; right:1rem; z-index:200; }
+  /* ====== LP DADOSFERA — estilos do template (escopo .lp) ====== */
+  .lp { overflow-x:hidden; }
+  .lp img { display:block; }
+
+  /* NAV glass */
+  .lp-nav { position:sticky; top:0; z-index:120; padding:14px 16px; display:flex; justify-content:center; }
+  .lp-nav__in { width:100%; max-width:1280px; background:rgba(255,255,255,.78); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,.6); border-radius:60px; padding:10px 14px 10px 22px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 8px 32px rgba(13,0,59,.07); }
+  .lp-nav__menu { display:flex; gap:6px; align-items:center; }
+  .lp-nav__menu a { font-size:.92rem; font-weight:700; color:var(--ds-color-profundo); padding:8px 12px; border-radius:8px; }
+  .lp-nav__menu a:hover { background:rgba(23,0,162,.06); color:var(--ds-color-nucleo); }
+  .lp-nav__cta { display:flex; gap:10px; align-items:center; }
+  .lp-logo { height:34px; width:auto; }
+  @media(max-width:920px){ .lp-nav__menu{display:none;} }
+
+  /* HERO */
+  .lp-hero { position:relative; background:var(--ds-gradient-aurora); padding:72px 16px 88px; overflow:hidden; isolation:isolate; }
+  .lp-hero::before { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(360px 260px at 80% 30%,rgba(59,191,240,.16),transparent 65%),radial-gradient(420px 320px at 15% 80%,rgba(23,0,162,.08),transparent 65%); }
+  .lp-hero__grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
+  .lp-hero h1 { color:var(--ds-color-nucleo); font-size:clamp(2.4rem,4.6vw,3.9rem); line-height:1.06; letter-spacing:-.02em; margin-bottom:1.2rem; }
+  .lp-hero h1 span { color:var(--ds-color-profundo); display:block; }
+  .lp-hero p.sub { font-size:1.15rem; color:var(--ds-text-soft); max-width:560px; line-height:1.6; margin-bottom:1.8rem; }
+  .lp-hero__cta { display:flex; gap:14px; flex-wrap:wrap; }
+  .lp-hero__trust { margin-top:1.8rem; display:flex; align-items:center; gap:14px; color:var(--ds-text-soft); font-size:.85rem; }
+  .lp-hero__trust .ds-avatar-group .ds-avatar { border-color:#FAFAFE; }
+  @media(max-width:920px){ .lp-hero__grid{grid-template-columns:1fr; gap:40px;} .lp-hero{padding:48px 16px 64px;} }
+
+  /* Dashboard mockup */
+  .lp-viz { background:#fff; border:1px solid var(--ds-color-cinza-100); border-radius:20px; box-shadow:var(--ds-shadow-xl); overflow:hidden; }
+  .lp-viz__bar { display:flex; align-items:center; gap:7px; padding:13px 16px; border-bottom:1px solid #F1F2F7; background:linear-gradient(180deg,#FAFAFD,#fff); }
+  .lp-viz__bar i { width:9px; height:9px; border-radius:50%; background:#E1E3EF; }
+  .lp-viz__bar i:nth-child(2){background:#E8E9F2}.lp-viz__bar i:nth-child(3){background:#EDEEF5}
+  .lp-viz__bar b { margin-left:8px; font-size:.78rem; color:var(--ds-color-profundo); font-family:var(--ds-font-display); }
+  .lp-viz__bar .tag { margin-left:auto; font-size:.62rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--ds-color-ciano-text); background:rgba(59,191,240,.14); padding:4px 9px; border-radius:999px; }
+  .lp-viz__body { padding:20px; }
+  .lp-viz__kpis { display:flex; gap:28px; margin-bottom:16px; }
+  .lp-viz__kpi small { display:block; font-size:.62rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--ds-color-cinza-500); }
+  .lp-viz__kpi b { font-family:var(--ds-font-display); font-size:1.7rem; color:var(--ds-color-profundo); }
+  .lp-viz__kpi b em { font-style:normal; font-size:.8rem; color:#20B26B; font-weight:700; }
+  .lp-chart { height:170px; }
+
+  /* SECTION helpers */
+  .lp-sec { padding:84px 16px; }
+  .lp-wrap { max-width:1200px; margin:0 auto; }
+  .lp-head { text-align:center; max-width:680px; margin:0 auto 52px; }
+  .lp-head h2 { font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:.7rem; }
+  .lp-head p { color:var(--ds-text-soft); font-size:1.08rem; }
+
+  /* logo marquee */
+  .lp-clients { padding:44px 0; border-top:1px solid var(--ds-color-cinza-100); border-bottom:1px solid var(--ds-color-cinza-100); }
+  .lp-clients p { text-align:center; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ds-text-soft); margin-bottom:26px; font-weight:700; }
+  .lp-marquee { overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
+  .lp-marquee__row { display:flex; gap:18px; width:max-content; animation:lp-scroll 48s linear infinite; }
+  .lp-marquee:hover .lp-marquee__row { animation-play-state:paused; }
+  @keyframes lp-scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .lp-client { flex:0 0 auto; width:178px; height:96px; background:#fff; border:1px solid var(--ds-color-cinza-100); border-radius:14px; display:grid; place-items:center; padding:20px; }
+  .lp-client img { max-width:100%; max-height:54px; width:auto; height:auto; object-fit:contain; filter:grayscale(1); opacity:.62; transition:filter .25s,opacity .25s; }
+  .lp-client:hover img { filter:none; opacity:1; }
+
+  /* feature rows */
+  .lp-feature { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; margin-bottom:64px; }
+  .lp-feature:last-child{margin-bottom:0}
+  .lp-feature--rev .lp-feature__media{order:-1}
+  .lp-feature h3 { font-size:clamp(1.5rem,2.4vw,2rem); margin:.6rem 0 .8rem; color:var(--ds-color-profundo); }
+  .lp-feature p { color:var(--ds-text-soft); font-size:1.05rem; line-height:1.65; margin-bottom:1.2rem; }
+  .lp-feature ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:.7rem; margin-bottom:1.4rem; }
+  .lp-feature li { display:flex; gap:.6rem; align-items:flex-start; font-weight:600; color:var(--ds-color-profundo); }
+  .lp-feature li svg { flex-shrink:0; margin-top:3px; }
+  @media(max-width:920px){ .lp-feature{grid-template-columns:1fr; gap:32px;} .lp-feature--rev .lp-feature__media{order:0} }
+
+  /* chat mock */
+  .lp-chat { background:#fff; border:1px solid var(--ds-color-cinza-100); border-radius:18px; box-shadow:var(--ds-shadow-lg); overflow:hidden; }
+  .lp-chat__body { padding:18px; display:flex; flex-direction:column; gap:12px; }
+  .lp-bubble { max-width:85%; padding:12px 15px; border-radius:14px; font-size:.92rem; line-height:1.45; }
+  .lp-bubble--q { align-self:flex-end; background:var(--ds-color-nucleo); color:#fff; }
+  .lp-bubble--a { align-self:flex-start; background:var(--ds-bg-soft); border:1px solid var(--ds-color-cinza-100); color:var(--ds-color-profundo); }
+  .lp-bubble__meta { font-size:.62rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--ds-color-ciano-text); margin-bottom:5px; }
+  .lp-insight { margin-top:10px; display:flex; flex-direction:column; gap:7px; }
+  .lp-insight .r { display:grid; grid-template-columns:88px 1fr; align-items:center; gap:8px; font-size:.74rem; font-weight:700; }
+  .lp-insight .b { height:6px; border-radius:999px; background:var(--ds-color-cinza-100); overflow:hidden; }
+  .lp-insight .b i { display:block; height:100%; background:var(--ds-color-nucleo); border-radius:999px; }
+
+  /* integrations grid */
+  .lp-integ { display:grid; grid-template-columns:repeat(6,1fr); gap:14px; max-width:880px; margin:0 auto; }
+  .lp-integ__c { aspect-ratio:1; background:#fff; border:1px solid var(--ds-color-cinza-100); border-radius:16px; display:grid; place-items:center; padding:16px; transition:transform .25s,box-shadow .25s,border-color .2s; }
+  .lp-integ__c:hover { transform:translateY(-4px); box-shadow:var(--ds-shadow-md); border-color:var(--ds-color-cinza-250); }
+  .lp-integ__c img { max-width:100%; max-height:46px; width:auto; height:auto; object-fit:contain; }
+  @media(max-width:760px){ .lp-integ{grid-template-columns:repeat(4,1fr)} }
+  @media(max-width:460px){ .lp-integ{grid-template-columns:repeat(3,1fr)} }
+
+  /* press cards */
+  .lp-press { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .lp-press__c { background:#fff; border:1px solid var(--ds-color-cinza-100); border-radius:18px; overflow:hidden; box-shadow:var(--ds-shadow-sm); transition:transform .3s,box-shadow .3s; display:flex; flex-direction:column; }
+  .lp-press__c:hover { transform:translateY(-5px); box-shadow:var(--ds-shadow-lg); }
+  .lp-press__c img { width:100%; aspect-ratio:16/9; object-fit:cover; }
+  .lp-press__b { padding:18px; }
+  .lp-press__b h4 { color:var(--ds-color-nucleo); font-size:1.02rem; line-height:1.3; margin-bottom:.4rem; }
+  .lp-press__b p { color:var(--ds-text-soft); font-size:.9rem; line-height:1.5; }
+  @media(max-width:920px){ .lp-press{grid-template-columns:1fr} }
+
+  /* big number band */
+  .lp-band { background:var(--ds-gradient-hero); color:#fff; border-radius:28px; padding:56px 40px; display:grid; grid-template-columns:repeat(4,1fr); gap:32px; position:relative; overflow:hidden; }
+  .lp-band::after { content:""; position:absolute; inset:0; background:radial-gradient(600px 300px at 85% 15%,rgba(59,191,240,.35),transparent 60%); }
+  .lp-band__i { position:relative; z-index:1; text-align:center; }
+  .lp-band__i b { font-family:var(--ds-font-display); font-size:clamp(2.2rem,4vw,3rem); display:block; line-height:1; }
+  .lp-band__i span { color:rgba(255,255,255,.82); font-size:.95rem; }
+  @media(max-width:760px){ .lp-band{grid-template-columns:1fr 1fr; gap:28px; padding:40px 24px;} }
+
+  /* form split */
+  .lp-form { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  @media(max-width:920px){ .lp-form{grid-template-columns:1fr; gap:36px;} }
+
+  .lp-foot-cta { text-align:center; }
 </style>
 </head>
-<body>
+<body class="lp">
 
-  <!-- 1 · NAV -->
+  <!-- ============ NAV ============ -->
   <nav class="lp-nav">
-    <div class="ds-container lp-nav__in">
-      <img src="../assets/logotipos/logo-dadosfera.png" alt="Dadosfera" style="height:26px">
-      <a class="ds-btn ds-btn--primary ds-btn--sm" href="#form">Agende uma demo</a>
+    <div class="lp-nav__in">
+      <a href="#topo"><img class="lp-logo" src="../assets/logotipos/logo-dadosfera.png" alt="Dadosfera"></a>
+      <div class="lp-nav__menu">
+        <a href="#plataforma">Plataforma</a>
+        <a href="#integracoes">Integrações</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#planos">Planos</a>
+        <a href="#midia">Na mídia</a>
+      </div>
+      <div class="lp-nav__cta">
+        <a class="ds-btn ds-btn--ghost ds-btn--sm" href="#" target="_blank" rel="noopener">Entrar</a>
+        <a class="ds-btn ds-btn--primary ds-btn--sm" href="#form">Solicitar demonstração</a>
+      </div>
     </div>
   </nav>
 
-  <!-- 2 · HERO (aurora — réplica do site) -->
-  <header class="ds-hero ds-hero--aurora">
-    <div class="ds-container ds-hero__inner">
-      <span class="ds-overline">Plataforma de dados com IA</span>
-      <h1>Organize seus Dados, Otimize suas decisões<span class="ds-hero__dark">Escale com IA.</span></h1>
-      <p>A Dadosfera conecta e organiza todas as suas fontes de dados, aplica IA e entrega novas aplicações e análises avançadas — para decisões mais rápidas e inteligentes.</p>
-      <div class="ds-hero__cta">
-        <a class="ds-btn ds-btn--primary ds-btn--lg" href="#form">Agende uma demonstração</a>
-        <a class="ds-btn ds-btn--secondary ds-btn--lg" href="#recursos">Fale com um especialista</a>
+  <!-- ============ HERO ============ -->
+  <header class="lp-hero" id="topo">
+    <div class="lp-hero__grid">
+      <div>
+        <span class="ds-overline">Plataforma de Dados &amp; Inteligência Artificial</span>
+        <h1 style="margin-top:.8rem">Organize seus dados,<br>otimize suas decisões.<span>Escale com IA.</span></h1>
+        <p class="sub">A Dadosfera conecta e organiza todas as suas fontes de dados, aplica IA e entrega aplicações e análises avançadas — para decisões mais rápidas, mais visibilidade e mais receita.</p>
+        <div class="lp-hero__cta">
+          <a class="ds-btn ds-btn--primary ds-btn--lg" href="#form">Agende uma demonstração</a>
+          <a class="ds-btn ds-btn--secondary ds-btn--lg" href="#plataforma">Conhecer a plataforma</a>
+        </div>
+        <div class="lp-hero__trust">
+          <div class="ds-avatar-group">
+            <span class="ds-avatar ds-avatar--sm">M</span><span class="ds-avatar ds-avatar--sm">U</span><span class="ds-avatar ds-avatar--sm">P</span><span class="ds-avatar ds-avatar--sm">W</span>
+          </div>
+          <span>Mais de <strong>2.000</strong> profissionais de dados já usam a Dadosfera.</span>
+        </div>
+      </div>
+
+      <!-- Mockup de dashboard (SVG real, sem placeholder) -->
+      <div class="lp-viz">
+        <div class="lp-viz__bar"><i></i><i></i><i></i><b>Receita por trimestre</b><span class="tag">Insight</span></div>
+        <div class="lp-viz__body">
+          <div class="lp-viz__kpis">
+            <div class="lp-viz__kpi"><small>Receita</small><b>R$ 2,4M <em>+18%</em></b></div>
+            <div class="lp-viz__kpi"><small>Ticket médio</small><b>R$ 482 <em>+7%</em></b></div>
+          </div>
+          <svg class="lp-chart" viewBox="0 0 480 200" preserveAspectRatio="none" role="img" aria-label="Gráfico de receita crescente">
+            <defs><linearGradient id="lpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1700A2" stop-opacity=".30"/><stop offset="1" stop-color="#1700A2" stop-opacity="0"/></linearGradient></defs>
+            <g stroke="#EFF0F6" stroke-width="1" stroke-dasharray="3 4"><line x1="0" y1="50" x2="480" y2="50"/><line x1="0" y1="110" x2="480" y2="110"/><line x1="0" y1="170" x2="480" y2="170"/></g>
+            <path d="M0,160 L48,140 L96,144 L144,110 L192,120 L240,80 L288,92 L336,56 L384,64 L432,36 L480,44 L480,200 L0,200 Z" fill="url(#lpg)"/>
+            <path d="M0,160 L48,140 L96,144 L144,110 L192,120 L240,80 L288,92 L336,56 L384,64 L432,36 L480,44" fill="none" stroke="#1700A2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="336" cy="56" r="4" fill="#fff" stroke="#1700A2" stroke-width="2.5"/><circle cx="432" cy="36" r="4" fill="#fff" stroke="#3BBFF0" stroke-width="2.5"/>
+          </svg>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- 3 · LOGOS -->
-  <section class="ds-section" style="padding-block:var(--ds-space-7)">
-    <div class="ds-container">
-      <p class="ds-text-center ds-text-soft" style="margin-bottom:var(--ds-space-5);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em">Empresas que confiam na Dadosfera</p>
-      <div class="ds-logocloud"><span>Magalu</span><span>Unimed</span><span>Algar</span><span>Ânima</span><span>Boston</span><span>Beep</span></div>
-    </div>
-  </section>
-
-  <!-- 4 · RECURSOS -->
-  <section class="ds-section" id="recursos" style="background:var(--ds-bg-soft)">
-    <div class="ds-container">
-      <div class="ds-text-center" style="max-width:640px;margin:0 auto var(--ds-space-7)">
-        <span class="ds-overline">Recursos</span>
-        <h2>Tudo o que sua operação de dados precisa</h2>
-        <p class="ds-lead">Da ingestão à decisão, em uma plataforma só.</p>
-      </div>
-      <div class="ds-grid ds-grid-3">
-        <div class="ds-card ds-card--accent"><div class="ds-card__seal">01</div><h3 class="ds-card__title">IA em português</h3><p class="ds-card__text">Pergunte em linguagem natural e receba respostas com base nos seus dados.</p></div>
-        <div class="ds-card ds-card--accent"><div class="ds-card__seal ds-card__seal--ciano">02</div><h3 class="ds-card__title">Dados unificados</h3><p class="ds-card__text">Conecte 20+ fontes e centralize tudo automaticamente.</p></div>
-        <div class="ds-card ds-card--accent"><div class="ds-card__seal ds-card__seal--soft">03</div><h3 class="ds-card__title">Dashboards</h3><p class="ds-card__text">Painéis interativos e prontos para a tomada de decisão.</p></div>
-        <div class="ds-card ds-card--accent"><div class="ds-card__seal">04</div><h3 class="ds-card__title">Agentes autônomos</h3><p class="ds-card__text">Automatize fluxos e respostas com agentes de IA.</p></div>
-        <div class="ds-card ds-card--accent"><div class="ds-card__seal ds-card__seal--ciano">05</div><h3 class="ds-card__title">Base de conhecimento</h3><p class="ds-card__text">Documente e consulte o conhecimento do seu negócio.</p></div>
-        <div class="ds-card ds-card--accent"><div class="ds-card__seal ds-card__seal--soft">06</div><h3 class="ds-card__title">Governança</h3><p class="ds-card__text">Segurança e controle de acesso de ponta a ponta.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5 · STATS -->
-  <section class="ds-section">
-    <div class="ds-container ds-grid ds-grid-4">
-      <div class="ds-stat"><div class="ds-stat__num">20+</div><div class="ds-stat__label">Integrações nativas</div></div>
-      <div class="ds-stat"><div class="ds-stat__num">+18%</div><div class="ds-stat__label">Ganho de eficiência</div></div>
-      <div class="ds-stat"><div class="ds-stat__num">3x</div><div class="ds-stat__label">Análises mais rápidas</div></div>
-      <div class="ds-stat"><div class="ds-stat__num">99,9%</div><div class="ds-stat__label">Disponibilidade</div></div>
-    </div>
-  </section>
-
-  <!-- 6 · COMO FUNCIONA (tabs) -->
-  <section class="ds-section" style="background:var(--ds-bg-soft)">
-    <div class="ds-container" style="max-width:820px">
-      <div class="ds-text-center" style="margin-bottom:var(--ds-space-6)"><span class="ds-overline">Como funciona</span><h2>Três passos para decisões melhores</h2></div>
-      <div class="ds-tabs">
-        <div class="ds-tabs__nav">
-          <button class="ds-tabs__btn is-active" data-tab="p1">1. Conecte</button>
-          <button class="ds-tabs__btn" data-tab="p2">2. Organize</button>
-          <button class="ds-tabs__btn" data-tab="p3">3. Decida</button>
+  <!-- ============ CLIENTES ============ -->
+  <section class="lp-clients" id="clientes">
+    <div class="lp-wrap">
+      <p>Empresas líderes confiam na Dadosfera</p>
+      <div class="lp-marquee">
+        <div class="lp-marquee__row">
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/magalu.webp" alt="Magalu" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/unimed.webp" alt="Unimed" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/petrobras.webp" alt="Petrobras" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/inter.webp" alt="Inter" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/weg.webp" alt="WEG" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/usiminas.webp" alt="Usiminas" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/algar-telecom.webp" alt="Algar Telecom" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/ipiranga.webp" alt="Ipiranga" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/boston-scientific.webp" alt="Boston Scientific" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/anima.webp" alt="Ânima" loading="lazy"></div>
+          <!-- duplicado p/ loop contínuo -->
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/magalu.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/unimed.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/petrobras.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/inter.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/weg.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/usiminas.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/algar-telecom.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/ipiranga.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/boston-scientific.webp" alt="" loading="lazy"></div>
+          <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/anima.webp" alt="" loading="lazy"></div>
         </div>
-        <div class="ds-tabs__panel is-active" data-panel="p1"><p>Integre suas fontes de dados em minutos com conectores prontos — CRMs, ERPs, planilhas e bancos.</p></div>
-        <div class="ds-tabs__panel" data-panel="p2"><p>A Dadosfera organiza e modela seus dados automaticamente, criando uma base confiável.</p></div>
-        <div class="ds-tabs__panel" data-panel="p3"><p>Pergunte em português, gere dashboards e tome decisões com confiança.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 7 · DEPOIMENTOS -->
-  <section class="ds-section">
-    <div class="ds-container">
-      <div class="ds-text-center" style="margin-bottom:var(--ds-space-6)"><span class="ds-overline">Clientes</span><h2>Quem usa, recomenda</h2></div>
+  <!-- ============ PLATAFORMA / FEATURES ============ -->
+  <section class="lp-sec" id="plataforma" style="background:var(--ds-bg-neutral)">
+    <div class="lp-wrap">
+      <div class="lp-head">
+        <span class="ds-overline">A plataforma</span>
+        <h2>Eficiência e autonomia que aceleram resultados</h2>
+        <p>Uma plataforma única que reduz esforço operacional e encurta o caminho entre o dado e a decisão.</p>
+      </div>
+
+      <!-- Feature 1: IA -->
+      <div class="lp-feature">
+        <div>
+          <span class="ds-overline">Inteligência Artificial</span>
+          <h3>Pergunte em português. A IA responde com os seus dados.</h3>
+          <p>Conecte múltiplas fontes sem complexidade técnica. Seu agente de IA interpreta perguntas em linguagem natural e devolve respostas acionáveis, com governança nativa.</p>
+          <ul>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Consultas em linguagem natural</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Respostas auditáveis e rastreáveis</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sem necessidade de equipe técnica dedicada</li>
+          </ul>
+          <a class="ds-btn ds-btn--primary" href="#form">Ver na prática</a>
+        </div>
+        <div class="lp-feature__media">
+          <div class="lp-chat">
+            <div class="lp-viz__bar"><i></i><i></i><i></i><b>Assistente Dadosfera</b><span class="tag">IA</span></div>
+            <div class="lp-chat__body">
+              <div class="lp-bubble lp-bubble--q">Qual região teve o maior crescimento de receita no último trimestre?</div>
+              <div class="lp-bubble lp-bubble--a">
+                <div class="lp-bubble__meta">Resposta</div>
+                Sudeste, seguida do Sul. Movimento puxado por aumento de ticket médio em clientes recorrentes.
+                <div class="lp-insight">
+                  <div class="r"><span>Ticket médio</span><div class="b"><i style="width:88%"></i></div></div>
+                  <div class="r"><span>Retenção</span><div class="b"><i style="width:72%"></i></div></div>
+                  <div class="r"><span>Cross-sell</span><div class="b"><i style="width:54%"></i></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Dashboards (reverse) -->
+      <div class="lp-feature lp-feature--rev">
+        <div>
+          <span class="ds-overline">Painéis interativos</span>
+          <h3>Dashboards que respondem ao seu próximo "e se?"</h3>
+          <p>Visualize com painéis interativos, análises preditivas e insights rápidos. Compartilhe com o time sem perder controle nem governança.</p>
+          <ul>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Atualização automatizada</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Métricas gerenciais e operacionais</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Controle de acesso por perfil</li>
+          </ul>
+          <a class="ds-btn ds-btn--primary" href="#form">Explorar dashboards</a>
+        </div>
+        <div class="lp-feature__media">
+          <div class="lp-viz">
+            <div class="lp-viz__bar"><i></i><i></i><i></i><b>Visão operacional</b><span class="tag">Dashboard</span></div>
+            <div class="lp-viz__body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+              <div style="background:var(--ds-bg-soft);border:1px solid var(--ds-color-cinza-100);border-radius:12px;padding:14px">
+                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ds-color-cinza-500)">Distribuição</small>
+                <div style="margin-top:10px;height:12px;border-radius:999px;overflow:hidden;display:flex"><span style="width:52%;background:var(--ds-color-nucleo)"></span><span style="width:28%;background:var(--ds-color-ciano)"></span><span style="width:20%;background:var(--ds-color-cinza-300)"></span></div>
+                <div style="display:flex;gap:12px;margin-top:8px;font-size:.66rem;color:var(--ds-color-cinza-500);font-weight:700"><span>Seg. A</span><span>Seg. B</span><span>Outros</span></div>
+              </div>
+              <div style="background:var(--ds-bg-soft);border:1px solid var(--ds-color-cinza-100);border-radius:12px;padding:14px">
+                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ds-color-cinza-500)">Crescimento</small>
+                <div style="font-family:var(--ds-font-display);font-size:1.7rem;color:var(--ds-color-nucleo);margin-top:6px">+18%</div>
+                <div style="display:flex;align-items:flex-end;gap:3px;height:30px;margin-top:6px"><span style="flex:1;height:40%;background:var(--ds-color-cinza-300);border-radius:2px"></span><span style="flex:1;height:55%;background:var(--ds-color-cinza-300);border-radius:2px"></span><span style="flex:1;height:50%;background:var(--ds-color-cinza-300);border-radius:2px"></span><span style="flex:1;height:72%;background:var(--ds-color-ciano);border-radius:2px"></span><span style="flex:1;height:64%;background:var(--ds-color-ciano);border-radius:2px"></span><span style="flex:1;height:100%;background:var(--ds-color-nucleo);border-radius:2px"></span></div>
+              </div>
+              <div style="grid-column:1/-1;background:var(--ds-bg-soft);border:1px solid var(--ds-color-cinza-100);border-radius:12px;padding:14px">
+                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ds-color-cinza-500)">Top categorias</small>
+                <div style="margin-top:10px;display:flex;flex-direction:column;gap:7px">
+                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:var(--ds-color-cinza-500)">Cat. A<div style="height:8px;background:var(--ds-color-cinza-100);border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:92%;background:var(--ds-color-nucleo)"></i></div></div>
+                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:var(--ds-color-cinza-500)">Cat. B<div style="height:8px;background:var(--ds-color-cinza-100);border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:71%;background:var(--ds-color-nucleo)"></i></div></div>
+                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:var(--ds-color-cinza-500)">Cat. C<div style="height:8px;background:var(--ds-color-cinza-100);border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:58%;background:var(--ds-color-nucleo)"></i></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BAND NÚMEROS ============ -->
+  <section class="lp-sec">
+    <div class="lp-wrap">
+      <div class="lp-band">
+        <div class="lp-band__i"><b>20+</b><span>Integrações nativas</span></div>
+        <div class="lp-band__i"><b>+18%</b><span>Ganho de eficiência</span></div>
+        <div class="lp-band__i"><b>3x</b><span>Análises mais rápidas</span></div>
+        <div class="lp-band__i"><b>99,9%</b><span>Disponibilidade</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTEGRAÇÕES ============ -->
+  <section class="lp-sec" id="integracoes" style="background:var(--ds-bg-neutral)">
+    <div class="lp-wrap">
+      <div class="lp-head">
+        <span class="ds-overline">Integrações</span>
+        <h2>Conectamos tudo, de ponta a ponta</h2>
+        <p>Integre dados de diferentes sistemas, automatize pipelines e aplique IA — com mais de 20 conectores nativos.</p>
+      </div>
+      <div class="lp-integ">
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/hubspot-logo.webp" alt="HubSpot" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/google-sheets-icon.webp" alt="Google Sheets" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/google-ads-icon.webp" alt="Google Ads" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/snowflake-color.webp" alt="Snowflake" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/microsoft-azure.webp" alt="Microsoft Azure" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/meta-logo.webp" alt="Meta" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Google" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEPOIMENTOS ============ -->
+  <section class="lp-sec">
+    <div class="lp-wrap">
+      <div class="lp-head"><span class="ds-overline">Clientes</span><h2>Resultados que falam por si</h2></div>
       <div class="ds-grid ds-grid-3">
-        <div class="ds-testimonial"><p class="ds-testimonial__quote">Triplicamos a velocidade das análises.</p><div class="ds-person"><div class="ds-avatar">H</div><div><div class="ds-person__name">Head de Dados</div><div class="ds-person__role">Varejo</div></div></div></div>
-        <div class="ds-testimonial"><p class="ds-testimonial__quote">Finalmente uma fonte única de verdade.</p><div class="ds-person"><div class="ds-avatar">C</div><div><div class="ds-person__name">CMO</div><div class="ds-person__role">Saúde</div></div></div></div>
-        <div class="ds-testimonial"><p class="ds-testimonial__quote">Implantação em dias, não meses.</p><div class="ds-person"><div class="ds-avatar">T</div><div><div class="ds-person__name">CTO</div><div class="ds-person__role">Telecom</div></div></div></div>
+        <div class="ds-testimonial">
+          <p class="ds-testimonial__quote">Reduzimos de semanas para horas o tempo de uma análise de ponta a ponta. A área de dados virou protagonista das decisões.</p>
+          <div class="ds-person"><span class="ds-avatar">M</span><div><div class="ds-person__name">Marina Alves</div><div class="ds-person__role">Head de Dados · Varejo</div></div></div>
+        </div>
+        <div class="ds-testimonial">
+          <p class="ds-testimonial__quote">Finalmente temos uma fonte única de verdade. O board passou a tomar decisão olhando o mesmo número.</p>
+          <div class="ds-person"><span class="ds-avatar">R</span><div><div class="ds-person__name">Rafael Costa</div><div class="ds-person__role">CFO · Indústria</div></div></div>
+        </div>
+        <div class="ds-testimonial">
+          <p class="ds-testimonial__quote">Implantação em dias, não em meses. O suporte da Dadosfera foi decisivo para destravar nossos pipelines.</p>
+          <div class="ds-person"><span class="ds-avatar">C</span><div><div class="ds-person__name">Camila Nogueira</div><div class="ds-person__role">CTO · Telecom</div></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 8 · FAQ -->
-  <section class="ds-section" style="background:var(--ds-bg-soft)">
-    <div class="ds-container" style="max-width:760px">
-      <div class="ds-text-center" style="margin-bottom:var(--ds-space-6)"><span class="ds-overline">Dúvidas</span><h2>Perguntas frequentes</h2></div>
+  <!-- ============ PLANOS ============ -->
+  <section class="lp-sec" id="planos" style="background:var(--ds-bg-neutral)">
+    <div class="lp-wrap">
+      <div class="lp-head"><span class="ds-overline">Planos</span><h2>Resultados sob medida para cada momento</h2><p>Você foca no negócio; a Dadosfera entrega velocidade, confiabilidade e escala.</p></div>
+      <div class="ds-grid ds-grid-2" style="max-width:920px;margin:0 auto">
+        <div class="ds-price">
+          <div class="ds-price__name">Médias e grandes empresas</div>
+          <p class="ds-card__text">Torne sua empresa mais eficiente com inteligência de dados e IA prontas para uso.</p>
+          <ul class="ds-price__list">
+            <li>Implementação de meses para semanas</li>
+            <li>Time de dados em uma plataforma única</li>
+            <li>Integração com planilhas, CRM, ERP e mais</li>
+            <li>Insights acelerados por IA</li>
+            <li>Painéis com atualização automatizada</li>
+          </ul>
+          <a class="ds-btn ds-btn--secondary ds-btn--block" href="#form">Agende uma sessão</a>
+        </div>
+        <div class="ds-price ds-price--featured">
+          <div class="ds-price__name">Enterprise</div>
+          <p class="ds-card__text">Uma só plataforma. Todos os dados. Decisões em tempo real.</p>
+          <ul class="ds-price__list">
+            <li>Implementação de anos para meses</li>
+            <li>Integração com nuvem corporativa</li>
+            <li>Análises avançadas e preditivas</li>
+            <li>Performance, governança e segurança</li>
+            <li>Suporte técnico dedicado 24x7</li>
+          </ul>
+          <a class="ds-btn ds-btn--orange ds-btn--block" href="#form">Falar com especialista</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NA MÍDIA ============ -->
+  <section class="lp-sec" id="midia">
+    <div class="lp-wrap">
+      <div class="lp-head"><span class="ds-overline">Na mídia</span><h2>A Dadosfera em destaque</h2></div>
+      <div class="lp-press">
+        <a class="lp-press__c" href="#" target="_blank" rel="noopener">
+          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/DataSUS_CartaCapital-e1772344078173.webp" alt="Startup e UFMG criam IA para análise de dados do SUS" loading="lazy">
+          <div class="lp-press__b"><h4>Startup e UFMG criam IA inédita para análise de dados do SUS</h4><p>Tecnologia permite consultar o DataSUS em linguagem natural.</p></div>
+        </a>
+        <a class="lp-press__c" href="#" target="_blank" rel="noopener">
+          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/HulkEconomiaReal.webp" alt="Como o Atlético-MG usa dados para decidir" loading="lazy">
+          <div class="lp-press__b"><h4>Como o Atlético-MG usa dados para decidir dentro e fora de campo</h4><p>Cada passe vira dado — e decisão de negócio.</p></div>
+        </a>
+        <a class="lp-press__c" href="#" target="_blank" rel="noopener">
+          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/Luis-e1772405467115.webp" alt="A ascensão do empreendedor solo por IA" loading="lazy">
+          <div class="lp-press__b"><h4>A ascensão do empreendedor solo por IA e a Dadosfera</h4><p>Uma curva de inflexão rara na história da tecnologia.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="lp-sec" style="background:var(--ds-bg-neutral)">
+    <div class="lp-wrap" style="max-width:780px">
+      <div class="lp-head"><span class="ds-overline">Dúvidas frequentes</span><h2>Tudo o que você precisa saber</h2></div>
       <div class="ds-accordion">
-        <div class="ds-accordion__item is-open"><button class="ds-accordion__head">Preciso saber programar? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Não. Você pergunta em português e a Dadosfera responde com base nos seus dados.</div></div></div>
-        <div class="ds-accordion__item"><button class="ds-accordion__head">Quanto tempo leva a implantação? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">A maioria dos clientes está rodando em poucos dias.</div></div></div>
-        <div class="ds-accordion__item"><button class="ds-accordion__head">Quais fontes posso conectar? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Mais de 20 integrações nativas, incluindo CRMs, ERPs, planilhas e bancos de dados.</div></div></div>
+        <div class="ds-accordion__item is-open"><button class="ds-accordion__head">Preciso de uma equipe técnica para usar? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Não. Você pergunta em português e a Dadosfera responde com base nos seus dados, com governança nativa.</div></div></div>
+        <div class="ds-accordion__item"><button class="ds-accordion__head">Quanto tempo leva a implantação? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">A maioria dos clientes está operando em poucos dias, com conectores prontos para as principais fontes.</div></div></div>
+        <div class="ds-accordion__item"><button class="ds-accordion__head">Quais fontes de dados posso conectar? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Mais de 20 integrações nativas, incluindo CRMs, ERPs, planilhas, bancos de dados e nuvens corporativas.</div></div></div>
+        <div class="ds-accordion__item"><button class="ds-accordion__head">Como funciona a segurança e a governança? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Controle de acesso por perfil, rastreabilidade das consultas e conformidade de ponta a ponta.</div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- 9 · CTA + FORM -->
-  <section class="ds-section" id="form">
-    <div class="ds-container ds-grid ds-grid-2" style="align-items:center;gap:var(--ds-space-8)">
+  <!-- ============ FORM / CTA FINAL ============ -->
+  <section class="lp-sec" id="form">
+    <div class="lp-wrap lp-form">
       <div>
-        <span class="ds-overline">Vamos conversar</span>
-        <h2>Agende uma demonstração gratuita</h2>
-        <p class="ds-lead">Veja a Dadosfera funcionando com os seus próprios dados. Sem compromisso.</p>
-        <ul style="list-style:none;padding:0;margin-top:var(--ds-space-5);display:flex;flex-direction:column;gap:.75rem">
-          <li>✓ Onboarding guiado</li>
-          <li>✓ Especialista dedicado</li>
-          <li>✓ Resultados em dias</li>
+        <span class="ds-overline">Fale com a gente</span>
+        <h2 style="font-size:clamp(1.9rem,3.2vw,2.6rem)">Conecte seus dados. O resto, a Dadosfera faz.</h2>
+        <p class="ds-lead" style="margin:1rem 0 1.6rem">Agende uma demonstração e veja a plataforma funcionando com os seus próprios dados — sem compromisso.</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.85rem">
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Onboarding guiado por especialista</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Demonstração com casos do seu setor</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Primeiros resultados em poucos dias</li>
         </ul>
       </div>
       <div class="ds-formcard">
-        <form onsubmit="event.preventDefault();this.innerHTML='<div class=\'ds-alert ds-alert--success\'><div>Recebido! Em breve entraremos em contato.</div></div>';">
-          <div class="ds-field"><label class="ds-label">Nome*</label><input class="ds-input" required placeholder="Seu nome"></div>
+        <form onsubmit="event.preventDefault();this.innerHTML='<div class=&quot;ds-alert ds-alert--success&quot;><div><span class=&quot;ds-alert__title&quot;>Recebido!</span>Em breve um especialista entrará em contato.</div></div>';">
+          <div class="ds-field"><label class="ds-label">Nome completo*</label><input class="ds-input" required placeholder="Seu nome"></div>
           <div class="ds-field"><label class="ds-label">E-mail corporativo*</label><input class="ds-input" type="email" required placeholder="voce@empresa.com"></div>
-          <div class="ds-field"><label class="ds-label">Empresa</label><input class="ds-input" placeholder="Nome da empresa"></div>
-          <div class="ds-field"><label class="ds-label">Como podemos ajudar?</label><textarea class="ds-textarea" placeholder="Conte seu desafio de dados"></textarea></div>
-          <button class="ds-btn ds-btn--primary ds-btn--lg ds-btn--block" type="submit">Quero uma demo</button>
+          <div class="ds-field"><label class="ds-label">Empresa*</label><input class="ds-input" required placeholder="Nome da empresa"></div>
+          <div class="ds-field"><label class="ds-label">Departamento</label><select class="ds-select"><option>Dados / BI</option><option>Marketing</option><option>Comercial</option><option>Financeiro</option><option>TI</option><option>Diretoria</option></select></div>
+          <div class="ds-field"><label class="ds-label">Qual desafio quer resolver?</label><textarea class="ds-textarea" placeholder="Conte rapidamente seu cenário de dados"></textarea></div>
+          <button class="ds-btn ds-btn--primary ds-btn--lg ds-btn--block" type="submit">Solicitar demonstração</button>
+          <p class="ds-help" style="text-align:center;margin-top:.75rem">Seus dados estão protegidos. Sem spam.</p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- 10 · FOOTER -->
+  <!-- ============ FOOTER ============ -->
   <footer class="ds-footer">
     <div class="ds-container">
       <div class="ds-footer__grid">
-        <div class="ds-footer__col"><img src="../assets/logotipos/logo-dadosfera-branco.png" alt="Dadosfera" style="height:26px;margin-bottom:.75rem"><p style="color:rgba(255,255,255,.6);font-size:.85rem">Dados + IA para decisões melhores.</p></div>
-        <div class="ds-footer__col"><h6>Produto</h6><ul class="ds-footer__links"><li><a href="#">Plataforma</a></li><li><a href="#">Integrações</a></li><li><a href="#">Preços</a></li></ul></div>
-        <div class="ds-footer__col"><h6>Empresa</h6><ul class="ds-footer__links"><li><a href="#">Sobre</a></li><li><a href="#">Blog</a></li><li><a href="#">Carreiras</a></li></ul></div>
-        <div class="ds-footer__col"><h6>Contato</h6><ul class="ds-footer__links"><li><a href="#">Fale conosco</a></li><li><a href="#">Suporte</a></li></ul></div>
+        <div class="ds-footer__col">
+          <img src="../assets/logotipos/logo-dadosfera-branco.png" alt="Dadosfera" style="height:30px;margin-bottom:1rem">
+          <p style="color:rgba(255,255,255,.6);font-size:.88rem;max-width:280px">A Dadosfera integra dados de diferentes sistemas, automatiza fluxos, aplica IA e entrega resultados via agentes e apps.</p>
+        </div>
+        <div class="ds-footer__col"><h6>Produto</h6><ul class="ds-footer__links"><li><a href="#">Plataforma SaaS</a></li><li><a href="#">AutoDriveDDF</a></li><li><a href="#">Integrações</a></li></ul></div>
+        <div class="ds-footer__col"><h6>Soluções</h6><ul class="ds-footer__links"><li><a href="#">Vendas</a></li><li><a href="#">E-commerce</a></li><li><a href="#">Financeiro</a></li></ul></div>
+        <div class="ds-footer__col"><h6>Empresa</h6><ul class="ds-footer__links"><li><a href="#">Quem somos</a></li><li><a href="#">Carreiras</a></li><li><a href="#">Contato</a></li></ul></div>
       </div>
       <div class="ds-footer__bottom"><span>© 2026 Dadosfera · Todos os direitos reservados</span><span>Powered by 8D Hubify</span></div>
     </div>
   </footer>
 
-  <a class="ds-btn ds-btn--dark lp-back" href="../index.html">← Voltar ao DS</a>
+  <a class="ds-btn ds-btn--dark" href="../index.html" style="position:fixed;bottom:1rem;right:1rem;z-index:200;box-shadow:var(--ds-shadow-lg)">← Voltar ao DS</a>
 
   <script src="../js/ds-clipboard.js"></script>
   <script src="../js/ds-ui.js"></script>

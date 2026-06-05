@@ -4,32 +4,37 @@
      Desliza pelo canto inferior direito após 6s (ou rolagem 40%).
      ============================================================ -->
 <style>
-  .dsf-cap{position:fixed;right:20px;bottom:20px;width:340px;max-width:calc(100% - 40px);background:#fff;border-radius:16px;box-shadow:0 18px 48px rgba(13,0,59,.3);z-index:99998;font-family:'Nunito',system-ui,sans-serif;transform:translateY(140%);transition:transform .45s cubic-bezier(.4,0,.2,1);overflow:hidden}
+  .dsf-cap{position:fixed;right:20px;bottom:20px;width:360px;max-width:calc(100% - 40px);background:#fff;border-radius:18px;box-shadow:0 22px 56px rgba(13,0,59,.32);z-index:99998;font-family:'menco','Nunito',system-ui,sans-serif;transform:translateY(150%);transition:transform .5s cubic-bezier(.4,0,.2,1);overflow:hidden}
   .dsf-cap.dsf-on{transform:none}
-  .dsf-cap__bar{background:linear-gradient(135deg,#1700A2,#1863DC);padding:16px 18px;display:flex;align-items:center;justify-content:space-between}
-  .dsf-cap__bar strong{color:#fff;font-family:'menco','Nunito',sans-serif;font-size:15px}
-  .dsf-cap__close{background:rgba(255,255,255,.2);border:0;color:#fff;width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:15px;line-height:1}
+  .dsf-cap__bar{position:relative;background:linear-gradient(135deg,#1700A2,#1863DC);padding:16px 18px;display:flex;align-items:center;gap:8px;overflow:hidden}
+  .dsf-cap__bar::after{content:"";position:absolute;top:-30px;right:-20px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(59,191,240,.5),transparent 70%)}
+  .dsf-cap__bar img{position:relative;width:24px;height:24px;border-radius:6px;display:block}
+  .dsf-cap__bar strong{position:relative;color:#fff;font-size:15px;font-weight:800}
+  .dsf-cap__close{position:relative;margin-left:auto;background:rgba(255,255,255,.22);border:0;color:#fff;width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1}
   .dsf-cap__body{padding:18px}
-  .dsf-cap__body h3{margin:0 0 6px;font-family:'menco','Nunito',sans-serif;font-size:17px;color:#212121}
-  .dsf-cap__body p{margin:0 0 14px;font-size:13px;color:#6B7280;line-height:1.5}
-  .dsf-cap__body input{width:100%;box-sizing:border-box;padding:11px 13px;border:1.5px solid #C9CCEC;border-radius:9px;font-size:14px;margin-bottom:10px;font-family:inherit}
+  .dsf-cap__body h3{margin:0 0 6px;font-size:17px;color:#1700A2;font-weight:800;line-height:1.25}
+  .dsf-cap__body p{margin:0 0 14px;font-size:13px;color:#4B5563;line-height:1.5}
+  .dsf-cap__body input{width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid #D7D7E2;border-radius:10px;font-size:14px;margin-bottom:10px;font-family:'Nunito',sans-serif;color:#0D003B}
   .dsf-cap__body input:focus{outline:none;border-color:#1700A2;box-shadow:0 0 0 3px rgba(23,0,162,.14)}
-  .dsf-cap__btn{width:100%;border:0;cursor:pointer;background:#1700A2;color:#fff;font-weight:700;font-size:14px;padding:12px;border-radius:999px;font-family:inherit}
-  .dsf-cap__btn:hover{background:#1863DC}
+  .dsf-cap__btn{width:100%;border:0;cursor:pointer;background:#1700A2;color:#fff;font-weight:800;font-size:14px;padding:13px;border-radius:999px;font-family:'Nunito',sans-serif;transition:background .2s}
+  .dsf-cap__btn:hover{background:#110080}
+  .dsf-cap__note{margin:10px 0 0;font-size:11px;color:#6B7280;text-align:center}
 </style>
 
-<div class="dsf-cap" id="dsfCap" role="dialog" aria-label="Inscreva-se">
+<div class="dsf-cap" id="dsfCap" role="dialog" aria-label="Assine a newsletter">
   <div class="dsf-cap__bar">
-    <strong>📩 Receba novidades</strong>
-    <button class="dsf-cap__close" aria-label="Fechar">×</button>
+    <img src="https://dadosfera.ai/wp-content/uploads/2022/01/icone-base.png" alt="">
+    <strong>Newsletter Dadosfera</strong>
+    <button class="dsf-cap__close" aria-label="Fechar">&times;</button>
   </div>
   <div class="dsf-cap__body">
     <h3>Dados &amp; IA na sua caixa de entrada</h3>
-    <p>Conteúdos práticos toda semana. Junte-se a milhares de profissionais de dados.</p>
-    <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;text-align:center;padding:8px 0;color:#0E8A50;font-weight:700;font-size:14px&quot;>✓ Inscrição confirmada!</p>';">
+    <p>Conteúdos práticos toda semana, junto a milhares de profissionais de dados.</p>
+    <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;text-align:center;padding:10px 0;color:#0E8A50;font-weight:800;font-size:14px&quot;>Inscrição confirmada. Bem-vindo(a)!</p>';">
       <input type="text" placeholder="Seu nome" required>
-      <input type="email" placeholder="Seu e-mail" required>
+      <input type="email" placeholder="Seu e-mail corporativo" required>
       <button class="dsf-cap__btn" type="submit">Quero me inscrever</button>
+      <p class="dsf-cap__note">Sem spam. Cancele quando quiser.</p>
     </form>
   </div>
 </div>
