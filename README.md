@@ -39,8 +39,9 @@ copiar/baixar.
 ```
 
 > No design system (site de doc) os estilos ficam divididos em
-> `tokens.css` · `base.css` · `components.css`; o `dadosfera-base.css` é a junção dos três,
-> pensada para colar nas LPs.
+> `css/dadosfera-base.css` é **arquivo único, sem variáveis CSS e sem modo escuro** (valores
+> em HEX direto, com `!important` onde necessário) — feito para colar nas LPs do RD Station.
+> `showcase.css` e `builder.css` são exclusivos do site de documentação.
 
 ## Componentes (25+)
 

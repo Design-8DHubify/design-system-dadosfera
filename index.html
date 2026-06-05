@@ -13,20 +13,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css" /><!-- Menco (Adobe Typekit) -->
 
-<link rel="stylesheet" href="css/tokens.css" />
-<link rel="stylesheet" href="css/base.css" />
-<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/dadosfera-base.css" />
 <link rel="stylesheet" href="css/showcase.css" />
 <link rel="stylesheet" href="css/builder.css" />
-<script>(function(){try{var t=localStorage.getItem('ds-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <script src="js/ds-auth.js"></script><script>DSAuth.guard();</script>
 <style>
-  .tpl-frame{width:100%;border:1px solid var(--ds-border);border-radius:var(--ds-radius-md);height:460px;background:#fff}
-  .tpl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--ds-space-4)}
-  .tpl-card{display:block;border:1px solid var(--ds-border);border-radius:var(--ds-radius-lg);overflow:hidden;background:var(--ds-surface);transition:transform var(--ds-dur),box-shadow var(--ds-dur)}
-  .tpl-card:hover{transform:translateY(-4px);box-shadow:var(--ds-shadow-lg)}
-  .tpl-card__top{height:110px;background:var(--ds-gradient-hero);display:grid;place-items:center;color:#fff;font-family:var(--ds-font-display);font-weight:800}
-  .tpl-card__body{padding:var(--ds-space-4)}
+  .tpl-frame{width:100%;border:1px solid #ECECF2;border-radius:12px;height:460px;background:#fff}
+  .tpl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+  .tpl-card{display:block;border:1px solid #ECECF2;border-radius:18px;overflow:hidden;background:#FFFFFF;transition:transform .28s,box-shadow .28s}
+  .tpl-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -22px rgba(13,0,59,.22)}
+  .tpl-card__top{height:110px;background:linear-gradient(135deg,#0D003B 0%,#1700A2 55%,#1863DC 100%);display:grid;place-items:center;color:#fff;font-family:'Menco','Nunito',system-ui,-apple-system,sans-serif;font-weight:800}
+  .tpl-card__body{padding:1rem}
 </style>
 </head>
 <body>
@@ -99,8 +96,8 @@
     <main class="docs-main" id="conteudo" tabindex="-1">
       <div class="docs-topbar">
         <button class="docs-burger" data-burger aria-label="Menu">☰</button>
-        <strong style="font-family:var(--ds-font-display)">Design System</strong>
-        <button class="ds-theme-toggle" data-theme-toggle aria-label="Tema">◐</button>
+        <strong style="font-family:'Menco','Nunito',system-ui,-apple-system,sans-serif">Design System</strong>
+        <span></span>
       </div>
 
       <div class="docs-content">
@@ -116,10 +113,10 @@
         <section class="docs-block" id="css-base">
           <h2>CSS Base — para todas as LPs</h2>
           <p class="sub">Fundação única (reset + tokens + tipografia + todos os componentes <code>.ds-*</code>). <strong>Cole uma vez no <code>&lt;head&gt;</code> de cada landing page do RD Station</strong> — sem depender de arquivos externos.</p>
-          <div class="ds-demo" style="background:var(--ds-bg-soft);border:1px solid var(--ds-border);border-radius:var(--ds-radius-lg)">
+          <div class="ds-demo" style="background:#F7F8FC;border:1px solid #ECECF2;border-radius:18px">
             <div class="ds-demo__preview" style="display:block">
               <p style="margin:0 0 .75rem;font-weight:700">Como usar no RD Station</p>
-              <ol style="margin:0 0 1rem 1.1rem;color:var(--ds-text-soft);font-size:var(--ds-text-body-sm);line-height:1.8">
+              <ol style="margin:0 0 1rem 1.1rem;color:#4B5563;font-size:0.875rem;line-height:1.8">
                 <li>No RD Station, edite a LP e adicione um bloco de <strong>HTML / Código</strong> (ou o CSS global da página).</li>
                 <li>Cole as fontes da marca no <code>&lt;head&gt;</code>:<br>
                   <code style="font-size:.78rem">&lt;link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css"&gt;</code></li>
@@ -149,11 +146,11 @@
             <div class="ds-swatch" data-copy-hex="#212121"><div class="ds-swatch__color" style="background:#212121"></div><div class="ds-swatch__meta"><div class="ds-swatch__hex">#212121</div></div></div>
             <div class="ds-swatch" data-copy-hex="#F7F8FC"><div class="ds-swatch__color" style="background:#F7F8FC;border-bottom:1px solid #E1E3EF"></div><div class="ds-swatch__meta"><div class="ds-swatch__hex">#F7F8FC</div></div></div>
           </div>
-          <h4 style="margin:var(--ds-space-5) 0 var(--ds-space-3)">Gradientes</h4>
+          <h4 style="margin:1.5rem 0 0.75rem">Gradientes</h4>
           <div class="ds-grid ds-grid-3">
-            <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#1700A2,#1863DC)"><div class="ds-swatch__color" style="background:var(--ds-gradient-nucleo)"></div><div class="ds-swatch__meta"><div class="ds-swatch__hex">#1700A2 → #1863DC</div></div></div>
-            <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#0D003B,#1700A2)"><div class="ds-swatch__color" style="background:var(--ds-gradient-profundo)"></div><div class="ds-swatch__meta"><div class="ds-swatch__hex">#0D003B → #1700A2</div></div></div>
-            <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#1863DC,#3BBFF0)"><div class="ds-swatch__color" style="background:var(--ds-gradient-ciano)"></div><div class="ds-swatch__meta"><div class="ds-swatch__hex">#1863DC → #3BBFF0</div></div></div>
+            <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#1700A2,#1863DC)"><div class="ds-swatch__color" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)"></div><div class="ds-swatch__meta"><div class="ds-swatch__hex">#1700A2 → #1863DC</div></div></div>
+            <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#0D003B,#1700A2)"><div class="ds-swatch__color" style="background:linear-gradient(135deg,#0D003B 0%,#1700A2 100%)"></div><div class="ds-swatch__meta"><div class="ds-swatch__hex">#0D003B → #1700A2</div></div></div>
+            <div class="ds-swatch" data-copy-hex="linear-gradient(135deg,#1863DC,#3BBFF0)"><div class="ds-swatch__color" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)"></div><div class="ds-swatch__meta"><div class="ds-swatch__hex">#1863DC → #3BBFF0</div></div></div>
           </div>
         </section>
 
@@ -185,7 +182,7 @@
             <div><div class="ds-logo-box is-dark"><img src="assets/logotipos/logo-dadosfera-branco.png" alt="Dadosfera" style="height:40px"></div><div class="ds-logo-box__cap">Negativa · fundo escuro</div></div>
             <div><div class="ds-logo-box"><a class="ds-btn ds-btn--secondary ds-btn--sm" href="assets/logotipos/logo-dadosfera.svg" download>Baixar SVG</a></div><div class="ds-logo-box__cap">Vetor original (.svg)</div></div>
           </div>
-          <h4 style="margin:var(--ds-space-5) 0 var(--ds-space-3)">Formas geométricas</h4>
+          <h4 style="margin:1.5rem 0 0.75rem">Formas geométricas</h4>
           <div class="ds-grid ds-grid-4">
             <div class="ds-shape-box"><svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="30" fill="none" stroke="#1700A2" stroke-width="2"/><circle cx="35" cy="35" r="30" fill="none" stroke="#3BBFF0" stroke-width="2" stroke-dasharray="6 8"/></svg></div>
             <div class="ds-shape-box"><svg width="70" height="70" viewBox="0 0 70 70"><polygon points="35,5 65,60 5,60" fill="none" stroke="#1700A2" stroke-width="2"/></svg></div>
@@ -208,7 +205,7 @@
             </div>
             <div class="ds-demo__bar"><span>escala de espaçamento</span></div>
           </div>
-          <div class="ds-grid-demo" style="margin-top:var(--ds-space-4)"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div>
+          <div class="ds-grid-demo" style="margin-top:1rem"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div>
         </section>
 
         <!-- BOTÕES -->
@@ -222,7 +219,7 @@
               <button class="ds-btn ds-btn--dark">Dark</button>
               <button class="ds-btn ds-btn--primary" disabled>Disabled</button>
             </div>
-            <div class="ds-demo__preview" style="border-top:1px solid var(--ds-border)">
+            <div class="ds-demo__preview" style="border-top:1px solid #ECECF2">
               <button class="ds-btn ds-btn--primary ds-btn--sm">Small</button>
               <button class="ds-btn ds-btn--primary">Medium</button>
               <button class="ds-btn ds-btn--primary ds-btn--lg">Large</button>
@@ -266,10 +263,10 @@
               <span class="ds-badge ds-badge--solid">Destaque</span>
               <span class="ds-tag">dados</span><span class="ds-tag">ia</span>
             </div>
-            <div class="ds-demo__preview" style="border-top:1px solid var(--ds-border)">
+            <div class="ds-demo__preview" style="border-top:1px solid #ECECF2">
               <span class="ds-chip is-active">Todos</span><span class="ds-chip">Marketing</span><span class="ds-chip">Vendas</span>
             </div>
-            <div class="ds-demo__preview" style="border-top:1px solid var(--ds-border)">
+            <div class="ds-demo__preview" style="border-top:1px solid #ECECF2">
               <nav class="ds-breadcrumb"><a href="#">Início</a><span class="sep">/</span><a href="#">Blog</a><span class="sep">/</span><span class="current">Dados &amp; IA</span></nav>
             </div>
             <div class="ds-demo__bar"><span>.ds-badge / .ds-tag / .ds-chip / .ds-breadcrumb</span><button class="ds-copy-btn" data-copy-target="#c-badges">Copiar</button></div>
@@ -305,13 +302,13 @@
             <div class="ds-card ds-card--accent"><div class="ds-card__seal ds-card__seal--ciano">02</div><h3 class="ds-card__title">Dados unificados</h3><p class="ds-card__text">Integre 20+ fontes em um só lugar.</p></div>
             <div class="ds-card ds-card--accent"><div class="ds-card__seal ds-card__seal--soft">03</div><h3 class="ds-card__title">Decisões rápidas</h3><p class="ds-card__text">Dashboards interativos e acionáveis.</p></div>
           </div>
-          <h4 style="margin:var(--ds-space-5) 0 var(--ds-space-3)">Cards de post</h4>
+          <h4 style="margin:1.5rem 0 0.75rem">Cards de post</h4>
           <div class="ds-grid ds-grid-3">
             <article class="ds-postcard"><div class="ds-postcard__media"><span class="ds-badge ds-badge--solid">Dados</span></div><div class="ds-postcard__body"><div class="ds-postcard__meta"><span>5 min de leitura</span></div><h3 class="ds-postcard__title">Dashboards que o board lê</h3><p class="ds-card__text">Boas práticas de visualização.</p><div class="ds-postcard__foot"><a class="ds-btn ds-btn--ghost ds-btn--sm" href="#">Ler →</a></div></div></article>
-            <article class="ds-postcard"><div class="ds-postcard__media" style="background:var(--ds-gradient-ciano)"><span class="ds-badge ds-badge--solid">Produto</span></div><div class="ds-postcard__body"><div class="ds-postcard__meta"><span>3 min de leitura</span></div><h3 class="ds-postcard__title">Novas integrações nativas</h3><p class="ds-card__text">Conecte mais fontes em minutos.</p><div class="ds-postcard__foot"><a class="ds-btn ds-btn--ghost ds-btn--sm" href="#">Ler →</a></div></div></article>
-            <article class="ds-postcard"><div class="ds-postcard__media" style="background:var(--ds-gradient-profundo)"><span class="ds-badge ds-badge--solid">IA</span></div><div class="ds-postcard__body"><div class="ds-postcard__meta"><span>7 min de leitura</span></div><h3 class="ds-postcard__title">Agentes autônomos</h3><p class="ds-card__text">Automatize fluxos com IA.</p><div class="ds-postcard__foot"><a class="ds-btn ds-btn--ghost ds-btn--sm" href="#">Ler →</a></div></div></article>
+            <article class="ds-postcard"><div class="ds-postcard__media" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)"><span class="ds-badge ds-badge--solid">Produto</span></div><div class="ds-postcard__body"><div class="ds-postcard__meta"><span>3 min de leitura</span></div><h3 class="ds-postcard__title">Novas integrações nativas</h3><p class="ds-card__text">Conecte mais fontes em minutos.</p><div class="ds-postcard__foot"><a class="ds-btn ds-btn--ghost ds-btn--sm" href="#">Ler →</a></div></div></article>
+            <article class="ds-postcard"><div class="ds-postcard__media" style="background:linear-gradient(135deg,#0D003B 0%,#1700A2 100%)"><span class="ds-badge ds-badge--solid">IA</span></div><div class="ds-postcard__body"><div class="ds-postcard__meta"><span>7 min de leitura</span></div><h3 class="ds-postcard__title">Agentes autônomos</h3><p class="ds-card__text">Automatize fluxos com IA.</p><div class="ds-postcard__foot"><a class="ds-btn ds-btn--ghost ds-btn--sm" href="#">Ler →</a></div></div></article>
           </div>
-          <h4 style="margin:var(--ds-space-5) 0 var(--ds-space-3)">Card de destaque</h4>
+          <h4 style="margin:1.5rem 0 0.75rem">Card de destaque</h4>
           <div class="ds-feature-card">
             <div class="ds-feature-card__content"><span class="ds-badge ds-badge--solid">Destaque</span><h3 style="margin-top:.5rem">Organize seus dados, otimize suas decisões</h3><p>Plataforma de dados com IA. Pergunte em português.</p><a class="ds-btn ds-btn--light" href="#">Agende uma demo</a></div>
           </div>
@@ -409,21 +406,21 @@
             <div class="ds-testimonial"><p class="ds-testimonial__quote">A Dadosfera transformou a forma como tomamos decisões — tudo num só lugar.</p><div class="ds-person"><div class="ds-avatar">M</div><div><div class="ds-person__name">Marina Alves</div><div class="ds-person__role">Head de Dados · Varejo</div></div></div></div>
             <div class="ds-testimonial"><p class="ds-testimonial__quote">Implantação rápida e suporte impecável. Recomendo fortemente.</p><div class="ds-person"><div class="ds-avatar">R</div><div><div class="ds-person__name">Rafael Costa</div><div class="ds-person__role">CTO · Telecom</div></div></div></div>
           </div>
-          <div style="margin-top:var(--ds-space-4);display:flex;align-items:center;gap:1rem">
+          <div style="margin-top:1rem;display:flex;align-items:center;gap:1rem">
             <div class="ds-avatar-group"><div class="ds-avatar ds-avatar--sm">A</div><div class="ds-avatar ds-avatar--sm">B</div><div class="ds-avatar ds-avatar--sm">C</div><div class="ds-avatar ds-avatar--sm">+</div></div>
-            <span class="ds-text-soft" style="font-size:var(--ds-text-body-sm)">+2.000 profissionais de dados</span>
+            <span class="ds-text-soft" style="font-size:0.875rem">+2.000 profissionais de dados</span>
           </div>
         </section>
 
         <!-- DATA -->
         <section class="docs-block" id="data">
           <h2>Tabela &amp; dados</h2><p class="sub">Tabela, números e barra de progresso.</p>
-          <div class="ds-grid ds-grid-3" style="margin-bottom:var(--ds-space-5)">
-            <div class="ds-statcard"><div class="ds-stat__num" style="font-size:var(--ds-text-h2)">+18%</div><div class="ds-stat__label">Eficiência <span class="ds-statcard__trend ds-statcard__trend--up">▲ 4%</span></div></div>
-            <div class="ds-statcard"><div class="ds-stat__num" style="font-size:var(--ds-text-h2)">20+</div><div class="ds-stat__label">Integrações</div></div>
-            <div class="ds-statcard"><div class="ds-stat__num" style="font-size:var(--ds-text-h2)">99,9%</div><div class="ds-stat__label">Uptime <span class="ds-statcard__trend ds-statcard__trend--up">▲</span></div></div>
+          <div class="ds-grid ds-grid-3" style="margin-bottom:1.5rem">
+            <div class="ds-statcard"><div class="ds-stat__num" style="font-size:clamp(1.875rem,3.2vw,2.5rem)">+18%</div><div class="ds-stat__label">Eficiência <span class="ds-statcard__trend ds-statcard__trend--up">▲ 4%</span></div></div>
+            <div class="ds-statcard"><div class="ds-stat__num" style="font-size:clamp(1.875rem,3.2vw,2.5rem)">20+</div><div class="ds-stat__label">Integrações</div></div>
+            <div class="ds-statcard"><div class="ds-stat__num" style="font-size:clamp(1.875rem,3.2vw,2.5rem)">99,9%</div><div class="ds-stat__label">Uptime <span class="ds-statcard__trend ds-statcard__trend--up">▲</span></div></div>
           </div>
-          <div style="margin-bottom:var(--ds-space-5)"><div class="ds-label" style="margin-bottom:.4rem">Progresso de ingestão · 72%</div><div class="ds-progress"><div class="ds-progress__bar" style="width:72%"></div></div></div>
+          <div style="margin-bottom:1.5rem"><div class="ds-label" style="margin-bottom:.4rem">Progresso de ingestão · 72%</div><div class="ds-progress"><div class="ds-progress__bar" style="width:72%"></div></div></div>
           <table class="ds-table ds-table--card">
             <thead><tr><th>Fonte</th><th>Status</th><th>Registros</th></tr></thead>
             <tbody>
@@ -432,7 +429,7 @@
               <tr><td>Meta Ads</td><td><span class="ds-badge ds-badge--warning">Sincronizando</span></td><td>—</td></tr>
             </tbody>
           </table>
-          <div style="margin-top:var(--ds-space-5)"><nav class="ds-pagination"><span>‹</span><span class="is-active">1</span><a>2</a><a>3</a><span>›</span></nav></div>
+          <div style="margin-top:1.5rem"><nav class="ds-pagination"><span>‹</span><span class="is-active">1</span><a>2</a><a>3</a><span>›</span></nav></div>
         </section>
 
         <!-- EXTRAS -->
@@ -446,12 +443,12 @@
             </div>
             <div>
               <blockquote class="ds-quote">"Organize seus dados, otimize suas decisões."</blockquote>
-              <div class="ds-divider" style="margin:var(--ds-space-5) 0">ou</div>
+              <div class="ds-divider" style="margin:1.5rem 0">ou</div>
               <p>Passe o mouse: <span class="ds-tooltip">termo técnico<span class="ds-tooltip__bubble">Explicação rápida do termo</span></span>.</p>
               <button class="ds-btn ds-btn--secondary" style="margin-top:1rem" onclick="document.getElementById('demo-modal').classList.add('is-open')">Abrir modal</button>
             </div>
           </div>
-          <div class="ds-cta-banner" style="margin-top:var(--ds-space-6)">
+          <div class="ds-cta-banner" style="margin-top:2rem">
             <div><h3>Pronto para começar?</h3><p>Agende uma demonstração gratuita hoje.</p></div>
             <a class="ds-btn ds-btn--light ds-btn--lg" href="#">Agende uma demo</a>
           </div>
@@ -493,7 +490,7 @@
             </div>
             <div>
               <h4 style="margin-bottom:.6rem">Pré-visualização (isolada)</h4>
-              <iframe id="bld-frame" class="bld__preview" style="width:100%;border:0;min-height:380px;border-radius:var(--ds-radius-lg)" title="Pré-visualização"></iframe>
+              <iframe id="bld-frame" class="bld__preview" style="width:100%;border:0;min-height:380px;border-radius:18px" title="Pré-visualização"></iframe>
               <div class="bld__output">
                 <div class="bld__output-bar"><h4>Código plug &amp; play</h4><button class="ds-copy-btn" data-copy-target="#bld-output">Copiar código</button></div>
                 <pre class="ds-code" style="max-height:380px"><code id="bld-output"></code></pre>
@@ -507,17 +504,17 @@
           <h2>Templates</h2><p class="sub">Páginas, e-mails e pop-ups prontos. Abra a versão completa em nova aba.</p>
           <div class="tpl-grid">
             <a class="tpl-card" href="pages/05-landing-page.html" target="_blank"><div class="tpl-card__top">LP</div><div class="tpl-card__body"><strong>Landing Page</strong><p class="ds-card__text">10 seções de alta conversão.</p></div></a>
-            <a class="tpl-card" href="pages/06-thank-you.html" target="_blank"><div class="tpl-card__top" style="background:var(--ds-gradient-ciano)">TY</div><div class="tpl-card__body"><strong>Thank You</strong><p class="ds-card__text">Página de confirmação.</p></div></a>
-            <a class="tpl-card" href="templates/email-material.html" target="_blank"><div class="tpl-card__top" style="background:var(--ds-gradient-profundo)">@</div><div class="tpl-card__body"><strong>E-mail · Material</strong><p class="ds-card__text">Entrega de conteúdo rico.</p></div></a>
-            <a class="tpl-card" href="templates/email-newsletter.html" target="_blank"><div class="tpl-card__top" style="background:var(--ds-gradient-nucleo)">N</div><div class="tpl-card__body"><strong>Newsletter</strong><p class="ds-card__text">Edição periódica.</p></div></a>
-            <a class="tpl-card" href="templates/popup-saida.html" target="_blank"><div class="tpl-card__top" style="background:var(--ds-gradient-ciano)">↗</div><div class="tpl-card__body"><strong>Pop-up de saída</strong><p class="ds-card__text">Exit intent.</p></div></a>
-            <a class="tpl-card" href="templates/popup-captacao.html" target="_blank"><div class="tpl-card__top" style="background:var(--ds-gradient-profundo)">▤</div><div class="tpl-card__body"><strong>Pop-up captação</strong><p class="ds-card__text">Overlay lateral.</p></div></a>
+            <a class="tpl-card" href="pages/06-thank-you.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)">TY</div><div class="tpl-card__body"><strong>Thank You</strong><p class="ds-card__text">Página de confirmação.</p></div></a>
+            <a class="tpl-card" href="templates/email-material.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#0D003B 0%,#1700A2 100%)">@</div><div class="tpl-card__body"><strong>E-mail · Material</strong><p class="ds-card__text">Entrega de conteúdo rico.</p></div></a>
+            <a class="tpl-card" href="templates/email-newsletter.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)">N</div><div class="tpl-card__body"><strong>Newsletter</strong><p class="ds-card__text">Edição periódica.</p></div></a>
+            <a class="tpl-card" href="templates/popup-saida.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)">↗</div><div class="tpl-card__body"><strong>Pop-up de saída</strong><p class="ds-card__text">Exit intent.</p></div></a>
+            <a class="tpl-card" href="templates/popup-captacao.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#0D003B 0%,#1700A2 100%)">▤</div><div class="tpl-card__body"><strong>Pop-up captação</strong><p class="ds-card__text">Overlay lateral.</p></div></a>
           </div>
-          <h4 style="margin:var(--ds-space-6) 0 var(--ds-space-3)">Prévia: Landing Page</h4>
+          <h4 style="margin:2rem 0 0.75rem">Prévia: Landing Page</h4>
           <iframe class="tpl-frame" src="pages/05-landing-page.html" title="Prévia LP" loading="lazy"></iframe>
         </section>
 
-        <footer style="margin-top:var(--ds-space-8);padding-top:var(--ds-space-5);border-top:1px solid var(--ds-border);color:var(--ds-text-soft);font-size:var(--ds-text-body-sm)">
+        <footer style="margin-top:4rem;padding-top:1.5rem;border-top:1px solid #ECECF2;color:#4B5563;font-size:0.875rem">
           © 2026 Dadosfera · Design System · Powered by <strong>8D Hubify</strong>
         </footer>
 
@@ -529,8 +526,8 @@
   <div class="ds-modal-ov" id="demo-modal">
     <div class="ds-modal">
       <h3 class="ds-modal__title">Modal de exemplo</h3>
-      <p class="ds-text-soft" style="font-size:var(--ds-text-body-sm)">Janela modal com overlay e blur. Use para confirmações ou formulários rápidos.</p>
-      <div style="display:flex;gap:.5rem;justify-content:flex-end;margin-top:var(--ds-space-5)">
+      <p class="ds-text-soft" style="font-size:0.875rem">Janela modal com overlay e blur. Use para confirmações ou formulários rápidos.</p>
+      <div style="display:flex;gap:.5rem;justify-content:flex-end;margin-top:1.5rem">
         <button class="ds-btn ds-btn--ghost" onclick="document.getElementById('demo-modal').classList.remove('is-open')">Cancelar</button>
         <button class="ds-btn ds-btn--primary" onclick="document.getElementById('demo-modal').classList.remove('is-open')">Confirmar</button>
       </div>

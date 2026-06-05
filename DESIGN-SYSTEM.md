@@ -2,7 +2,9 @@
 
 Documento único com **todas as regras** do design system. Identidade extraída do
 código-fonte oficial de `dadosfera.ai` (bloco `#ddf-custom-home`, formulário HubSpot e
-footer). Fonte da verdade em código: `css/tokens.css`.
+footer). Fonte da verdade em código: `css/dadosfera-base.css` — **arquivo único, simples e
+sem variáveis CSS** (valores em HEX direto, com `!important` onde necessário), pensado para
+colar em LPs do RD Station. Sem modo escuro.
 
 ---
 
@@ -102,8 +104,7 @@ lavanda) · `#F7F8FC` (fundo soft).
 
 ## 4. Tema
 
-Claro é padrão (`data-theme` aplicado no `<head>` via no-FOUC script). Tema escuro disponível
-via `[data-theme="dark"]` (botão `[data-theme-toggle]`). Variáveis semânticas:
+Tema único **claro** (sem modo escuro). Variáveis semânticas (legado, apenas referência):
 `--ds-bg`, `--ds-bg-soft`, `--ds-bg-neutral`, `--ds-surface`, `--ds-heading`, `--ds-text`,
 `--ds-text-soft`, `--ds-border`, `--ds-border-strong`.
 
@@ -111,7 +112,9 @@ via `[data-theme="dark"]` (botão `[data-theme-toggle]`). Variáveis semânticas
 
 ## 5. Componentes (25+)
 
-CSS em `css/components.css`. Prefixo de classe **`.ds-`**.
+CSS em `css/dadosfera-base.css` (arquivo único). Prefixo de classe **`.ds-`** + utilitários
+genéricos (`.grid`, `.grid-2/3/4`, `.bento-grid`, `.col-span-*`, `.flex`, `.items-center`…).
+Os botões também respondem à classe nativa do RD (`.rd-button`).
 
 | Componente | Classe base | Variações |
 |-----------|-------------|-----------|
