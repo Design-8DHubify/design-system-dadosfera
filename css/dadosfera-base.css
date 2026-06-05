@@ -1,4 +1,321 @@
 /* ============================================================
+   DADOSFERA — CSS BASE (único, para todas as LPs do RD Station)
+   Cole TODO este arquivo dentro de uma tag <style> no <head> da
+   sua landing page (ou no CSS global do RD Station). Ele já traz:
+   reset · tokens (cores/tipografia/espaçamento) · tipografia base
+   · TODOS os componentes .ds-*  — sem dependências externas.
+
+   Fontes da marca — adicione também no <head> da LP:
+   <link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css">
+   (Menco). A Nunito já é importada abaixo.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ============ 1) TOKENS ============ */
+/* ============================================================
+   DADOSFERA DESIGN SYSTEM — TOKENS
+   Fonte única de verdade do sistema visual.
+   Cores extraídas da identidade oficial (dadosfera.ai).
+   Suporta tema claro (padrão) e escuro via [data-theme].
+   ============================================================ */
+
+:root {
+  /* -------------------------------------------------------- */
+  /* CORES DE MARCA                                           */
+  /* -------------------------------------------------------- */
+  --ds-color-nucleo:       #1700A2; /* indigo elétrico — primária (títulos/CTA) */
+  --ds-color-nucleo-hover: #110080; /* hover da primária (oficial)  */
+  --ds-color-profundo:     #0D003B; /* roxo profundo — texto/base escura */
+  --ds-color-acao:         #1863DC; /* azul de ação — CTA alternativo */
+  --ds-color-ciano:        #3BBFF0; /* ciano (aurora) — preenchimentos/destaque */
+  --ds-color-ciano-text:   #0B6E94; /* ciano acessível p/ TEXTO em fundo claro (AA) */
+  --ds-color-lavanda:      #A79EE8; /* lavanda — apoio suave       */
+  --ds-color-laranja:      #FF9800; /* laranja — acento/CTA secundário */
+  --ds-color-branco:       #FFFFFF;
+  --ds-color-tinta:        #0D003B; /* texto principal (profundo, oficial) */
+
+  /* Escalas do Núcleo (indigo) */
+  --ds-color-nucleo-90:    #2D1AB0;
+  --ds-color-nucleo-80:    #4433BE;
+  --ds-color-nucleo-60:    #7366D1;
+  --ds-color-nucleo-40:    #A299E0;
+  --ds-color-nucleo-20:    #D1CCEF;
+  --ds-color-nucleo-10:    #ECEAF9;
+
+  /* Escalas neutras (extraídas do site oficial) */
+  --ds-color-cinza-900:    #0D003B;
+  --ds-color-cinza-800:    #222228;
+  --ds-color-cinza-700:    #3A3A44;
+  --ds-color-cinza-600:    #4B5563; /* muted (oficial) */
+  --ds-color-cinza-500:    #6B7280; /* muted-soft (oficial) */
+  --ds-color-cinza-400:    #C0BDD4; /* placeholders (oficial) */
+  --ds-color-cinza-300:    #C9CCEC; /* chart-bar (oficial) */
+  --ds-color-cinza-250:    #D7D7E2; /* card-border-hover (oficial) */
+  --ds-color-cinza-200:    #E1E3EF;
+  --ds-color-cinza-100:    #ECECF2; /* card-border (oficial) */
+  --ds-color-cinza-neutral:#F2EFF4; /* bg neutro lavanda (oficial) */
+  --ds-color-cinza-50:     #F7F8FC; /* bg-soft (oficial) */
+
+  /* Semânticas */
+  --ds-color-success:      #1DBF73;
+  --ds-color-info:         var(--ds-color-acao);
+  --ds-color-warning:      var(--ds-color-laranja);
+  --ds-color-danger:       #E53E3E;
+
+  /* -------------------------------------------------------- */
+  /* GRADIENTES                                               */
+  /* -------------------------------------------------------- */
+  --ds-gradient-nucleo:    linear-gradient(135deg, #1700A2 0%, #3BBFF0 100%);
+  --ds-gradient-profundo:  linear-gradient(135deg, #0D003B 0%, #1700A2 100%);
+  --ds-gradient-ciano:     linear-gradient(135deg, #1700A2 0%, #3BBFF0 100%);
+  --ds-gradient-hero:      linear-gradient(135deg, #0D003B 0%, #1700A2 55%, #1863DC 100%);
+  /* Aurora — fundo claro assinatura da Dadosfera (radiais ciano + lavanda) */
+  --ds-gradient-aurora:
+      radial-gradient(900px 520px at 92% 6%, rgba(59,191,240,.18), transparent 62%),
+      radial-gradient(880px 480px at 8% 96%, rgba(167,158,232,.22), transparent 62%),
+      radial-gradient(700px 440px at 50% 50%, rgba(255,255,255,.9), transparent 70%),
+      linear-gradient(180deg, #FAFAFE 0%, #F4F1F8 100%);
+
+  /* -------------------------------------------------------- */
+  /* TIPOGRAFIA                                               */
+  /* Tipografia oficial Dadosfera:                            */
+  /* menco = display da marca (Adobe Typekit, kit lrl6igp).    */
+  /* Nunito = corpo (Google Fonts). Fallback de menco = Nunito */
+  /* (a home do site renderiza tudo em Nunito).               */
+  /* -------------------------------------------------------- */
+  --ds-font-display: 'menco', 'Nunito', system-ui, -apple-system, sans-serif;
+  --ds-font-base:    'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ds-font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --ds-weight-light:     300;
+  --ds-weight-regular:   400;
+  --ds-weight-medium:    500;
+  --ds-weight-semibold:  600;
+  --ds-weight-bold:      700;
+  --ds-weight-extrabold: 800;
+
+  /* Escala responsiva (clamp) */
+  --ds-text-display:  clamp(2.75rem, 5vw,   4.5rem);    /* 44-72 */
+  --ds-text-h1:       clamp(2.25rem, 4vw,   3.25rem);   /* 36-52 */
+  --ds-text-h2:       clamp(1.875rem,3.2vw, 2.5rem);    /* 30-40 */
+  --ds-text-h3:       clamp(1.5rem,  2.4vw, 1.875rem);  /* 24-30 */
+  --ds-text-h4:       clamp(1.25rem, 1.8vw, 1.5rem);    /* 20-24 */
+  --ds-text-h5:       1.125rem;  /* 18 */
+  --ds-text-h6:       1rem;      /* 16 */
+  --ds-text-body-lg:  1.125rem;  /* 18 */
+  --ds-text-body:     1rem;      /* 16 */
+  --ds-text-body-sm:  0.875rem;  /* 14 */
+  --ds-text-caption:  0.75rem;   /* 12 */
+  --ds-text-overline: 0.6875rem; /* 11 */
+
+  --ds-leading-tight:  1.1;
+  --ds-leading-snug:   1.3;
+  --ds-leading-normal: 1.6;
+
+  /* -------------------------------------------------------- */
+  /* ESPAÇAMENTO (escala 4px)                                 */
+  /* -------------------------------------------------------- */
+  --ds-space-1:  0.25rem;
+  --ds-space-2:  0.5rem;
+  --ds-space-3:  0.75rem;
+  --ds-space-4:  1rem;
+  --ds-space-5:  1.5rem;
+  --ds-space-6:  2rem;
+  --ds-space-7:  3rem;
+  --ds-space-8:  4rem;
+  --ds-space-9:  6rem;
+
+  /* RAIO */
+  --ds-radius-sm:   8px;
+  --ds-radius-md:   12px;
+  --ds-radius-lg:   18px;
+  --ds-radius-xl:   22px;
+  --ds-radius-2xl:  28px;
+  --ds-radius-pill: 999px;
+
+  /* SOMBRAS (extraídas do site oficial — base #0D003B) */
+  --ds-shadow-sm: 0 4px 20px rgba(13,0,59,.07);
+  --ds-shadow-md: 0 10px 22px -12px rgba(13,0,59,.12);
+  --ds-shadow-lg: 0 22px 44px -22px rgba(13,0,59,.22);
+  --ds-shadow-xl: 0 32px 64px -24px rgba(13,0,59,.22), 0 8px 24px -12px rgba(13,0,59,.1);
+  --ds-shadow-glow: 0 10px 20px -10px rgba(23,0,162,.45);
+
+  /* TRANSIÇÕES */
+  --ds-ease:     cubic-bezier(.4,0,.2,1);
+  --ds-dur-fast: .16s;
+  --ds-dur:      .28s;
+
+  /* Z-INDEX */
+  --ds-z-header:  100;
+  --ds-z-sticky:  200;
+  --ds-z-overlay: 900;
+  --ds-z-modal:   1000;
+  --ds-z-toast:   1100;
+
+  /* -------------------------------------------------------- */
+  /* TEMA CLARO (padrão)                                      */
+  /* -------------------------------------------------------- */
+  --ds-bg:          #FFFFFF;
+  --ds-bg-soft:     var(--ds-color-cinza-50);     /* #F7F8FC */
+  --ds-bg-neutral:  var(--ds-color-cinza-neutral);/* #F2EFF4 lavanda */
+  --ds-surface:     #FFFFFF;
+  --ds-surface-2:   var(--ds-color-cinza-100);
+  --ds-heading:     var(--ds-color-nucleo);       /* títulos em indigo (oficial) */
+  --ds-text:        var(--ds-color-profundo);     /* corpo profundo */
+  --ds-text-soft:   var(--ds-color-cinza-600);    /* #4B5563 */
+  --ds-border:      var(--ds-color-cinza-100);    /* #ECECF2 */
+  --ds-border-strong: var(--ds-color-cinza-250);  /* #D7D7E2 */
+}
+
+/* -------------------------------------------------------- */
+/* TEMA ESCURO                                              */
+/* -------------------------------------------------------- */
+[data-theme="dark"] {
+  --ds-bg:          var(--ds-color-profundo);
+  --ds-bg-soft:     #14093f;
+  --ds-surface:     #1A0E4A;
+  --ds-surface-2:   #241662;
+  --ds-text:        #F3F1FB;
+  --ds-text-soft:   #B7AEDD;
+  --ds-border:      rgba(167,158,232,.18);
+  --ds-border-strong: rgba(167,158,232,.32);
+  --ds-shadow-sm: 0 1px 3px rgba(0,0,0,.4);
+  --ds-shadow-md: 0 6px 18px rgba(0,0,0,.45);
+  --ds-shadow-lg: 0 16px 40px rgba(0,0,0,.55);
+}
+
+/* ============ 2) BASE (reset + tipografia) ============ */
+/* ============================================================
+   DADOSFERA DESIGN SYSTEM — BASE
+   Reset, tipografia base e utilitários globais.
+   Aplicar em todas as LPs: <link tokens.css> + <link base.css>
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+* { margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ds-font-base);
+  font-size: var(--ds-text-body);
+  font-weight: var(--ds-weight-regular);
+  line-height: var(--ds-leading-normal);
+  color: var(--ds-text);
+  background: var(--ds-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, picture, svg, video { display: block; max-width: 100%; }
+
+/* -------------------------------------------------------- */
+/* TIPOGRAFIA                                               */
+/* -------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ds-font-display);
+  font-weight: var(--ds-weight-bold);
+  line-height: var(--ds-leading-tight);
+  letter-spacing: -0.01em;
+  color: var(--ds-heading); /* indigo #1700A2 — identidade Dadosfera */
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--ds-text-h1); font-weight: var(--ds-weight-bold); }
+h2 { font-size: var(--ds-text-h2); font-weight: var(--ds-weight-semibold); } /* títulos de seção: 600 (oficial) */
+h3 { font-size: var(--ds-text-h3); }
+h4 { font-size: var(--ds-text-h4); font-weight: var(--ds-weight-semibold); }
+h5 { font-size: var(--ds-text-h5); font-weight: var(--ds-weight-semibold); }
+h6 { font-size: var(--ds-text-h6); font-weight: var(--ds-weight-semibold); }
+
+p  { color: var(--ds-text); }
+
+a {
+  color: var(--ds-color-acao);
+  text-decoration: none;
+  transition: color var(--ds-dur-fast) var(--ds-ease);
+}
+a:hover { color: var(--ds-color-nucleo); }
+
+strong, b { font-weight: var(--ds-weight-bold); }
+
+small { font-size: var(--ds-text-body-sm); }
+
+code, pre, kbd { font-family: var(--ds-font-mono); }
+
+ul, ol { padding-left: 1.25rem; }
+
+hr { border: none; border-top: 1px solid var(--ds-border); margin: var(--ds-space-5) 0; }
+
+::selection { background: var(--ds-color-nucleo); color: #fff; }
+
+:focus-visible { outline: 3px solid var(--ds-color-acao); outline-offset: 2px; border-radius: 4px; }
+/* remove o anel só quando NÃO for navegação por teclado */
+:focus:not(:focus-visible) { outline: none; }
+
+/* Skip link (acessibilidade — pular para o conteúdo) */
+.ds-skip { position:absolute; left:8px; top:-48px; z-index:9999; background: var(--ds-color-nucleo); color:#fff; padding:.6rem 1rem; border-radius: var(--ds-radius-md); font-weight:700; font-size: var(--ds-text-body-sm); transition: top var(--ds-dur) var(--ds-ease); }
+.ds-skip:focus { top:8px; color:#fff; }
+
+/* -------------------------------------------------------- */
+/* UTILITÁRIOS DE TIPOGRAFIA                                */
+/* -------------------------------------------------------- */
+.ds-display    { font-family: var(--ds-font-display); font-size: var(--ds-text-display); font-weight: var(--ds-weight-extrabold); line-height: var(--ds-leading-tight); letter-spacing: -0.03em; }
+.ds-lead       { font-size: var(--ds-text-body-lg); color: var(--ds-text-soft); line-height: var(--ds-leading-normal); }
+.ds-overline   { display:inline-block; font-family: var(--ds-font-base); font-size: var(--ds-text-overline); letter-spacing: .16em; text-transform: uppercase; color: var(--ds-color-ciano-text); font-weight: var(--ds-weight-extrabold); }
+/* Em superfícies escuras, o ciano vivo tem contraste alto e mantém a identidade */
+[data-theme="dark"] .ds-overline,
+.ds-hero:not(.ds-hero--aurora) .ds-overline,
+.ds-feature-card .ds-overline { color: var(--ds-color-ciano); }
+.ds-text-soft  { color: var(--ds-text-soft); }
+.ds-text-grad  { background: var(--ds-gradient-nucleo); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* -------------------------------------------------------- */
+/* LAYOUT                                                   */
+/* -------------------------------------------------------- */
+.ds-container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--ds-space-5); }
+.ds-section   { padding-block: var(--ds-space-9); }
+.ds-section--neutral { background: var(--ds-bg-neutral); }
+.ds-section--soft    { background: var(--ds-bg-soft); }
+.ds-bg-aurora { background: var(--ds-gradient-aurora); }
+
+.ds-grid { display: grid; gap: var(--ds-space-5); }
+.ds-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.ds-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.ds-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.ds-flex   { display: flex; }
+.ds-center { display: flex; align-items: center; justify-content: center; }
+.ds-stack  { display: flex; flex-direction: column; gap: var(--ds-space-4); }
+
+@media (max-width: 900px) {
+  .ds-grid-3, .ds-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .ds-grid-2, .ds-grid-3, .ds-grid-4 { grid-template-columns: 1fr; }
+  .ds-section { padding-block: var(--ds-space-7); }
+}
+
+/* Helpers */
+.ds-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+.ds-mt-0{margin-top:0}.ds-mt-4{margin-top:var(--ds-space-4)}.ds-mt-6{margin-top:var(--ds-space-6)}
+.ds-text-center{text-align:center}
+
+/* -------------------------------------------------------- */
+/* MOVIMENTO REDUZIDO (respeita preferência do sistema)     */
+/* -------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============ 3) COMPONENTES (.ds-*) ============ */
+/* ============================================================
    DADOSFERA DESIGN SYSTEM — COMPONENTES
    Biblioteca de componentes reutilizáveis (sem dependência de
    bibliotecas de ícones). Para código pronto p/ RD Station use
@@ -30,8 +347,8 @@
 .ds-btn--light { background:#fff; color: var(--ds-color-nucleo); }
 .ds-btn--light:hover{ box-shadow: var(--ds-shadow-md); transform: translateY(-2px); }
 .ds-btn:disabled, .ds-btn--disabled {
-  opacity:.7; cursor: not-allowed; pointer-events: none;
-  background: var(--ds-color-cinza-250); color: var(--ds-color-cinza-600);
+  opacity:.45; cursor: not-allowed; pointer-events: none;
+  background: var(--ds-color-cinza-300); color: var(--ds-color-cinza-500);
   border-color: transparent; box-shadow:none;
 }
 .ds-btn--lg { padding: 1.05rem 2.1rem; font-size: var(--ds-text-body); }
@@ -169,7 +486,7 @@
   box-shadow: var(--ds-shadow-md); display:grid; place-items:center; font-size:1.5rem; line-height:1; font-weight:700;
 }
 .ds-carousel__btn--prev { left:-8px; } .ds-carousel__btn--next { right:-8px; }
-.ds-carousel__dots { display:flex; gap:.5rem; justify-content:center; margin-top: var(--ds-space-4); }
+.ds-carousel__dots { display:flex; gap:.25rem; justify-content:center; margin-top: var(--ds-space-4); }
 /* alvo de toque ≥24px com indicador visual de 9px (acessibilidade) */
 .ds-carousel__dot { width:24px; height:24px; border:none; background:transparent; cursor:pointer; padding:0; display:grid; place-items:center; }
 .ds-carousel__dot::before { content:""; width:9px; height:9px; border-radius:50%; background: var(--ds-color-cinza-300); transition: background var(--ds-dur-fast), transform var(--ds-dur-fast); }
@@ -202,7 +519,6 @@
 .ds-footer__col h6 { color:#fff; margin-bottom: var(--ds-space-4); }
 .ds-footer__links { list-style:none; padding:0; display:flex; flex-direction:column; gap:.6rem; }
 .ds-footer__bottom { margin-top: var(--ds-space-7); padding-top: var(--ds-space-5); border-top:1px solid rgba(255,255,255,.12); display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; color: rgba(255,255,255,.55); font-size: var(--ds-text-caption); }
-.ds-footer a:focus-visible { outline:2px solid var(--ds-color-ciano); outline-offset:3px; border-radius:2px; }
 @media (max-width:760px){ .ds-footer__grid{ grid-template-columns:1fr 1fr; } }
 
 /* ===================== 11. STATS ====================== */
@@ -315,7 +631,7 @@
 
 /* ===================== 25. TOOLTIP ================== */
 .ds-tooltip { position:relative; display:inline-flex; border-bottom:1px dashed var(--ds-border-strong); cursor:help; }
-.ds-tooltip__bubble { position:absolute; bottom:130%; left:50%; transform:translateX(-50%) scale(.95); background: var(--ds-color-cinza-900); color:#fff; padding:.5rem .75rem; border-radius: var(--ds-radius-sm); font-size: var(--ds-text-caption); white-space:nowrap; opacity:0; pointer-events:none; transition: all var(--ds-dur-fast); z-index: calc(var(--ds-z-modal) + 1); }
+.ds-tooltip__bubble { position:absolute; bottom:130%; left:50%; transform:translateX(-50%) scale(.95); background: var(--ds-color-cinza-900); color:#fff; padding:.5rem .75rem; border-radius: var(--ds-radius-sm); font-size: var(--ds-text-caption); white-space:nowrap; opacity:0; pointer-events:none; transition: all var(--ds-dur-fast); }
 .ds-tooltip:hover .ds-tooltip__bubble { opacity:1; transform:translateX(-50%) scale(1); }
 
 /* ===================== 26. MODAL / DIALOG ========== */

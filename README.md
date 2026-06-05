@@ -23,13 +23,24 @@ externas** (nem fontes de ícones). A tela de login usa GSAP + Three.js apenas p
 | `js/` | `ds-auth` · `ds-clipboard` · `ds-ui` · `ds-builder` |
 | `assets/logotipos/` | Logo oficial Dadosfera (SVG, PNG colorida e branca) |
 
-## CSS base (use em qualquer LP)
+## CSS base (use em TODA LP do RD Station)
+
+Arquivo **único e autossuficiente** `css/dadosfera-base.css` (reset + tokens + tipografia +
+todos os componentes `.ds-*`). Cole o conteúdo dele dentro de um `<style>` no `<head>` da LP
+— sem depender de arquivos externos. A home tem a seção **“CSS Base”** com botões de
+copiar/baixar.
 
 ```html
-<link rel="stylesheet" href="css/tokens.css">      <!-- cores, tipografia, espaçamento -->
-<link rel="stylesheet" href="css/base.css">        <!-- reset + tipografia base -->
-<link rel="stylesheet" href="css/components.css">  <!-- componentes .ds-* -->
+<!-- no <head> da LP -->
+<link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css"><!-- Menco -->
+<style>
+  /* cole aqui TODO o conteúdo de css/dadosfera-base.css */
+</style>
 ```
+
+> No design system (site de doc) os estilos ficam divididos em
+> `tokens.css` · `base.css` · `components.css`; o `dadosfera-base.css` é a junção dos três,
+> pensada para colar nas LPs.
 
 ## Componentes (25+)
 

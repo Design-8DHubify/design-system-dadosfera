@@ -36,6 +36,8 @@
 .docs-side__link:hover { background: var(--ds-surface-2); }
 .docs-side__link.is-active { background: var(--ds-color-nucleo); color:#fff; }
 .docs-side__link .dot { width:20px; height:20px; border-radius:6px; background: var(--ds-color-nucleo-10); color: var(--ds-color-nucleo); display:grid; place-items:center; font-size:11px; font-weight:800; flex-shrink:0; }
+.docs-side__link .nav-ico { width:18px; height:18px; flex-shrink:0; stroke-width:2; opacity:.9; }
+.docs-side__link.is-active .nav-ico { opacity:1; }
 .docs-side__footer { margin-top:auto; padding-top: var(--ds-space-4); }
 
 .ds-logout {

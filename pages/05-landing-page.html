@@ -31,7 +31,7 @@
   /* HERO */
   .lp-hero { position:relative; background:var(--ds-gradient-aurora); padding:72px 16px 88px; overflow:hidden; isolation:isolate; }
   .lp-hero::before { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(360px 260px at 80% 30%,rgba(59,191,240,.16),transparent 65%),radial-gradient(420px 320px at 15% 80%,rgba(23,0,162,.08),transparent 65%); }
-  .lp-hero__grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
+  .lp-hero__grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:center; }
   .lp-hero h1 { color:var(--ds-color-nucleo); font-size:clamp(2.4rem,4.6vw,3.9rem); line-height:1.06; letter-spacing:-.02em; margin-bottom:1.2rem; }
   .lp-hero h1 span { color:var(--ds-color-profundo); display:block; }
   .lp-hero p.sub { font-size:1.15rem; color:var(--ds-text-soft); max-width:560px; line-height:1.6; margin-bottom:1.8rem; }
@@ -126,6 +126,47 @@
   @media(max-width:920px){ .lp-form{grid-template-columns:1fr; gap:36px;} }
 
   .lp-foot-cta { text-align:center; }
+
+  /* ===== Refino de design (skill frontend-design) ===== */
+  /* Atmosfera aurora sutil em todas as seções (profundidade vs. cor chapada) */
+  .lp-sec { position:relative; isolation:isolate; }
+  .lp-sec::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+    background:radial-gradient(720px 380px at 92% 6%, rgba(59,191,240,.07), transparent 60%),
+               radial-gradient(640px 360px at 5% 96%, rgba(167,158,232,.07), transparent 60%); }
+  /* Acento de marca + profundidade nos mockups */
+  .lp-viz, .lp-chat { background:linear-gradient(180deg,#fff 0%, rgba(59,191,240,.045) 100%); }
+  /* Tipografia do hero: respiro entre as duas linhas */
+  .lp-hero h1 { line-height:1.08; }
+  .lp-hero h1 span { margin-top:.35rem; font-weight:700; }
+  /* Nav: raio e sombra alinhados aos tokens */
+  .lp-nav__in { border-radius:var(--ds-radius-pill); box-shadow:0 10px 30px rgba(13,0,59,.10), 0 0 0 1px rgba(13,0,59,.04); }
+  /* Tags/labels dentro dos mockups com contraste AA garantido (núcleo) */
+  .lp-viz__bar .tag { color:var(--ds-color-nucleo); background:rgba(23,0,162,.10); }
+  .lp-bubble__meta { color:var(--ds-color-nucleo); }
+  /* Integrações: hover com elevação + brilho da marca */
+  .lp-integ__c:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 14px 30px rgba(23,0,162,.16); border-color:var(--ds-color-ciano); }
+  /* Banda de números: aurora completa (dois polos) */
+  .lp-band::after { content:""; position:absolute; inset:0;
+    background:radial-gradient(600px 300px at 85% 15%, rgba(59,191,240,.35), transparent 60%),
+               radial-gradient(680px 360px at 10% 90%, rgba(167,158,232,.22), transparent 60%); }
+
+  /* Page-load orquestrado do hero (reveals escalonados) */
+  @keyframes lp-up { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+  .lp-hero .ds-overline { opacity:0; animation:lp-up .7s var(--ds-ease) .05s forwards; }
+  .lp-hero h1          { opacity:0; animation:lp-up .7s var(--ds-ease) .15s forwards; }
+  .lp-hero p.sub       { opacity:0; animation:lp-up .7s var(--ds-ease) .25s forwards; }
+  .lp-hero__cta        { opacity:0; animation:lp-up .7s var(--ds-ease) .35s forwards; }
+  .lp-hero__trust      { opacity:0; animation:lp-up .7s var(--ds-ease) .45s forwards; }
+  .lp-viz              { opacity:0; animation:lp-up .8s var(--ds-ease) .5s forwards; }
+  /* Scroll-reveal das seções (classe aplicada via JS + IntersectionObserver) */
+  .lp-reveal { opacity:0; transform:translateY(22px); transition:opacity .6s var(--ds-ease), transform .6s var(--ds-ease); }
+  .lp-reveal.in { opacity:1; transform:none; }
+
+  /* Respeita preferência de movimento reduzido */
+  @media (prefers-reduced-motion: reduce) {
+    .lp-hero .ds-overline, .lp-hero h1, .lp-hero p.sub, .lp-hero__cta, .lp-hero__trust, .lp-viz { opacity:1; animation:none; }
+    .lp-reveal { opacity:1; transform:none; transition:none; }
+  }
 </style>
 </head>
 <body class="lp">
@@ -474,5 +515,19 @@
 
   <script src="../js/ds-clipboard.js"></script>
   <script src="../js/ds-ui.js"></script>
+  <script>
+    // Scroll-reveal das seções (CSS faz a transição; aqui só marcamos quando entra na viewport)
+    (function(){
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var sel = '.lp-head, .lp-feature, .lp-band, .lp-integ__c, .lp-press__c, .ds-price, .ds-testimonial, .lp-clients';
+      var els = [].slice.call(document.querySelectorAll(sel));
+      if (reduce || !('IntersectionObserver' in window)) return; // sem JS, conteúdo já visível
+      els.forEach(function(e){ e.classList.add('lp-reveal'); });
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+      els.forEach(function(e){ io.observe(e); });
+    })();
+  </script>
 </body>
 </html>
