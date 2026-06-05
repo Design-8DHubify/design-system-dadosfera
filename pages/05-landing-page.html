@@ -520,46 +520,58 @@ a:hover { color: #1700A2; }
 </head>
 <body class="lp">
 
-  <!-- ============ NAV ============ -->
+  <!-- ============================================================
+       TEMPLATE DE LANDING PAGE — DADOSFERA
+       Como usar (para analistas):
+       1. Troque os textos "Lorem ipsum" pelo conteúdo da sua campanha.
+       2. As imagens são exemplos — substitua o src pelas suas imagens.
+       3. NÃO altere as classes (ds-btn, ds-card, lp-* etc.) — elas dão o visual.
+       4. Procure pelos comentários "TROQUE:" para saber o que editar.
+       ============================================================ -->
+
+  <!-- ============ NAV (topo) ============ -->
   <nav class="lp-nav">
     <div class="lp-nav__in">
       <a href="#topo"><img class="lp-logo" src="../assets/logotipos/logo-dadosfera.png" alt="Dadosfera"></a>
+      <!-- TROQUE: itens do menu -->
       <div class="lp-nav__menu">
-        <a href="#plataforma">Plataforma</a>
-        <a href="#integracoes">Integrações</a>
-        <a href="#clientes">Clientes</a>
-        <a href="#planos">Planos</a>
-        <a href="#midia">Na mídia</a>
+        <a href="#plataforma">Lorem</a>
+        <a href="#integracoes">Ipsum</a>
+        <a href="#clientes">Dolor</a>
+        <a href="#planos">Amet</a>
+        <a href="#midia">Sit</a>
       </div>
+      <!-- TROQUE: botões do topo -->
       <div class="lp-nav__cta">
-        <a class="ds-btn ds-btn--ghost ds-btn--sm" href="#" target="_blank" rel="noopener">Entrar</a>
-        <a class="ds-btn ds-btn--primary ds-btn--sm" href="#form">Solicitar demonstração</a>
+        <a class="ds-btn ds-btn--ghost ds-btn--sm" href="#" target="_blank" rel="noopener">Lorem ipsum</a>
+        <a class="ds-btn ds-btn--primary ds-btn--sm" href="#form">Lorem ipsum</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO (1ª dobra) ============ -->
   <header class="lp-hero" id="topo">
     <div class="lp-hero__grid">
       <div>
-        <span class="ds-overline">Plataforma de Dados &amp; Inteligência Artificial</span>
-        <h1 style="margin-top:.8rem">Organize seus dados,<br>otimize suas decisões.<span>Escale com IA.</span></h1>
-        <p class="sub">A Dadosfera conecta e organiza todas as suas fontes de dados, aplica IA e entrega aplicações e análises avançadas — para decisões mais rápidas, mais visibilidade e mais receita.</p>
+        <!-- TROQUE: chamada pequena / título / subtítulo / botões -->
+        <span class="ds-overline">Lorem ipsum</span>
+        <h1 style="margin-top:.8rem">Lorem ipsum dolor sit amet,<br>consectetur adipiscing.<span>Lorem ipsum dolor.</span></h1>
+        <p class="sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
         <div class="lp-hero__cta">
-          <a class="ds-btn ds-btn--primary ds-btn--lg" href="#form">Agende uma demonstração</a>
-          <a class="ds-btn ds-btn--secondary ds-btn--lg" href="#plataforma">Conhecer a plataforma</a>
+          <a class="ds-btn ds-btn--primary ds-btn--lg" href="#form">Lorem ipsum</a>
+          <a class="ds-btn ds-btn--secondary ds-btn--lg" href="#plataforma">Lorem ipsum</a>
         </div>
       </div>
 
-      <!-- Mockup de dashboard (SVG real, sem placeholder) -->
+      <!-- Imagem / ilustração do hero (exemplo: mockup). TROQUE por uma imagem sua se preferir. -->
       <div class="lp-viz">
-        <div class="lp-viz__bar"><i></i><i></i><i></i><b>Receita por trimestre</b><span class="tag">Insight</span></div>
+        <div class="lp-viz__bar"><i></i><i></i><i></i><b>Lorem ipsum</b><span class="tag">Lorem</span></div>
         <div class="lp-viz__body">
           <div class="lp-viz__kpis">
-            <div class="lp-viz__kpi"><small>Receita</small><b>R$ 2,4M <em>+18%</em></b></div>
-            <div class="lp-viz__kpi"><small>Ticket médio</small><b>R$ 482 <em>+7%</em></b></div>
+            <div class="lp-viz__kpi"><small>Lorem ipsum</small><b>00,0 <em>+00%</em></b></div>
+            <div class="lp-viz__kpi"><small>Lorem ipsum</small><b>000 <em>+0%</em></b></div>
           </div>
-          <svg class="lp-chart" viewBox="0 0 480 200" preserveAspectRatio="none" role="img" aria-label="Gráfico de receita crescente">
+          <svg class="lp-chart" viewBox="0 0 480 200" preserveAspectRatio="none" role="img" aria-label="Lorem ipsum">
             <defs><linearGradient id="lpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1700A2" stop-opacity=".30"/><stop offset="1" stop-color="#1700A2" stop-opacity="0"/></linearGradient></defs>
             <g stroke="#EFF0F6" stroke-width="1" stroke-dasharray="3 4"><line x1="0" y1="50" x2="480" y2="50"/><line x1="0" y1="110" x2="480" y2="110"/><line x1="0" y1="170" x2="480" y2="170"/></g>
             <path d="M0,160 L48,140 L96,144 L144,110 L192,120 L240,80 L288,92 L336,56 L384,64 L432,36 L480,44 L480,200 L0,200 Z" fill="url(#lpg)"/>
@@ -571,50 +583,53 @@ a:hover { color: #1700A2; }
     </div>
   </header>
 
-  <!-- ============ FORM / CTA (2ª dobra) ============ -->
+  <!-- ============ FORMULÁRIO (2ª dobra) ============ -->
   <section class="lp-sec" id="form">
     <div class="lp-wrap lp-form">
       <div>
-        <span class="ds-overline">Fale com a gente</span>
-        <h2 style="font-size:clamp(1.9rem,3.2vw,2.6rem)">Conecte seus dados. O resto, a Dadosfera faz.</h2>
-        <p class="ds-lead" style="margin:1rem 0 1.6rem">Agende uma demonstração e veja a plataforma funcionando com os seus próprios dados — sem compromisso.</p>
+        <!-- TROQUE: chamada e lista de benefícios -->
+        <span class="ds-overline">Lorem ipsum</span>
+        <h2 style="font-size:clamp(1.9rem,3.2vw,2.6rem)">Lorem ipsum dolor sit amet consectetur.</h2>
+        <p class="ds-lead" style="margin:1rem 0 1.6rem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
         <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.85rem">
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Onboarding guiado por especialista</li>
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Demonstração com casos do seu setor</li>
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Primeiros resultados em poucos dias</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor sit amet</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Consectetur adipiscing elit</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sed do eiusmod tempor</li>
         </ul>
       </div>
+      <!-- TROQUE: rótulos dos campos do seu formulário. Dica: no RD Station, use o bloco de Formulário do próprio RD aqui. -->
       <div class="ds-formcard">
-        <form onsubmit="event.preventDefault();this.innerHTML='<div class=&quot;ds-alert ds-alert--success&quot;><div><span class=&quot;ds-alert__title&quot;>Recebido!</span>Em breve um especialista entrará em contato.</div></div>';">
-          <div class="ds-field"><label class="ds-label">Nome completo*</label><input class="ds-input" required placeholder="Seu nome"></div>
-          <div class="ds-field"><label class="ds-label">E-mail corporativo*</label><input class="ds-input" type="email" required placeholder="voce@empresa.com"></div>
-          <div class="ds-field"><label class="ds-label">Empresa*</label><input class="ds-input" required placeholder="Nome da empresa"></div>
-          <div class="ds-field"><label class="ds-label">Departamento</label><select class="ds-select"><option>Dados / BI</option><option>Marketing</option><option>Comercial</option><option>Financeiro</option><option>TI</option><option>Diretoria</option></select></div>
-          <div class="ds-field"><label class="ds-label">Qual desafio quer resolver?</label><textarea class="ds-textarea" placeholder="Conte rapidamente seu cenário de dados"></textarea></div>
-          <button class="ds-btn ds-btn--primary ds-btn--lg ds-btn--block" type="submit">Solicitar demonstração</button>
-          <p class="ds-help" style="text-align:center;margin-top:.75rem">Seus dados estão protegidos. Sem spam.</p>
+        <form onsubmit="event.preventDefault();this.innerHTML='<div class=&quot;ds-alert ds-alert--success&quot;><div><span class=&quot;ds-alert__title&quot;>Lorem ipsum!</span>Lorem ipsum dolor sit amet consectetur.</div></div>';">
+          <div class="ds-field"><label class="ds-label">Lorem ipsum*</label><input class="ds-input" required placeholder="Lorem ipsum"></div>
+          <div class="ds-field"><label class="ds-label">Lorem ipsum*</label><input class="ds-input" type="email" required placeholder="lorem@ipsum.com"></div>
+          <div class="ds-field"><label class="ds-label">Lorem ipsum*</label><input class="ds-input" required placeholder="Lorem ipsum"></div>
+          <div class="ds-field"><label class="ds-label">Lorem ipsum</label><select class="ds-select"><option>Lorem ipsum</option><option>Dolor sit</option><option>Amet consectetur</option></select></div>
+          <div class="ds-field"><label class="ds-label">Lorem ipsum dolor sit?</label><textarea class="ds-textarea" placeholder="Lorem ipsum dolor sit amet"></textarea></div>
+          <button class="ds-btn ds-btn--primary ds-btn--lg ds-btn--block" type="submit">Lorem ipsum</button>
+          <p class="ds-help" style="text-align:center;margin-top:.75rem">Lorem ipsum dolor sit amet.</p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ============ CLIENTES ============ -->
+  <!-- ============ LOGOS (prova social) ============ -->
   <section class="lp-clients" id="clientes">
     <div class="lp-wrap">
-      <p>Empresas líderes confiam na Dadosfera</p>
+      <!-- TROQUE: frase e logos -->
+      <p>Lorem ipsum dolor sit amet consectetur</p>
       <div class="lp-marquee">
         <div class="lp-marquee__row">
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/magalu.webp" alt="Magalu" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/unimed.webp" alt="Unimed" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/petrobras.webp" alt="Petrobras" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/inter.webp" alt="Inter" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/weg.webp" alt="WEG" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/usiminas.webp" alt="Usiminas" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/algar-telecom.webp" alt="Algar Telecom" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/ipiranga.webp" alt="Ipiranga" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/boston-scientific.webp" alt="Boston Scientific" loading="lazy"></div>
-          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/anima.webp" alt="Ânima" loading="lazy"></div>
-          <!-- duplicado p/ loop contínuo -->
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/magalu.webp" alt="Logo 1" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/unimed.webp" alt="Logo 2" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/petrobras.webp" alt="Logo 3" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/inter.webp" alt="Logo 4" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/weg.webp" alt="Logo 5" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/usiminas.webp" alt="Logo 6" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/algar-telecom.webp" alt="Logo 7" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/ipiranga.webp" alt="Logo 8" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/boston-scientific.webp" alt="Logo 9" loading="lazy"></div>
+          <div class="lp-client"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/anima.webp" alt="Logo 10" loading="lazy"></div>
+          <!-- duplicado p/ loop contínuo (não precisa editar) -->
           <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/magalu.webp" alt="" loading="lazy"></div>
           <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/unimed.webp" alt="" loading="lazy"></div>
           <div class="lp-client" aria-hidden="true"><img src="https://dadosfera.ai/wp-content/uploads/2026/05/petrobras.webp" alt="" loading="lazy"></div>
@@ -630,40 +645,41 @@ a:hover { color: #1700A2; }
     </div>
   </section>
 
-  <!-- ============ PLATAFORMA / FEATURES ============ -->
+  <!-- ============ SEÇÃO DE RECURSOS ============ -->
   <section class="lp-sec" id="plataforma" style="background:#F2EFF4">
     <div class="lp-wrap">
       <div class="lp-head">
-        <span class="ds-overline">A plataforma</span>
-        <h2>Eficiência e autonomia que aceleram resultados</h2>
-        <p>Uma plataforma única que reduz esforço operacional e encurta o caminho entre o dado e a decisão.</p>
+        <!-- TROQUE: título da seção -->
+        <span class="ds-overline">Lorem ipsum</span>
+        <h2>Lorem ipsum dolor sit amet consectetur</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
       </div>
 
-      <!-- Feature 1: IA -->
+      <!-- Recurso 1 (texto à esquerda, imagem à direita) -->
       <div class="lp-feature">
         <div>
-          <span class="ds-overline">Inteligência Artificial</span>
-          <h3>Pergunte em português. A IA responde com os seus dados.</h3>
-          <p>Conecte múltiplas fontes sem complexidade técnica. Seu agente de IA interpreta perguntas em linguagem natural e devolve respostas acionáveis, com governança nativa.</p>
+          <span class="ds-overline">Lorem ipsum</span>
+          <h3>Lorem ipsum dolor sit amet consectetur adipiscing.</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <ul>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Consultas em linguagem natural</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Respostas auditáveis e rastreáveis</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sem necessidade de equipe técnica dedicada</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor sit</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Consectetur adipiscing elit</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sed do eiusmod tempor</li>
           </ul>
-          <a class="ds-btn ds-btn--primary" href="#form">Ver na prática</a>
+          <a class="ds-btn ds-btn--primary" href="#form">Lorem ipsum</a>
         </div>
         <div class="lp-feature__media">
           <div class="lp-chat">
-            <div class="lp-viz__bar"><i></i><i></i><i></i><b>Assistente Dadosfera</b><span class="tag">IA</span></div>
+            <div class="lp-viz__bar"><i></i><i></i><i></i><b>Lorem ipsum</b><span class="tag">Lorem</span></div>
             <div class="lp-chat__body">
-              <div class="lp-bubble lp-bubble--q">Qual região teve o maior crescimento de receita no último trimestre?</div>
+              <div class="lp-bubble lp-bubble--q">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</div>
               <div class="lp-bubble lp-bubble--a">
-                <div class="lp-bubble__meta">Resposta</div>
-                Sudeste, seguida do Sul. Movimento puxado por aumento de ticket médio em clientes recorrentes.
+                <div class="lp-bubble__meta">Lorem</div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
                 <div class="lp-insight">
-                  <div class="r"><span>Ticket médio</span><div class="b"><i style="width:88%"></i></div></div>
-                  <div class="r"><span>Retenção</span><div class="b"><i style="width:72%"></i></div></div>
-                  <div class="r"><span>Cross-sell</span><div class="b"><i style="width:54%"></i></div></div>
+                  <div class="r"><span>Lorem ipsum</span><div class="b"><i style="width:88%"></i></div></div>
+                  <div class="r"><span>Dolor sit</span><div class="b"><i style="width:72%"></i></div></div>
+                  <div class="r"><span>Amet</span><div class="b"><i style="width:54%"></i></div></div>
                 </div>
               </div>
             </div>
@@ -671,39 +687,39 @@ a:hover { color: #1700A2; }
         </div>
       </div>
 
-      <!-- Feature 2: Dashboards (reverse) -->
+      <!-- Recurso 2 (invertido: imagem à esquerda, texto à direita) -->
       <div class="lp-feature lp-feature--rev">
         <div>
-          <span class="ds-overline">Painéis interativos</span>
-          <h3>Dashboards que respondem ao seu próximo "e se?"</h3>
-          <p>Visualize com painéis interativos, análises preditivas e insights rápidos. Compartilhe com o time sem perder controle nem governança.</p>
+          <span class="ds-overline">Lorem ipsum</span>
+          <h3>Lorem ipsum dolor sit amet consectetur?</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.</p>
           <ul>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Atualização automatizada</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Métricas gerenciais e operacionais</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Controle de acesso por perfil</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sit amet consectetur</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Adipiscing elit sed</li>
           </ul>
-          <a class="ds-btn ds-btn--primary" href="#form">Explorar dashboards</a>
+          <a class="ds-btn ds-btn--primary" href="#form">Lorem ipsum</a>
         </div>
         <div class="lp-feature__media">
           <div class="lp-viz">
-            <div class="lp-viz__bar"><i></i><i></i><i></i><b>Visão operacional</b><span class="tag">Dashboard</span></div>
+            <div class="lp-viz__bar"><i></i><i></i><i></i><b>Lorem ipsum</b><span class="tag">Lorem</span></div>
             <div class="lp-viz__body" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
               <div style="background:#F7F8FC;border:1px solid #ECECF2;border-radius:12px;padding:14px">
-                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#6B7280">Distribuição</small>
+                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#6B7280">Lorem ipsum</small>
                 <div style="margin-top:10px;height:12px;border-radius:999px;overflow:hidden;display:flex"><span style="width:52%;background:#1700A2"></span><span style="width:28%;background:#3BBFF0"></span><span style="width:20%;background:#C9CCEC"></span></div>
-                <div style="display:flex;gap:12px;margin-top:8px;font-size:.66rem;color:#6B7280;font-weight:700"><span>Seg. A</span><span>Seg. B</span><span>Outros</span></div>
+                <div style="display:flex;gap:12px;margin-top:8px;font-size:.66rem;color:#6B7280;font-weight:700"><span>Lorem</span><span>Ipsum</span><span>Dolor</span></div>
               </div>
               <div style="background:#F7F8FC;border:1px solid #ECECF2;border-radius:12px;padding:14px">
-                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#6B7280">Crescimento</small>
-                <div style="font-family:'Menco','Nunito',system-ui,-apple-system,sans-serif;font-size:1.7rem;color:#1700A2;margin-top:6px">+18%</div>
+                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#6B7280">Lorem ipsum</small>
+                <div style="font-family:'Menco','Nunito',system-ui,-apple-system,sans-serif;font-size:1.7rem;color:#1700A2;margin-top:6px">+00%</div>
                 <div style="display:flex;align-items:flex-end;gap:3px;height:30px;margin-top:6px"><span style="flex:1;height:40%;background:#C9CCEC;border-radius:2px"></span><span style="flex:1;height:55%;background:#C9CCEC;border-radius:2px"></span><span style="flex:1;height:50%;background:#C9CCEC;border-radius:2px"></span><span style="flex:1;height:72%;background:#3BBFF0;border-radius:2px"></span><span style="flex:1;height:64%;background:#3BBFF0;border-radius:2px"></span><span style="flex:1;height:100%;background:#1700A2;border-radius:2px"></span></div>
               </div>
               <div style="grid-column:1/-1;background:#F7F8FC;border:1px solid #ECECF2;border-radius:12px;padding:14px">
-                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#6B7280">Top categorias</small>
+                <small style="font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#6B7280">Lorem ipsum</small>
                 <div style="margin-top:10px;display:flex;flex-direction:column;gap:7px">
-                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:#6B7280">Cat. A<div style="height:8px;background:#ECECF2;border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:92%;background:#1700A2"></i></div></div>
-                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:#6B7280">Cat. B<div style="height:8px;background:#ECECF2;border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:71%;background:#1700A2"></i></div></div>
-                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:#6B7280">Cat. C<div style="height:8px;background:#ECECF2;border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:58%;background:#1700A2"></i></div></div>
+                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:#6B7280">Lorem<div style="height:8px;background:#ECECF2;border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:92%;background:#1700A2"></i></div></div>
+                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:#6B7280">Ipsum<div style="height:8px;background:#ECECF2;border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:71%;background:#1700A2"></i></div></div>
+                  <div style="display:grid;grid-template-columns:60px 1fr;gap:8px;align-items:center;font-size:.7rem;font-weight:700;color:#6B7280">Dolor<div style="height:8px;background:#ECECF2;border-radius:999px;overflow:hidden"><i style="display:block;height:100%;width:58%;background:#1700A2"></i></div></div>
                 </div>
               </div>
             </div>
@@ -713,39 +729,41 @@ a:hover { color: #1700A2; }
     </div>
   </section>
 
-  <!-- ============ BAND NÚMEROS ============ -->
+  <!-- ============ NÚMEROS / DESTAQUES ============ -->
   <section class="lp-sec">
     <div class="lp-wrap">
+      <!-- TROQUE: números e legendas -->
       <div class="lp-band">
-        <div class="lp-band__i"><b>20+</b><span>Integrações nativas</span></div>
-        <div class="lp-band__i"><b>+18%</b><span>Ganho de eficiência</span></div>
-        <div class="lp-band__i"><b>3x</b><span>Análises mais rápidas</span></div>
-        <div class="lp-band__i"><b>99,9%</b><span>Disponibilidade</span></div>
+        <div class="lp-band__i"><b>00+</b><span>Lorem ipsum dolor</span></div>
+        <div class="lp-band__i"><b>+00%</b><span>Lorem ipsum sit</span></div>
+        <div class="lp-band__i"><b>0x</b><span>Lorem ipsum amet</span></div>
+        <div class="lp-band__i"><b>00,0%</b><span>Lorem ipsum elit</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ INTEGRAÇÕES ============ -->
+  <!-- ============ INTEGRAÇÕES / LOGOS EM GRADE ============ -->
   <section class="lp-sec" id="integracoes" style="background:#F2EFF4">
     <div class="lp-wrap">
       <div class="lp-head">
-        <span class="ds-overline">Integrações</span>
-        <h2>Conectamos tudo, de ponta a ponta</h2>
-        <p>Integre dados de diferentes sistemas, automatize pipelines e aplique IA — com mais de 20 conectores nativos.</p>
+        <span class="ds-overline">Lorem ipsum</span>
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
       </div>
+      <!-- TROQUE: logos/ícones (substitua o src de cada imagem) -->
       <div class="lp-integ">
-        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/hubspot-logo.webp" alt="HubSpot" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/google-sheets-icon.webp" alt="Google Sheets" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/google-ads-icon.webp" alt="Google Ads" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/snowflake-color.webp" alt="Snowflake" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/microsoft-azure.webp" alt="Microsoft Azure" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/meta-logo.webp" alt="Meta" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" loading="lazy"></div>
-        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Google" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/hubspot-logo.webp" alt="Logo 1" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/google-sheets-icon.webp" alt="Logo 2" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/google-ads-icon.webp" alt="Logo 3" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/snowflake-color.webp" alt="Logo 4" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/microsoft-azure.webp" alt="Logo 5" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://dadosfera.ai/wp-content/uploads/2026/04/meta-logo.webp" alt="Logo 6" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Logo 7" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="Logo 8" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="Logo 9" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Logo 10" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Logo 11" loading="lazy"></div>
+        <div class="lp-integ__c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Logo 12" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -753,119 +771,125 @@ a:hover { color: #1700A2; }
   <!-- ============ DEPOIMENTOS ============ -->
   <section class="lp-sec">
     <div class="lp-wrap">
-      <div class="lp-head"><span class="ds-overline">Clientes</span><h2>Resultados que falam por si</h2></div>
+      <div class="lp-head"><span class="ds-overline">Lorem ipsum</span><h2>Lorem ipsum dolor sit amet</h2></div>
+      <!-- TROQUE: depoimento, inicial do avatar, nome e cargo -->
       <div class="ds-grid ds-grid-3">
         <div class="ds-testimonial">
-          <p class="ds-testimonial__quote">Reduzimos de semanas para horas o tempo de uma análise de ponta a ponta. A área de dados virou protagonista das decisões.</p>
-          <div class="ds-person"><span class="ds-avatar">M</span><div><div class="ds-person__name">Marina Alves</div><div class="ds-person__role">Head de Dados · Varejo</div></div></div>
+          <p class="ds-testimonial__quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <div class="ds-person"><span class="ds-avatar">L</span><div><div class="ds-person__name">Lorem Ipsum</div><div class="ds-person__role">Lorem ipsum · Dolor</div></div></div>
         </div>
         <div class="ds-testimonial">
-          <p class="ds-testimonial__quote">Finalmente temos uma fonte única de verdade. O board passou a tomar decisão olhando o mesmo número.</p>
-          <div class="ds-person"><span class="ds-avatar">R</span><div><div class="ds-person__name">Rafael Costa</div><div class="ds-person__role">CFO · Indústria</div></div></div>
+          <p class="ds-testimonial__quote">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+          <div class="ds-person"><span class="ds-avatar">I</span><div><div class="ds-person__name">Ipsum Dolor</div><div class="ds-person__role">Lorem ipsum · Sit</div></div></div>
         </div>
         <div class="ds-testimonial">
-          <p class="ds-testimonial__quote">Implantação em dias, não em meses. O suporte da Dadosfera foi decisivo para destravar nossos pipelines.</p>
-          <div class="ds-person"><span class="ds-avatar">C</span><div><div class="ds-person__name">Camila Nogueira</div><div class="ds-person__role">CTO · Telecom</div></div></div>
+          <p class="ds-testimonial__quote">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.</p>
+          <div class="ds-person"><span class="ds-avatar">D</span><div><div class="ds-person__name">Dolor Amet</div><div class="ds-person__role">Lorem ipsum · Elit</div></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ PLANOS ============ -->
+  <!-- ============ PLANOS / PREÇOS ============ -->
   <section class="lp-sec" id="planos" style="background:#F2EFF4">
     <div class="lp-wrap">
-      <div class="lp-head"><span class="ds-overline">Planos</span><h2>Resultados sob medida para cada momento</h2><p>Você foca no negócio; a Dadosfera entrega velocidade, confiabilidade e escala.</p></div>
+      <div class="lp-head"><span class="ds-overline">Lorem ipsum</span><h2>Lorem ipsum dolor sit amet</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+      <!-- TROQUE: nome do plano, descrição, itens e botão. A classe ds-price--featured destaca o plano. -->
       <div class="ds-grid ds-grid-2" style="max-width:920px;margin:0 auto">
         <div class="ds-price">
-          <div class="ds-price__name">Médias e grandes empresas</div>
-          <p class="ds-card__text">Torne sua empresa mais eficiente com inteligência de dados e IA prontas para uso.</p>
+          <div class="ds-price__name">Lorem ipsum</div>
+          <p class="ds-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <ul class="ds-price__list">
-            <li>Implementação de meses para semanas</li>
-            <li>Time de dados em uma plataforma única</li>
-            <li>Integração com planilhas, CRM, ERP e mais</li>
-            <li>Insights acelerados por IA</li>
-            <li>Painéis com atualização automatizada</li>
+            <li>Lorem ipsum dolor sit</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Sed do eiusmod tempor</li>
+            <li>Ut labore et dolore</li>
+            <li>Magna aliqua veniam</li>
           </ul>
-          <a class="ds-btn ds-btn--secondary ds-btn--block" href="#form">Agende uma sessão</a>
+          <a class="ds-btn ds-btn--secondary ds-btn--block" href="#form">Lorem ipsum</a>
         </div>
         <div class="ds-price ds-price--featured">
-          <div class="ds-price__name">Enterprise</div>
-          <p class="ds-card__text">Uma só plataforma. Todos os dados. Decisões em tempo real.</p>
+          <div class="ds-price__name">Lorem ipsum</div>
+          <p class="ds-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <ul class="ds-price__list">
-            <li>Implementação de anos para meses</li>
-            <li>Integração com nuvem corporativa</li>
-            <li>Análises avançadas e preditivas</li>
-            <li>Performance, governança e segurança</li>
-            <li>Suporte técnico dedicado 24x7</li>
+            <li>Lorem ipsum dolor sit</li>
+            <li>Consectetur adipiscing</li>
+            <li>Sed do eiusmod tempor</li>
+            <li>Ut labore et dolore</li>
+            <li>Magna aliqua veniam</li>
           </ul>
-          <a class="ds-btn ds-btn--orange ds-btn--block" href="#form">Falar com especialista</a>
+          <a class="ds-btn ds-btn--orange ds-btn--block" href="#form">Lorem ipsum</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ NA MÍDIA ============ -->
+  <!-- ============ CARDS COM IMAGEM (blog / mídia) ============ -->
   <section class="lp-sec" id="midia">
     <div class="lp-wrap">
-      <div class="lp-head"><span class="ds-overline">Na mídia</span><h2>A Dadosfera em destaque</h2></div>
+      <div class="lp-head"><span class="ds-overline">Lorem ipsum</span><h2>Lorem ipsum dolor sit amet</h2></div>
+      <!-- TROQUE: imagem, título e descrição de cada card -->
       <div class="lp-press">
         <a class="lp-press__c" href="#" target="_blank" rel="noopener">
-          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/DataSUS_CartaCapital-e1772344078173.webp" alt="Startup e UFMG criam IA para análise de dados do SUS" loading="lazy">
-          <div class="lp-press__b"><h4>Startup e UFMG criam IA inédita para análise de dados do SUS</h4><p>Tecnologia permite consultar o DataSUS em linguagem natural.</p></div>
+          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/DataSUS_CartaCapital-e1772344078173.webp" alt="Imagem 1" loading="lazy">
+          <div class="lp-press__b"><h4>Lorem ipsum dolor sit amet consectetur</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p></div>
         </a>
         <a class="lp-press__c" href="#" target="_blank" rel="noopener">
-          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/HulkEconomiaReal.webp" alt="Como o Atlético-MG usa dados para decidir" loading="lazy">
-          <div class="lp-press__b"><h4>Como o Atlético-MG usa dados para decidir dentro e fora de campo</h4><p>Cada passe vira dado — e decisão de negócio.</p></div>
+          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/HulkEconomiaReal.webp" alt="Imagem 2" loading="lazy">
+          <div class="lp-press__b"><h4>Ut enim ad minim veniam quis nostrud</h4><p>Sed do eiusmod tempor incididunt ut labore.</p></div>
         </a>
         <a class="lp-press__c" href="#" target="_blank" rel="noopener">
-          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/Luis-e1772405467115.webp" alt="A ascensão do empreendedor solo por IA" loading="lazy">
-          <div class="lp-press__b"><h4>A ascensão do empreendedor solo por IA e a Dadosfera</h4><p>Uma curva de inflexão rara na história da tecnologia.</p></div>
+          <img src="https://dadosfera.ai/wp-content/uploads/2026/03/Luis-e1772405467115.webp" alt="Imagem 3" loading="lazy">
+          <div class="lp-press__b"><h4>Duis aute irure dolor in reprehenderit</h4><p>Excepteur sint occaecat cupidatat non proident.</p></div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
+  <!-- ============ PERGUNTAS FREQUENTES (FAQ) ============ -->
   <section class="lp-sec" style="background:#F2EFF4">
     <div class="lp-wrap" style="max-width:780px">
-      <div class="lp-head"><span class="ds-overline">Dúvidas frequentes</span><h2>Tudo o que você precisa saber</h2></div>
+      <div class="lp-head"><span class="ds-overline">Lorem ipsum</span><h2>Lorem ipsum dolor sit amet</h2></div>
+      <!-- TROQUE: perguntas e respostas. Mantenha a classe is-open no item que deve começar aberto. -->
       <div class="ds-accordion">
-        <div class="ds-accordion__item is-open"><button class="ds-accordion__head">Preciso de uma equipe técnica para usar? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Não. Você pergunta em português e a Dadosfera responde com base nos seus dados, com governança nativa.</div></div></div>
-        <div class="ds-accordion__item"><button class="ds-accordion__head">Quanto tempo leva a implantação? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">A maioria dos clientes está operando em poucos dias, com conectores prontos para as principais fontes.</div></div></div>
-        <div class="ds-accordion__item"><button class="ds-accordion__head">Quais fontes de dados posso conectar? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Mais de 20 integrações nativas, incluindo CRMs, ERPs, planilhas, bancos de dados e nuvens corporativas.</div></div></div>
-        <div class="ds-accordion__item"><button class="ds-accordion__head">Como funciona a segurança e a governança? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Controle de acesso por perfil, rastreabilidade das consultas e conformidade de ponta a ponta.</div></div></div>
+        <div class="ds-accordion__item is-open"><button class="ds-accordion__head">Lorem ipsum dolor sit amet? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div></div></div>
+        <div class="ds-accordion__item"><button class="ds-accordion__head">Consectetur adipiscing elit? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</div></div></div>
+        <div class="ds-accordion__item"><button class="ds-accordion__head">Sed do eiusmod tempor incididunt? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div></div></div>
+        <div class="ds-accordion__item"><button class="ds-accordion__head">Lorem ipsum dolor amet elit? <span class="ds-accordion__sign">+</span></button><div class="ds-accordion__panel"><div class="ds-accordion__inner">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</div></div></div>
       </div>
     </div>
   </section>
 
 
-  <!-- ============ FOOTER ============ -->
+  <!-- ============ RODAPÉ ============ -->
   <footer class="ds-footer">
     <div class="ds-container">
+      <!-- TROQUE: descrição e links do rodapé -->
       <div class="ds-footer__grid">
         <div class="ds-footer__col">
-          <img src="../assets/logotipos/logo-dadosfera-branco.png" alt="Dadosfera" style="height:30px;margin-bottom:1rem">
-          <p style="color:rgba(255,255,255,.6);font-size:.88rem;max-width:280px">A Dadosfera integra dados de diferentes sistemas, automatiza fluxos, aplica IA e entrega resultados via agentes e apps.</p>
+          <img src="../assets/logotipos/logo-dadosfera-branco.png" alt="Logo" style="height:30px;margin-bottom:1rem">
+          <p style="color:rgba(255,255,255,.6);font-size:.88rem;max-width:280px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
         </div>
-        <div class="ds-footer__col"><h6>Produto</h6><ul class="ds-footer__links"><li><a href="#">Plataforma SaaS</a></li><li><a href="#">AutoDriveDDF</a></li><li><a href="#">Integrações</a></li></ul></div>
-        <div class="ds-footer__col"><h6>Soluções</h6><ul class="ds-footer__links"><li><a href="#">Vendas</a></li><li><a href="#">E-commerce</a></li><li><a href="#">Financeiro</a></li></ul></div>
-        <div class="ds-footer__col"><h6>Empresa</h6><ul class="ds-footer__links"><li><a href="#">Quem somos</a></li><li><a href="#">Carreiras</a></li><li><a href="#">Contato</a></li></ul></div>
+        <div class="ds-footer__col"><h6>Lorem</h6><ul class="ds-footer__links"><li><a href="#">Lorem ipsum</a></li><li><a href="#">Dolor sit</a></li><li><a href="#">Amet</a></li></ul></div>
+        <div class="ds-footer__col"><h6>Ipsum</h6><ul class="ds-footer__links"><li><a href="#">Lorem ipsum</a></li><li><a href="#">Consectetur</a></li><li><a href="#">Adipiscing</a></li></ul></div>
+        <div class="ds-footer__col"><h6>Dolor</h6><ul class="ds-footer__links"><li><a href="#">Lorem ipsum</a></li><li><a href="#">Sed tempor</a></li><li><a href="#">Incididunt</a></li></ul></div>
       </div>
-      <div class="ds-footer__bottom"><span>© 2026 Dadosfera · Todos os direitos reservados</span><span>Powered by 8D Hubify</span></div>
+      <div class="ds-footer__bottom"><span>Lorem ipsum dolor sit amet</span><span>Powered by 8D Hubify</span></div>
     </div>
   </footer>
 
-  <a class="ds-btn ds-btn--dark" href="../index.html" style="position:fixed;bottom:1rem;right:1rem;z-index:200;box-shadow:0 22px 44px -22px rgba(13,0,59,.22)">← Voltar ao DS</a>
+  <!-- Botão de voltar ao Design System (apenas para a pré-visualização — remova ao publicar no RD) -->
+  <a class="ds-btn ds-btn--dark" href="../index.html" style="position:fixed;bottom:1rem;right:1rem;z-index:200;box-shadow:0 22px 44px -22px rgba(13,0,59,.22)">Voltar ao DS</a>
 
   <script src="../js/ds-clipboard.js"></script>
   <script src="../js/ds-ui.js"></script>
   <script>
-    // Scroll-reveal das seções (CSS faz a transição; aqui só marcamos quando entra na viewport)
+    // Scroll-reveal das seções (não precisa editar)
     (function(){
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var sel = '.lp-head, .lp-feature, .lp-band, .lp-integ__c, .lp-press__c, .ds-price, .ds-testimonial, .lp-clients';
       var els = [].slice.call(document.querySelectorAll(sel));
-      if (reduce || !('IntersectionObserver' in window)) return; // sem JS, conteúdo já visível
+      if (reduce || !('IntersectionObserver' in window)) return;
       els.forEach(function(e){ e.classList.add('lp-reveal'); });
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
