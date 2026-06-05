@@ -13,7 +13,8 @@
   --ds-color-nucleo-hover: #110080; /* hover da primária (oficial)  */
   --ds-color-profundo:     #0D003B; /* roxo profundo — texto/base escura */
   --ds-color-acao:         #1863DC; /* azul de ação — CTA alternativo */
-  --ds-color-ciano:        #3BBFF0; /* ciano (aurora) — eyebrow/destaque */
+  --ds-color-ciano:        #3BBFF0; /* ciano (aurora) — preenchimentos/destaque */
+  --ds-color-ciano-text:   #0B6E94; /* ciano acessível p/ TEXTO em fundo claro (AA) */
   --ds-color-lavanda:      #A79EE8; /* lavanda — apoio suave       */
   --ds-color-laranja:      #FF9800; /* laranja — acento/CTA secundário */
   --ds-color-branco:       #FFFFFF;

@@ -63,14 +63,24 @@ hr { border: none; border-top: 1px solid var(--ds-border); margin: var(--ds-spac
 
 ::selection { background: var(--ds-color-nucleo); color: #fff; }
 
-:focus-visible { outline: 3px solid rgba(23,0,162,.35); outline-offset: 2px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--ds-color-acao); outline-offset: 2px; border-radius: 4px; }
+/* remove o anel só quando NÃO for navegação por teclado */
+:focus:not(:focus-visible) { outline: none; }
+
+/* Skip link (acessibilidade — pular para o conteúdo) */
+.ds-skip { position:absolute; left:8px; top:-48px; z-index:9999; background: var(--ds-color-nucleo); color:#fff; padding:.6rem 1rem; border-radius: var(--ds-radius-md); font-weight:700; font-size: var(--ds-text-body-sm); transition: top var(--ds-dur) var(--ds-ease); }
+.ds-skip:focus { top:8px; color:#fff; }
 
 /* -------------------------------------------------------- */
 /* UTILITÁRIOS DE TIPOGRAFIA                                */
 /* -------------------------------------------------------- */
 .ds-display    { font-family: var(--ds-font-display); font-size: var(--ds-text-display); font-weight: var(--ds-weight-extrabold); line-height: var(--ds-leading-tight); letter-spacing: -0.03em; }
 .ds-lead       { font-size: var(--ds-text-body-lg); color: var(--ds-text-soft); line-height: var(--ds-leading-normal); }
-.ds-overline   { display:inline-block; font-family: var(--ds-font-base); font-size: var(--ds-text-overline); letter-spacing: .16em; text-transform: uppercase; color: var(--ds-color-ciano); font-weight: var(--ds-weight-extrabold); }
+.ds-overline   { display:inline-block; font-family: var(--ds-font-base); font-size: var(--ds-text-overline); letter-spacing: .16em; text-transform: uppercase; color: var(--ds-color-ciano-text); font-weight: var(--ds-weight-extrabold); }
+/* Em superfícies escuras, o ciano vivo tem contraste alto e mantém a identidade */
+[data-theme="dark"] .ds-overline,
+.ds-hero:not(.ds-hero--aurora) .ds-overline,
+.ds-feature-card .ds-overline { color: var(--ds-color-ciano); }
 .ds-text-soft  { color: var(--ds-text-soft); }
 .ds-text-grad  { background: var(--ds-gradient-nucleo); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
@@ -104,3 +114,15 @@ hr { border: none; border-top: 1px solid var(--ds-border); margin: var(--ds-spac
 .ds-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
 .ds-mt-0{margin-top:0}.ds-mt-4{margin-top:var(--ds-space-4)}.ds-mt-6{margin-top:var(--ds-space-6)}
 .ds-text-center{text-align:center}
+
+/* -------------------------------------------------------- */
+/* MOVIMENTO REDUZIDO (respeita preferência do sistema)     */
+/* -------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -18,7 +18,7 @@
 
   function toast(msg, type) {
     var wrap = d.querySelector('.ds-toast-wrap');
-    if (!wrap) { wrap = d.createElement('div'); wrap.className = 'ds-toast-wrap'; d.body.appendChild(wrap); }
+    if (!wrap) { wrap = d.createElement('div'); wrap.className = 'ds-toast-wrap'; wrap.setAttribute('role', 'status'); wrap.setAttribute('aria-live', 'polite'); d.body.appendChild(wrap); }
     var t = d.createElement('div');
     t.className = 'ds-toast' + (type ? ' ds-toast--' + type : '');
     t.textContent = msg;

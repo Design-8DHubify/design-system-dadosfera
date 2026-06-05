@@ -184,7 +184,21 @@ sidebar mobile (`data-burger`), scrollspy (`data-spy`). Clipboard em `js/ds-clip
 
 ---
 
-## 8. Convenções e publicação
+## 8. Acessibilidade (regras)
+
+- **Contraste AA:** texto cumpre ≥ 4.5:1. O ciano vivo `#3BBFF0` é só preenchimento/fundo
+  escuro; para **texto em fundo claro** usa-se `--ds-color-ciano-text: #0B6E94` (eyebrow,
+  badge ciano) → ~5.5:1. Títulos `#1700A2` (13.5:1) e corpo `#0D003B`/`#4B5563` (7.5:1).
+- **Foco visível:** `:focus-visible` com anel `3px` azul-ação + offset; removido só em
+  interação por mouse (`:focus:not(:focus-visible)`).
+- **Alvos de toque ≥ 24px:** bullets do carousel têm hit area 24px (indicador visual 9px).
+- **Movimento reduzido:** `@media (prefers-reduced-motion: reduce)` zera animações/transições;
+  o 3D do login não inicializa.
+- **Navegação:** skip-link "Pular para o conteúdo" (`.ds-skip`) + landmark `<main id="conteudo">`.
+- **Leitores de tela:** toasts em região `role="status" aria-live="polite"`; toda `<img>` tem `alt`.
+- **Semântica:** HTML em pt-BR, headings hierárquicos, botões/links nativos.
+
+## 9. Convenções e publicação
 
 - **Prefixos:** componentes `.ds-*`; código gerado para RD `.ds-dadosfera-*`; pop-ups `.dsf-*`.
 - **Idioma:** pt-BR. **`<meta robots noindex,nofollow>`** em todas as páginas internas.

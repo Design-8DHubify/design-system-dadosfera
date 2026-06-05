@@ -80,7 +80,7 @@
   font-weight: var(--ds-weight-bold); padding:.3rem .7rem; border-radius: var(--ds-radius-pill);
   background: var(--ds-color-nucleo-10); color: var(--ds-color-nucleo); letter-spacing:.01em;
 }
-.ds-badge--ciano   { background: rgba(59,191,240,.16);  color:#0E7AA8; }
+.ds-badge--ciano   { background: rgba(59,191,240,.18);  color: var(--ds-color-ciano-text); }
 .ds-badge--success { background: rgba(29,191,115,.14);  color:#0E8A50; }
 .ds-badge--warning { background: rgba(255,152,0,.16);   color:#A85F00; }
 .ds-badge--danger  { background: rgba(229,62,62,.12);   color:#B12B2B; }
@@ -169,9 +169,12 @@
   box-shadow: var(--ds-shadow-md); display:grid; place-items:center; font-size:1.5rem; line-height:1; font-weight:700;
 }
 .ds-carousel__btn--prev { left:-8px; } .ds-carousel__btn--next { right:-8px; }
-.ds-carousel__dots { display:flex; gap:.5rem; justify-content:center; margin-top: var(--ds-space-4); }
-.ds-carousel__dot { width:9px; height:9px; border-radius:50%; border:none; background: var(--ds-color-cinza-300); cursor:pointer; transition: background var(--ds-dur-fast), transform var(--ds-dur-fast); }
-.ds-carousel__dot.is-active { background: var(--ds-color-nucleo); transform: scale(1.25); }
+.ds-carousel__dots { display:flex; gap:.25rem; justify-content:center; margin-top: var(--ds-space-4); }
+/* alvo de toque ≥24px com indicador visual de 9px (acessibilidade) */
+.ds-carousel__dot { width:24px; height:24px; border:none; background:transparent; cursor:pointer; padding:0; display:grid; place-items:center; }
+.ds-carousel__dot::before { content:""; width:9px; height:9px; border-radius:50%; background: var(--ds-color-cinza-300); transition: background var(--ds-dur-fast), transform var(--ds-dur-fast); }
+.ds-carousel__dot.is-active::before { background: var(--ds-color-nucleo); transform: scale(1.25); }
+.ds-carousel__dot:focus-visible { outline-offset: -2px; }
 
 /* ========================= 9. HERO ===================== */
 .ds-hero { position:relative; overflow:hidden; background: var(--ds-gradient-hero); color:#fff; padding-block: var(--ds-space-9); }

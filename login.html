@@ -263,6 +263,8 @@
       const container = document.getElementById('canvas-container');
       const canvas = document.getElementById('hero-canvas');
       if (!container || !canvas) return;
+      // respeita preferência de movimento reduzido — não inicia o 3D
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
