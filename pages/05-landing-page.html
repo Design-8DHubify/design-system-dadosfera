@@ -571,6 +571,33 @@ a:hover { color: #1700A2; }
     </div>
   </header>
 
+  <!-- ============ FORM / CTA (2ª dobra) ============ -->
+  <section class="lp-sec" id="form">
+    <div class="lp-wrap lp-form">
+      <div>
+        <span class="ds-overline">Fale com a gente</span>
+        <h2 style="font-size:clamp(1.9rem,3.2vw,2.6rem)">Conecte seus dados. O resto, a Dadosfera faz.</h2>
+        <p class="ds-lead" style="margin:1rem 0 1.6rem">Agende uma demonstração e veja a plataforma funcionando com os seus próprios dados — sem compromisso.</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.85rem">
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Onboarding guiado por especialista</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Demonstração com casos do seu setor</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Primeiros resultados em poucos dias</li>
+        </ul>
+      </div>
+      <div class="ds-formcard">
+        <form onsubmit="event.preventDefault();this.innerHTML='<div class=&quot;ds-alert ds-alert--success&quot;><div><span class=&quot;ds-alert__title&quot;>Recebido!</span>Em breve um especialista entrará em contato.</div></div>';">
+          <div class="ds-field"><label class="ds-label">Nome completo*</label><input class="ds-input" required placeholder="Seu nome"></div>
+          <div class="ds-field"><label class="ds-label">E-mail corporativo*</label><input class="ds-input" type="email" required placeholder="voce@empresa.com"></div>
+          <div class="ds-field"><label class="ds-label">Empresa*</label><input class="ds-input" required placeholder="Nome da empresa"></div>
+          <div class="ds-field"><label class="ds-label">Departamento</label><select class="ds-select"><option>Dados / BI</option><option>Marketing</option><option>Comercial</option><option>Financeiro</option><option>TI</option><option>Diretoria</option></select></div>
+          <div class="ds-field"><label class="ds-label">Qual desafio quer resolver?</label><textarea class="ds-textarea" placeholder="Conte rapidamente seu cenário de dados"></textarea></div>
+          <button class="ds-btn ds-btn--primary ds-btn--lg ds-btn--block" type="submit">Solicitar demonstração</button>
+          <p class="ds-help" style="text-align:center;margin-top:.75rem">Seus dados estão protegidos. Sem spam.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CLIENTES ============ -->
   <section class="lp-clients" id="clientes">
     <div class="lp-wrap">
@@ -811,32 +838,6 @@ a:hover { color: #1700A2; }
     </div>
   </section>
 
-  <!-- ============ FORM / CTA FINAL ============ -->
-  <section class="lp-sec" id="form">
-    <div class="lp-wrap lp-form">
-      <div>
-        <span class="ds-overline">Fale com a gente</span>
-        <h2 style="font-size:clamp(1.9rem,3.2vw,2.6rem)">Conecte seus dados. O resto, a Dadosfera faz.</h2>
-        <p class="ds-lead" style="margin:1rem 0 1.6rem">Agende uma demonstração e veja a plataforma funcionando com os seus próprios dados — sem compromisso.</p>
-        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.85rem">
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Onboarding guiado por especialista</li>
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Demonstração com casos do seu setor</li>
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Primeiros resultados em poucos dias</li>
-        </ul>
-      </div>
-      <div class="ds-formcard">
-        <form onsubmit="event.preventDefault();this.innerHTML='<div class=&quot;ds-alert ds-alert--success&quot;><div><span class=&quot;ds-alert__title&quot;>Recebido!</span>Em breve um especialista entrará em contato.</div></div>';">
-          <div class="ds-field"><label class="ds-label">Nome completo*</label><input class="ds-input" required placeholder="Seu nome"></div>
-          <div class="ds-field"><label class="ds-label">E-mail corporativo*</label><input class="ds-input" type="email" required placeholder="voce@empresa.com"></div>
-          <div class="ds-field"><label class="ds-label">Empresa*</label><input class="ds-input" required placeholder="Nome da empresa"></div>
-          <div class="ds-field"><label class="ds-label">Departamento</label><select class="ds-select"><option>Dados / BI</option><option>Marketing</option><option>Comercial</option><option>Financeiro</option><option>TI</option><option>Diretoria</option></select></div>
-          <div class="ds-field"><label class="ds-label">Qual desafio quer resolver?</label><textarea class="ds-textarea" placeholder="Conte rapidamente seu cenário de dados"></textarea></div>
-          <button class="ds-btn ds-btn--primary ds-btn--lg ds-btn--block" type="submit">Solicitar demonstração</button>
-          <p class="ds-help" style="text-align:center;margin-top:.75rem">Seus dados estão protegidos. Sem spam.</p>
-        </form>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ FOOTER ============ -->
   <footer class="ds-footer">
