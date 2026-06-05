@@ -63,10 +63,12 @@
 
   /* -------------------------------------------------------- */
   /* TIPOGRAFIA                                               */
-  /* Menco = display oficial (proprietária); fallback Sora.   */
-  /* Nunito = corpo (Google Fonts, idêntica ao site).         */
+  /* Tipografia oficial Dadosfera:                            */
+  /* menco = display da marca (Adobe Typekit, kit lrl6igp).    */
+  /* Nunito = corpo (Google Fonts). Fallback de menco = Nunito */
+  /* (a home do site renderiza tudo em Nunito).               */
   /* -------------------------------------------------------- */
-  --ds-font-display: 'Menco', 'Sora', system-ui, -apple-system, sans-serif;
+  --ds-font-display: 'menco', 'Nunito', system-ui, -apple-system, sans-serif;
   --ds-font-base:    'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --ds-font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 

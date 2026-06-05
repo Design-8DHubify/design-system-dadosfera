@@ -50,7 +50,8 @@ do RD Station sem conflito de CSS/JS. Sem ícones e sem dependências externas.
 
 - **Núcleo** `#1700A2` · **Profundo** `#0D003B` · **Ação** `#1863DC` · **Ciano** `#3BBFF0`
 - Apoio: Lavanda `#A79EE8` · Laranja `#FF9800`
-- Tipografia: **Menco** (display, proprietária — fallback Sora) · **Nunito** (corpo)
+- Tipografia: **Menco** (display, via Adobe Typekit `lrl6igp`, família `"menco"`) · **Nunito** (corpo e fallback do menco, Google Fonts). Sem Sora.
+- Regras completas do sistema em **[`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md)**.
 - Logo oficial baixada de dadosfera.ai em `assets/logotipos/`.
 
 ## Publicação (GitHub Pages)

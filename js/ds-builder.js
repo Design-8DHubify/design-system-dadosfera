@@ -110,7 +110,7 @@
   function shell(ns,css,inner,js,head){
     var wrapCss='.'+ns+'-wrap{'+bgCss(state.bg)+'font-family:"Nunito",system-ui,sans-serif}\n'+
       '.'+ns+'-head{text-align:center;max-width:640px;margin:0 auto 32px}\n'+
-      '.'+ns+'-head h2{font-family:"Sora",sans-serif;font-weight:600;font-size:30px;margin:0 0 8px;color:'+((state.bg==='dark'||state.bg==='gradient')?'#fff':state.color)+'}\n'+
+      '.'+ns+'-head h2{font-family:"menco","Nunito",sans-serif;font-weight:600;font-size:30px;margin:0 0 8px;color:'+((state.bg==='dark'||state.bg==='gradient')?'#fff':state.color)+'}\n'+
       '.'+ns+'-head p{margin:0;color:'+subColor(state.bg)+';font-size:16px}';
     return '<!-- Dadosfera Design System · componente gerado -->\n<style>\n'+wrapCss+'\n'+css+'\n</style>\n<div class="'+ns+'-wrap">'+(head||'')+'\n'+inner+'\n</div>'+(js?'\n<script>\n'+js+'\n<\/script>':'');
   }
@@ -121,7 +121,7 @@
     var css=gridCss(ns,c)+'\n'+
 '.'+ns+' .card{background:#fff;border:1px solid #E1E3EF;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(13,0,59,.08);transition:transform .25s,box-shadow .25s}\n'+
 '.'+ns+' .card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(13,0,59,.14)}\n'+
-'.'+ns+' .seal{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:'+c+';color:#fff;font-family:"Sora",sans-serif;font-weight:800;font-size:20px;margin-bottom:16px}\n'+
+'.'+ns+' .seal{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:'+c+';color:#fff;font-family:"menco","Nunito",sans-serif;font-weight:800;font-size:20px;margin-bottom:16px}\n'+
 '.'+ns+' h3{font-size:18px;margin:0 0 8px;color:#212121}\n'+
 '.'+ns+' p{font-size:14px;color:#6B7280;margin:0 0 16px;line-height:1.6}\n'+
 '.'+ns+' a.cta{display:inline-block;font-weight:700;font-size:14px;color:'+c+';text-decoration:none}\n'+
@@ -136,8 +136,8 @@
   function genPricing(ns,id,c,items,head){
     var css=gridCss(ns,c)+'\n'+
 '.'+ns+' .pl{background:#fff;border:1px solid #E1E3EF;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 1px 3px rgba(13,0,59,.08)}\n'+
-'.'+ns+' .pl .nm{font-family:"Sora",sans-serif;font-weight:700;font-size:18px;color:#212121}\n'+
-'.'+ns+' .pl .vl{font-family:"Sora",sans-serif;font-weight:800;font-size:40px;color:#212121}\n'+
+'.'+ns+' .pl .nm{font-family:"menco","Nunito",sans-serif;font-weight:700;font-size:18px;color:#212121}\n'+
+'.'+ns+' .pl .vl{font-family:"menco","Nunito",sans-serif;font-weight:800;font-size:40px;color:#212121}\n'+
 '.'+ns+' .pl .vl small{font-size:14px;color:#6B7280;font-weight:400}\n'+
 '.'+ns+' .pl ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:14px;color:#6B7280}\n'+
 '.'+ns+' .pl li::before{content:"✓";color:#1DBF73;font-weight:800;margin-right:8px}\n'+
@@ -153,7 +153,7 @@
   function genStats(ns,id,c,items,head){
     var css=gridCss(ns,c)+'\n'+
 '.'+ns+' .st{text-align:center}\n'+
-'.'+ns+' .st .n{font-family:"Sora",sans-serif;font-weight:800;font-size:44px;background:linear-gradient(135deg,'+c+',#3BBFF0);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}\n'+
+'.'+ns+' .st .n{font-family:"menco","Nunito",sans-serif;font-weight:800;font-size:44px;background:linear-gradient(135deg,'+c+',#3BBFF0);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}\n'+
 '.'+ns+' .st .l{color:'+subColor(state.bg)+';font-size:14px;margin-top:4px}';
     var inner='<div class="'+ns+'">\n'+items.map(function(it){
       return '    <div class="st"><div class="n">'+esc(it.num)+'</div><div class="l">'+esc(it.text)+'</div></div>';
@@ -164,7 +164,7 @@
   function genSteps(ns,id,c,items,head){
     var css='.'+ns+'{display:flex;flex-direction:column;gap:24px;max-width:640px;margin:auto}\n'+
 '.'+ns+' .stp{display:flex;gap:16px;align-items:flex-start}\n'+
-'.'+ns+' .nm{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:'+c+';color:#fff;display:grid;place-items:center;font-family:"Sora",sans-serif;font-weight:800}\n'+
+'.'+ns+' .nm{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:'+c+';color:#fff;display:grid;place-items:center;font-family:"menco","Nunito",sans-serif;font-weight:800}\n'+
 '.'+ns+' h3{margin:0 0 4px;font-size:18px;color:'+txtColor(state.bg)+'}\n'+
 '.'+ns+' p{margin:0;color:'+subColor(state.bg)+';font-size:14px;line-height:1.6}';
     var inner='<div class="'+ns+'">\n'+items.map(function(it,i){
@@ -177,9 +177,9 @@
     var css=gridCss(ns,c)+'\n'+
 '.'+ns+' .tc{background:#fff;border:1px solid #E1E3EF;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(13,0,59,.08)}\n'+
 '.'+ns+' .q{font-size:16px;line-height:1.5;color:#212121;margin:0 0 16px}\n'+
-'.'+ns+' .q::before{content:"\\201C";font-family:"Sora",sans-serif;font-size:40px;color:#3BBFF0;line-height:0;vertical-align:-.4em;margin-right:4px}\n'+
+'.'+ns+' .q::before{content:"\\201C";font-family:"menco","Nunito",sans-serif;font-size:40px;color:#3BBFF0;line-height:0;vertical-align:-.4em;margin-right:4px}\n'+
 '.'+ns+' .pp{display:flex;align-items:center;gap:12px}\n'+
-'.'+ns+' .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,'+c+',#3BBFF0);color:#fff;display:grid;place-items:center;font-family:"Sora",sans-serif;font-weight:800}\n'+
+'.'+ns+' .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,'+c+',#3BBFF0);color:#fff;display:grid;place-items:center;font-family:"menco","Nunito",sans-serif;font-weight:800}\n'+
 '.'+ns+' .nm{font-weight:700;font-size:14px;color:#212121}\n'+
 '.'+ns+' .rl{color:#6B7280;font-size:12px}';
     var inner='<div class="'+ns+'">\n'+items.map(function(it){
@@ -192,7 +192,7 @@
   function genAcc(ns,id,c,items,head){
     var css='.'+ns+'{border:1px solid #E1E3EF;border-radius:10px;overflow:hidden;max-width:760px;margin:auto;background:#fff}\n'+
 '.'+ns+' .it+.it{border-top:1px solid #E1E3EF}\n'+
-'.'+ns+' .hd{width:100%;text-align:left;background:#fff;border:0;cursor:pointer;padding:18px 20px;font-family:"Sora",sans-serif;font-weight:700;font-size:16px;color:#212121;display:flex;justify-content:space-between;gap:12px;align-items:center}\n'+
+'.'+ns+' .hd{width:100%;text-align:left;background:#fff;border:0;cursor:pointer;padding:18px 20px;font-family:"menco","Nunito",sans-serif;font-weight:700;font-size:16px;color:#212121;display:flex;justify-content:space-between;gap:12px;align-items:center}\n'+
 '.'+ns+' .hd:hover{background:#F7F8FC}\n'+
 '.'+ns+' .sg{color:'+c+';font-weight:800;font-size:20px;transition:transform .25s}\n'+
 '.'+ns+' .it.open .sg{transform:rotate(45deg)}\n'+
@@ -239,7 +239,7 @@
   function genCta(ns,id,c,items,head){
     var it=items[0]||seed.cta();
     var css='.'+ns+'{background:linear-gradient(135deg,'+c+',#1863DC);color:#fff;border-radius:24px;padding:48px;text-align:center}\n'+
-'.'+ns+' h3{font-family:"Sora",sans-serif;font-size:30px;margin:0 0 10px;color:#fff}\n'+
+'.'+ns+' h3{font-family:"menco","Nunito",sans-serif;font-size:30px;margin:0 0 10px;color:#fff}\n'+
 '.'+ns+' p{margin:0 0 24px;color:rgba(255,255,255,.85);font-size:16px}\n'+
 '.'+ns+' a{display:inline-block;background:#fff;color:'+c+';font-weight:700;text-decoration:none;padding:14px 32px;border-radius:999px;font-size:15px}';
     var inner='<div class="'+ns+'"><h3>'+esc(it.title)+'</h3><p>'+esc(it.text)+'</p><a href="'+esc(it.url||'#')+'" target="'+esc(it.target||'_blank')+'">'+esc(it.cta)+'</a></div>';
@@ -252,7 +252,7 @@
     el.output.textContent=code;
     var doc='<!doctype html><html><head><meta charset="utf-8">'+
       '<link rel="preconnect" href="https://fonts.googleapis.com">'+
-      '<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">'+
+      '<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://use.typekit.net/lrl6igp.css">'+
       '<style>body{margin:0;padding:24px;background:#fff}</style></head><body>'+code+'</body></html>';
     el.frame.srcdoc=doc;
   }
