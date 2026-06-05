@@ -11,6 +11,18 @@
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
 
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-size: 16px; color: #0D003B; background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+img, picture, svg, video { display: block; max-width: 100%; }
+ul, ol { padding-left: 1.25rem; }
+hr { border: none; border-top: 1px solid #ECECF2; margin: 1.5rem 0; }
+::selection { background: #1700A2; color: #fff; }
+.ds-skip { position: absolute; left: 8px; top: -48px; z-index: 9999; background: #1700A2; color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 700; font-size: 14px; transition: top .28s; }
+.ds-skip:focus { top: 8px; color: #fff; }
+
 /* ===== TIPOGRAFIA ===== */
 body, p, li, span, a, label, input, select, textarea, button, .ds-btn, .rd-button {
   font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
