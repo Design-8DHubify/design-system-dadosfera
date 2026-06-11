@@ -7,7 +7,7 @@
 /* ---------- PRE-HEADER 8D HUBIFY ---------- */
 .ds-prehead {
   position: sticky; top: 0; z-index: 200;
-  background: #1700A2;
+  background: #6633FF;
   color: #fff; display: flex; align-items: center; justify-content: center;
   gap: .6rem; padding: .45rem 1rem; min-height: 34px;
 }
