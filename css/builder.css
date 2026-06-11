@@ -18,7 +18,7 @@
 .bld__item { border:1px solid #ECECF2; border-radius: 12px; padding: 1rem; position:relative; background: #F7F8FC; }
 .bld__item-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem; }
 .bld__item-head strong { font-size: 0.875rem; }
-.bld__del { background:none; border:none; color: #E53E3E; cursor:pointer; font-size: 0.875rem; font-weight:700; }
+.bld__del { background:none; border:none; color: #E00A69; cursor:pointer; font-size: 0.875rem; font-weight:700; }
 .bld__field { display:flex; flex-direction:column; gap:.25rem; margin-bottom:.6rem; }
 .bld__field label { font-size: 0.75rem; font-weight:700; color: #4B5563; }
 .bld__field { min-width:0; }

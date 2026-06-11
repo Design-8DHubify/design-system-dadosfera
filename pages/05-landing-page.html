@@ -131,8 +131,8 @@ a:hover { color: #1700A2; }
 .ds-btn--dark:hover { background: #1700A2 !important; transform: translateY(-2px) !important; }
 .ds-btn--light { background: #fff !important; color: #1700A2 !important; }
 .ds-btn--light:hover { transform: translateY(-2px) !important; box-shadow: 0 10px 22px -12px rgba(13,0,59,.18) !important; }
-.ds-btn--orange { background: #FF9800 !important; color: #fff !important; border-color: #FF9800 !important; }
-.ds-btn--orange:hover { transform: translateY(-2px) !important; box-shadow: 0 10px 20px -5px rgba(255,152,0,.4) !important; color:#fff !important; }
+.ds-btn--orange { background: #FF9900 !important; color: #fff !important; border-color: #FF9900 !important; }
+.ds-btn--orange:hover { transform: translateY(-2px) !important; box-shadow: 0 10px 20px -5px rgba(255,153,0,.4) !important; color:#fff !important; }
 .ds-btn--lg { padding: 17px 36px !important; font-size: 16px !important; }
 .ds-btn--sm { padding: 9px 18px !important; font-size: 13px !important; }
 .ds-btn--block { width: 100% !important; }
@@ -148,7 +148,7 @@ a:hover { color: #1700A2; }
 .ds-textarea { min-height: 120px; resize: vertical; }
 .ds-input:focus, .ds-select:focus, .ds-textarea:focus { outline: none; border-color: #1700A2; box-shadow: 0 0 0 4px rgba(23,0,162,.14); }
 .ds-input::placeholder, .ds-textarea::placeholder { color: #9AA0B4; }
-.ds-input.is-error, .ds-select.is-error { border-color: #E53E3E; box-shadow: 0 0 0 4px rgba(229,62,62,.14); }
+.ds-input.is-error, .ds-select.is-error { border-color: #E00A69; box-shadow: 0 0 0 4px rgba(224,10,105,.14); }
 .ds-help { font-size: 12px; color: #6B7280; }
 .ds-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; cursor: pointer; }
 .ds-check { display: inline-flex; align-items: center; gap: .55rem; cursor: pointer; font-size: 14px; }
@@ -166,9 +166,9 @@ a:hover { color: #1700A2; }
 /* ===== BADGES / TAGS / CHIPS ===== */
 .ds-badge { display: inline-flex; align-items: center; gap: .4em; font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: #ECEAF9; color: #1700A2; }
 .ds-badge--ciano { background: rgba(59,191,240,.18); color: #0B6E94; }
-.ds-badge--success { background: rgba(29,191,115,.14); color: #0E8A50; }
-.ds-badge--warning { background: rgba(255,152,0,.16); color: #A85F00; }
-.ds-badge--danger { background: rgba(229,62,62,.12); color: #B12B2B; }
+.ds-badge--success { background: rgba(77,176,79,.16); color: #2F8F43; }
+.ds-badge--warning { background: rgba(255,153,0,.16); color: #B26A00; }
+.ds-badge--danger { background: rgba(224,10,105,.12); color: #B00B54; }
 .ds-badge--solid { background: #1700A2; color: #fff; }
 .ds-badge--dot::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 .ds-tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 8px; background: #ECECF2; color: #4B5563; font-size: 12px; font-weight: 600; }
@@ -179,12 +179,12 @@ a:hover { color: #1700A2; }
 /* ===== ALERTS / TOASTS ===== */
 .ds-alert { display: flex; gap: .75rem; align-items: flex-start; padding: 16px 18px; border-radius: 12px; border: 1px solid #ECECF2; border-left: 4px solid #1863DC; background: #fff; font-size: 14px; }
 .ds-alert__title { font-weight: 800; display: block; margin-bottom: .15rem; }
-.ds-alert--success { border-left-color: #1DBF73; }
-.ds-alert--warning { border-left-color: #FF9800; }
-.ds-alert--danger { border-left-color: #E53E3E; }
+.ds-alert--success { border-left-color: #4DB04F; }
+.ds-alert--warning { border-left-color: #FF9900; }
+.ds-alert--danger { border-left-color: #E00A69; }
 .ds-toast-wrap { position: fixed; top: 20px; right: 20px; z-index: 1100; display: flex; flex-direction: column; gap: .6rem; }
 .ds-toast { display: flex; align-items: center; gap: .6rem; min-width: 260px; padding: 14px 18px; border-radius: 12px; background: #0D003B; color: #fff; box-shadow: 0 22px 44px -22px rgba(13,0,59,.4); font-size: 14px; animation: ds-toast-in .35s ease; }
-.ds-toast--success { background: #0E8A50; } .ds-toast--danger { background: #B12B2B; }
+.ds-toast--success { background: #2F8F43; } .ds-toast--danger { background: #B00B54; }
 @keyframes ds-toast-in { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
 
 /* ===== CARDS ===== */
@@ -266,7 +266,7 @@ a:hover { color: #1700A2; }
 .ds-stat__label { color: #4B5563; font-size: 14px; }
 .ds-statcard { background: #fff; border: 1px solid #ECECF2; border-radius: 18px; padding: 24px; box-shadow: 0 4px 20px rgba(13,0,59,.07); }
 .ds-statcard__trend { font-size: 12px; font-weight: 700; }
-.ds-statcard__trend--up { color: #1DBF73; } .ds-statcard__trend--down { color: #E53E3E; }
+.ds-statcard__trend--up { color: #4DB04F; } .ds-statcard__trend--down { color: #E00A69; }
 
 /* ===== FORM CARD ===== */
 .ds-formcard { background: #fff; border: 1px solid #ECECF2; border-radius: 22px; padding: 32px; box-shadow: 0 22px 44px -22px rgba(13,0,59,.22); }
@@ -285,7 +285,7 @@ a:hover { color: #1700A2; }
 .ds-price__value { font-family: 'Menco','Nunito',sans-serif; font-size: 40px; font-weight: 800; }
 .ds-price__value small { font-size: 14px; color: #4B5563; font-weight: 400; }
 .ds-price__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .6rem; font-size: 14px; color: #4B5563; }
-.ds-price__list li::before { content: "\2713"; color: #1DBF73; font-weight: 800; margin-right: .5rem; }
+.ds-price__list li::before { content: "\2713"; color: #4DB04F; font-weight: 800; margin-right: .5rem; }
 
 /* ===== PASSOS / TIMELINE ===== */
 .ds-steps { display: grid; gap: 1.5rem; }
@@ -591,9 +591,9 @@ a:hover { color: #1700A2; }
         <h2 style="font-size:clamp(1.9rem,3.2vw,2.6rem)">Lorem ipsum dolor sit amet consectetur.</h2>
         <p class="ds-lead" style="margin:1rem 0 1.6rem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
         <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.85rem">
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor sit amet</li>
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Consectetur adipiscing elit</li>
-          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sed do eiusmod tempor</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor sit amet</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Consectetur adipiscing elit</li>
+          <li style="display:flex;gap:.6rem;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sed do eiusmod tempor</li>
         </ul>
       </div>
       <!-- TROQUE: rótulos dos campos do seu formulário. Dica: no RD Station, use o bloco de Formulário do próprio RD aqui. -->
@@ -661,9 +661,9 @@ a:hover { color: #1700A2; }
           <h3>Lorem ipsum dolor sit amet consectetur adipiscing.</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <ul>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor sit</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Consectetur adipiscing elit</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sed do eiusmod tempor</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor sit</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Consectetur adipiscing elit</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sed do eiusmod tempor</li>
           </ul>
           <a class="ds-btn ds-btn--primary" href="#form">Lorem ipsum</a>
         </div>
@@ -693,9 +693,9 @@ a:hover { color: #1700A2; }
           <h3>Lorem ipsum dolor sit amet consectetur?</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.</p>
           <ul>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sit amet consectetur</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DBF73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Adipiscing elit sed</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Lorem ipsum dolor</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sit amet consectetur</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4DB04F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Adipiscing elit sed</li>
           </ul>
           <a class="ds-btn ds-btn--primary" href="#form">Lorem ipsum</a>
         </div>

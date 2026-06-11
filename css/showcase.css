@@ -45,7 +45,7 @@
   background:transparent; border:1px solid #D7D7E2; color: #0D003B;
   padding:.6rem; border-radius: 12px; cursor:pointer; font-size: 0.875rem; font-weight:600;
 }
-.ds-logout:hover { background: #E53E3E; color:#fff; border-color: #E53E3E; }
+.ds-logout:hover { background: #E00A69; color:#fff; border-color: #E00A69; }
 
 .docs-main { flex:1; min-width:0; }
 .docs-topbar { display:flex; justify-content:space-between; align-items:center; padding: 1rem 2rem; border-bottom:1px solid #ECECF2; position:sticky; top:0; background: color-mix(in srgb, #FFFFFF 88%, transparent); backdrop-filter: blur(8px); z-index: 100; }
@@ -74,7 +74,7 @@
   font-weight:700; padding:.4rem .8rem; border-radius: 8px; display:inline-flex; align-items:center; gap:.4rem;
 }
 .ds-copy-btn:hover { background: #2D1AB0; }
-.ds-copy-btn.copied { background: #1DBF73; }
+.ds-copy-btn.copied { background: #4DB04F; }
 
 /* swatches de cor */
 .ds-swatch { border:1px solid #ECECF2; border-radius: 12px; overflow:hidden; cursor:pointer; transition: transform .16s; }

@@ -140,7 +140,7 @@
 '.'+ns+' .pl .vl{font-family:"menco","Nunito",sans-serif;font-weight:800;font-size:40px;color:#212121}\n'+
 '.'+ns+' .pl .vl small{font-size:14px;color:#6B7280;font-weight:400}\n'+
 '.'+ns+' .pl ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:14px;color:#6B7280}\n'+
-'.'+ns+' .pl li::before{content:"✓";color:#1DBF73;font-weight:800;margin-right:8px}\n'+
+'.'+ns+' .pl li::before{content:"✓";color:#4DB04F;font-weight:800;margin-right:8px}\n'+
 '.'+ns+' .pl a{margin-top:auto;text-align:center;text-decoration:none;background:'+c+';color:#fff;font-weight:700;padding:12px;border-radius:999px;font-size:14px}';
     var inner='<div class="'+ns+'">\n'+items.map(function(it){
       var feats=(it.features||'').split('\n').filter(Boolean).map(function(f){return '<li>'+esc(f)+'</li>';}).join('');
