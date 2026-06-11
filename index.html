@@ -63,6 +63,7 @@
         <a class="docs-side__link" data-spy href="#cores"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5 12 2.5C11.5 5 10 7.4 8 9.5 6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg> Cores</a>
         <a class="docs-side__link" data-spy href="#tipografia"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg> Tipografia</a>
         <a class="docs-side__link" data-spy href="#identidade"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="5.5"/><rect x="11" y="11" width="10" height="10" rx="2"/></svg> Logos &amp; formas</a>
+        <a class="docs-side__link" data-spy href="#icones"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 10a.7.7 0 0 1-.626-1.079l3.722-5.997a.7.7 0 0 1 1.18 0l3.722 5.997A.7.7 0 0 1 15.7 10Z"/><rect x="3" y="14" width="7" height="7" rx="1"/><circle cx="17.5" cy="17.5" r="3.5"/></svg> Ícones</a>
         <a class="docs-side__link" data-spy href="#espacamento"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg> Espaçamento</a>
       </div>
       <div class="docs-side__group">
@@ -187,6 +188,94 @@
             <div class="ds-shape-box"><svg width="70" height="70" viewBox="0 0 70 70"><polygon points="35,5 65,60 5,60" fill="none" stroke="#1700A2" stroke-width="2"/></svg></div>
             <div class="ds-shape-box"><svg width="70" height="70" viewBox="0 0 70 70"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1700A2"/><stop offset="1" stop-color="#3BBFF0"/></linearGradient></defs><rect x="10" y="10" width="50" height="50" rx="12" fill="url(#sg)"/></svg></div>
             <div class="ds-shape-box"><svg width="70" height="70" viewBox="0 0 70 70"><g fill="none" stroke="#1700A2" stroke-width="2"><ellipse cx="35" cy="35" rx="30" ry="12"/><ellipse cx="35" cy="35" rx="12" ry="30"/><circle cx="35" cy="35" r="6" fill="#1700A2"/></g></svg></div>
+          </div>
+        </section>
+
+        <!-- ÍCONES (Lucide · lucide.dev) -->
+        <style>
+          .ico-explorer{margin-top:1.25rem}
+          .ico-toolbar{display:flex;flex-wrap:wrap;gap:1rem 1.25rem;align-items:flex-end;justify-content:space-between;margin-bottom:1.25rem}
+          .ico-search{position:relative;flex:1 1 280px;min-width:0}
+          .ico-search>svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#6B7280;pointer-events:none}
+          .ico-search input{width:100%;box-sizing:border-box;padding:12px 14px 12px 42px;border:1.5px solid #D7D7E2;border-radius:12px;font-size:.95rem;font-family:inherit;color:#0D003B;background:#fff}
+          .ico-search input:focus{outline:2px solid #1700A2;outline-offset:1px;border-color:#1700A2}
+          .ico-controls{display:flex;flex-wrap:wrap;gap:1.1rem;align-items:flex-end}
+          .ico-ctl{display:flex;flex-direction:column;gap:.4rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#6B7280}
+          .ico-ctl select,.ico-ctl input[type=number]{padding:9px 10px;border:1.5px solid #D7D7E2;border-radius:10px;font-family:inherit;font-size:.85rem;color:#0D003B;background:#fff;font-weight:700;width:84px}
+          .ico-ctl select:focus,.ico-ctl input:focus{outline:2px solid #1700A2;outline-offset:1px;border-color:#1700A2}
+          .ico-colorwrap{display:flex;align-items:center;gap:.55rem}
+          .ico-swatches{display:flex;gap:5px}
+          .ico-sw{width:22px;height:22px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #D7D7E2;cursor:pointer;padding:0;transition:transform .12s}
+          .ico-sw:hover{transform:scale(1.14)}
+          .ico-color{width:36px;height:34px;border:1.5px solid #D7D7E2;border-radius:8px;background:#fff;cursor:pointer;padding:2px}
+          .ico-layout{display:grid;grid-template-columns:1fr 250px;gap:1.25rem;align-items:start}
+          .ico-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:.5rem;color:#1700A2;max-height:540px;overflow:auto;padding:2px}
+          .ico-tile{display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:14px 6px 8px;background:#fff;border:1px solid #ECECF2;border-radius:12px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;font-family:inherit}
+          .ico-tile svg{width:26px;height:26px}
+          .ico-tile span{font-size:.6rem;color:#6B7280;font-weight:600;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.2}
+          .ico-tile:hover{transform:translateY(-2px);border-color:#C9CCEC;box-shadow:0 10px 22px -14px rgba(13,0,59,.3)}
+          .ico-tile.is-sel{border-color:#1700A2;box-shadow:0 0 0 2px rgba(23,0,162,.18)}
+          .ico-tile.is-sel span{color:#1700A2}
+          .ico-panel{position:sticky;top:20px;background:#F7F8FC;border:1px solid #ECECF2;border-radius:16px;padding:18px;text-align:center}
+          .ico-preview{min-height:128px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #ECECF2;border-radius:12px;color:#1700A2;margin-bottom:14px;overflow:hidden}
+          .ico-pname{font-size:.9rem;color:#0D003B}
+          .ico-pname strong{display:block;font-weight:800;word-break:break-word}
+          .ico-pname span{font-size:.7rem;color:#6B7280;font-weight:700}
+          .ico-actions{display:flex;gap:.5rem;margin-top:12px}
+          .ico-actions .ds-btn{flex:1;justify-content:center;padding-left:8px;padding-right:8px}
+          .ico-empty{text-align:center;color:#6B7280;padding:2.5rem 1rem;font-weight:600}
+          .ico-count{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#6B7280;white-space:nowrap}
+          @media(max-width:820px){.ico-layout{grid-template-columns:1fr}.ico-panel{position:static;order:-1}.ico-grid{max-height:none}}
+        </style>
+        <section class="docs-block" id="icones">
+          <h2>Ícones</h2><p class="sub">Biblioteca <strong>Lucide</strong> (<a href="https://lucide.dev" target="_blank" rel="noopener">lucide.dev</a>) embarcada. Busque, ajuste <strong>cor</strong> e <strong>tamanho</strong> e baixe em <strong>SVG</strong> ou <strong>PNG</strong> — ou copie o código.</p>
+
+          <div class="ico-explorer">
+            <div class="ico-toolbar">
+              <label class="ico-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input id="icoSearch" type="search" placeholder="Buscar ícone… (ex.: chart, mail, user, lock)" autocomplete="off" aria-label="Buscar ícone">
+              </label>
+              <div class="ico-controls">
+                <div class="ico-ctl">Cor
+                  <div class="ico-colorwrap">
+                    <span class="ico-swatches">
+                      <button type="button" class="ico-sw" data-color="#1700A2" style="background:#1700A2" title="Indigo" aria-label="Indigo"></button>
+                      <button type="button" class="ico-sw" data-color="#0D003B" style="background:#0D003B" title="Profundo" aria-label="Profundo"></button>
+                      <button type="button" class="ico-sw" data-color="#3BBFF0" style="background:#3BBFF0" title="Ciano" aria-label="Ciano"></button>
+                      <button type="button" class="ico-sw" data-color="#FF9800" style="background:#FF9800" title="Laranja" aria-label="Laranja"></button>
+                      <button type="button" class="ico-sw" data-color="#1DBF73" style="background:#1DBF73" title="Sucesso" aria-label="Sucesso"></button>
+                      <button type="button" class="ico-sw" data-color="#4B5563" style="background:#4B5563" title="Cinza" aria-label="Cinza"></button>
+                    </span>
+                    <input id="icoColor" class="ico-color" type="color" value="#1700A2" aria-label="Cor personalizada">
+                  </div>
+                </div>
+                <label class="ico-ctl" for="icoSize">Tamanho (px)
+                  <input id="icoSize" type="number" value="24" min="8" max="2048" step="1">
+                </label>
+                <label class="ico-ctl" for="icoStroke">Traço
+                  <select id="icoStroke"><option>1</option><option>1.5</option><option selected>2</option><option>2.5</option><option>3</option></select>
+                </label>
+                <div class="ico-ctl" style="justify-content:flex-end">&nbsp;<span class="ico-count" id="icoCount"></span></div>
+              </div>
+            </div>
+
+            <div class="ico-layout">
+              <div class="ico-grid" id="icoGrid" role="listbox" aria-label="Ícones"><!-- preenchido via JS (Lucide) --></div>
+              <aside class="ico-panel">
+                <div class="ico-preview" id="icoPreview"></div>
+                <div class="ico-pname" id="icoName">Selecione um ícone</div>
+                <div class="ico-actions">
+                  <button class="ds-btn ds-btn--primary ds-btn--sm" id="icoDlSvg" type="button">Baixar SVG</button>
+                  <button class="ds-btn ds-btn--secondary ds-btn--sm" id="icoDlPng" type="button">Baixar PNG</button>
+                </div>
+                <div class="ico-actions">
+                  <button class="ds-btn ds-btn--ghost ds-btn--sm" id="icoCopyTag" type="button">Copiar &lt;i&gt;</button>
+                  <button class="ds-btn ds-btn--ghost ds-btn--sm" id="icoCopySvg" type="button">Copiar SVG</button>
+                </div>
+              </aside>
+            </div>
+            <div class="ico-empty" id="icoEmpty" hidden>Nenhum ícone encontrado para a busca.</div>
           </div>
         </section>
 
@@ -545,6 +634,143 @@
         var info = document.getElementById('css-base-info');
         if (info) info.textContent = 'css/dadosfera-base.css · ' + Math.round(t.length/1024) + ' KB';
       }).catch(function(){ el.textContent = '/* Abra css/dadosfera-base.css */'; });
+    })();
+  </script>
+
+  <!-- Lucide (lucide.dev) — biblioteca de ícones embarcada -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Explorador de ícones Lucide: busca, cor/tamanho/traço e download SVG/PNG
+    (function(){
+      if (!window.lucide || !lucide.createIcons) return;
+      var grid = document.getElementById('icoGrid');
+      if (!grid) return;
+
+      // Conjunto curado de ícones (nomes Lucide). Inválidos no build atual são removidos automaticamente.
+      var NAMES = ['layout-dashboard','chart-pie','chart-line','chart-column','chart-bar','chart-area','trending-up','trending-down','activity','gauge','target','database','server','table','filter','percent','sigma','calculator',
+      'brain','brain-circuit','sparkles','bot','cpu','zap','workflow','network','wand-sparkles','git-branch','share-2','shuffle',
+      'megaphone','rocket','badge-check','gift','tag','mouse-pointer-click','send','mail','mail-open','at-sign','bell','calendar','clock','hourglass',
+      'search','settings','sliders-horizontal','plus','minus','check','check-check','x','copy','download','upload','external-link','link','pencil','trash-2','refresh-cw','ellipsis','menu','arrow-right','arrow-up-right','arrow-left','chevron-right','chevron-down',
+      'message-square','message-circle','phone','users','user','user-plus','user-check','headphones','video','thumbs-up','thumbs-down','heart','star',
+      'shopping-cart','credit-card','dollar-sign','wallet','package','truck','store','receipt',
+      'lock','unlock','shield','shield-check','key','eye','eye-off','fingerprint',
+      'file-text','file','files','folder','image','layers','layout-grid','book-open','clipboard-list','bookmark','newspaper',
+      'globe','map-pin','house','building-2','briefcase','lightbulb','flag','award','smile','cloud','code','terminal','play','pause','circle-check','circle-alert','triangle-alert','circle-help','info'];
+
+      var frag = document.createDocumentFragment();
+      NAMES.forEach(function(n){
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'ico-tile'; b.setAttribute('data-name', n); b.title = n; b.setAttribute('role','option');
+        b.innerHTML = '<i data-lucide="' + n + '"></i><span>' + n + '</span>';
+        frag.appendChild(b);
+      });
+      grid.appendChild(frag);
+      lucide.createIcons();
+      // remove tiles cujo nome não existe nesta versão (não renderizou <svg>)
+      Array.prototype.forEach.call(grid.querySelectorAll('.ico-tile'), function(t){ if (!t.querySelector('svg')) t.remove(); });
+
+      var colorInput = document.getElementById('icoColor'),
+          sizeInput  = document.getElementById('icoSize'),
+          strokeSel  = document.getElementById('icoStroke'),
+          search     = document.getElementById('icoSearch'),
+          preview    = document.getElementById('icoPreview'),
+          nameLbl    = document.getElementById('icoName'),
+          empty      = document.getElementById('icoEmpty'),
+          countLbl   = document.getElementById('icoCount'),
+          selected   = null;
+
+      function color(){ return colorInput.value; }
+      function size(){ var v = parseInt(sizeInput.value, 10); return (v && v > 0) ? v : 24; }
+      function stroke(){ return parseFloat(strokeSel.value) || 2; }
+
+      function srcSvg(){
+        var tile = Array.prototype.filter.call(grid.querySelectorAll('.ico-tile'), function(x){ return x.getAttribute('data-name') === selected; })[0];
+        return tile ? tile.querySelector('svg') : null;
+      }
+      function buildSvg(){
+        var s = srcSvg(); if (!s) return null;
+        var svg = s.cloneNode(true), n = size();
+        svg.removeAttribute('class');
+        svg.setAttribute('width', n); svg.setAttribute('height', n);
+        svg.setAttribute('stroke', color());
+        svg.setAttribute('stroke-width', stroke());
+        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        return svg;
+      }
+      function svgStr(svg){ return new XMLSerializer().serializeToString(svg); }
+      function dl(blob, fname){
+        var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fname;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); }, 800);
+      }
+
+      function applyStyle(){
+        grid.style.color = color();
+        preview.style.color = color();
+        var sw = stroke();
+        Array.prototype.forEach.call(grid.querySelectorAll('.ico-tile svg'), function(s){ s.style.strokeWidth = sw; });
+        renderPreview();
+      }
+      function renderPreview(){
+        if (!selected){ preview.innerHTML = ''; nameLbl.textContent = 'Selecione um ícone'; return; }
+        var s = srcSvg(); if (!s){ preview.innerHTML = ''; return; }
+        var svg = s.cloneNode(true), d = Math.min(size(), 112);
+        svg.removeAttribute('class');
+        svg.setAttribute('width', d); svg.setAttribute('height', d);
+        svg.style.strokeWidth = stroke();
+        preview.innerHTML = ''; preview.appendChild(svg);
+        nameLbl.innerHTML = '<strong>' + selected + '</strong><span>' + size() + 'px · ' + color() + '</span>';
+      }
+      function select(n){
+        selected = n;
+        Array.prototype.forEach.call(grid.querySelectorAll('.ico-tile'), function(t){ t.classList.toggle('is-sel', t.getAttribute('data-name') === n); });
+        renderPreview();
+      }
+
+      grid.addEventListener('click', function(e){ var t = e.target.closest('.ico-tile'); if (t) select(t.getAttribute('data-name')); });
+      search.addEventListener('input', function(){
+        var q = search.value.trim().toLowerCase(), shown = 0;
+        Array.prototype.forEach.call(grid.querySelectorAll('.ico-tile'), function(t){
+          var match = t.getAttribute('data-name').indexOf(q) >= 0; t.hidden = !match; if (match) shown++;
+        });
+        empty.hidden = shown > 0;
+      });
+      colorInput.addEventListener('input', applyStyle);
+      sizeInput.addEventListener('input', renderPreview);
+      strokeSel.addEventListener('change', applyStyle);
+      Array.prototype.forEach.call(document.querySelectorAll('.ico-sw'), function(s){
+        s.addEventListener('click', function(){ colorInput.value = s.getAttribute('data-color'); applyStyle(); });
+      });
+
+      document.getElementById('icoDlSvg').addEventListener('click', function(){
+        if (!selected) return; var svg = buildSvg(); if (!svg) return;
+        dl(new Blob([svgStr(svg)], { type: 'image/svg+xml;charset=utf-8' }), selected + '.svg');
+      });
+      document.getElementById('icoDlPng').addEventListener('click', function(){
+        if (!selected) return; var svg = buildSvg(); if (!svg) return;
+        var n = size(), str = svgStr(svg), url = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(str)));
+        var img = new Image();
+        img.onload = function(){
+          var c = document.createElement('canvas'); c.width = n; c.height = n;
+          c.getContext('2d').drawImage(img, 0, 0, n, n);
+          c.toBlob(function(b){ if (b) dl(b, selected + '.png'); }, 'image/png');
+        };
+        img.src = url;
+      });
+
+      function flash(btn, msg){ var o = btn.textContent; btn.textContent = msg; setTimeout(function(){ btn.textContent = o; }, 1200); }
+      function copy(text, btn){
+        if (navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){ flash(btn, 'Copiado!'); }, function(){ fallback(text); flash(btn, 'Copiado!'); });
+        } else { fallback(text); flash(btn, 'Copiado!'); }
+      }
+      function fallback(t){ var ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch(e){} ta.remove(); }
+      document.getElementById('icoCopyTag').addEventListener('click', function(){ if (selected) copy('<i data-lucide="' + selected + '"></i>', this); });
+      document.getElementById('icoCopySvg').addEventListener('click', function(){ if (!selected) return; var s = buildSvg(); if (s) copy(svgStr(s), this); });
+
+      countLbl.textContent = grid.querySelectorAll('.ico-tile').length + ' ícones';
+      applyStyle();
+      var first = grid.querySelector('.ico-tile'); if (first) select(first.getAttribute('data-name'));
     })();
   </script>
 </body>
