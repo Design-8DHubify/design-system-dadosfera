@@ -613,8 +613,8 @@
             <a class="tpl-card" href="templates/email-material.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#0D003B 0%,#1700A2 100%)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div class="tpl-card__body"><strong>E-mail · Material</strong><p class="ds-card__text">Foto em destaque + mini-galeria.</p></div></a>
             <a class="tpl-card" href="templates/email-editorial.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#1700A2 0%,#1863DC 100%)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="6" y="7" width="5" height="5" rx="1"/><line x1="14" y1="8" x2="18" y2="8"/><line x1="14" y1="11" x2="18" y2="11"/><line x1="6" y1="15" x2="18" y2="15"/><line x1="6" y1="17.5" x2="18" y2="17.5"/></svg></div><div class="tpl-card__body"><strong>E-mail · Editorial</strong><p class="ds-card__text">Blocos foto + texto alternados.</p></div></a>
             <a class="tpl-card" href="templates/email-newsletter.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h2a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2"/><line x1="7" y1="9" x2="13" y2="9"/><line x1="7" y1="13" x2="13" y2="13"/><line x1="7" y1="16" x2="11" y2="16"/></svg></div><div class="tpl-card__body"><strong>Newsletter</strong><p class="ds-card__text">Matéria de capa + grade 2×2.</p></div></a>
-            <a class="tpl-card" href="templates/popup-saida.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="tpl-card__body"><strong>Pop-up de saída</strong><p class="ds-card__text">Exit intent.</p></div></a>
-            <a class="tpl-card" href="templates/popup-captacao.html" target="_blank"><div class="tpl-card__top" style="background:linear-gradient(135deg,#0D003B 0%,#1700A2 100%)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="14" y1="4" x2="14" y2="20"/><line x1="16.5" y1="9" x2="19" y2="9"/><line x1="16.5" y1="12" x2="19" y2="12"/></svg></div><div class="tpl-card__body"><strong>Pop-up captação</strong><p class="ds-card__text">Overlay lateral.</p></div></a>
+            <a class="tpl-card" href="templates/popup-saida.html" data-popup-demo><div class="tpl-card__top" style="background:linear-gradient(135deg,#1700A2 0%,#3BBFF0 100%)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></div><div class="tpl-card__body"><strong>Pop-up de saída</strong><p class="ds-card__text">Exit intent · clique para ver aqui.</p></div></a>
+            <a class="tpl-card" href="templates/popup-captacao.html" data-popup-demo><div class="tpl-card__top" style="background:linear-gradient(135deg,#0D003B 0%,#1700A2 100%)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="14" y1="4" x2="14" y2="20"/><line x1="16.5" y1="9" x2="19" y2="9"/><line x1="16.5" y1="12" x2="19" y2="12"/></svg></div><div class="tpl-card__body"><strong>Pop-up captação</strong><p class="ds-card__text">Overlay lateral · clique para ver aqui.</p></div></a>
           </div>
         </section>
 
@@ -788,6 +788,34 @@
       countLbl.textContent = grid.querySelectorAll('.ico-tile').length + ' ícones';
       applyStyle();
       var first = grid.querySelector('.ico-tile'); if (first) select(first.getAttribute('data-name'));
+    })();
+  </script>
+
+  <!-- Demo de pop-up NA MESMA TELA: injeta o template e abre por cima do showcase -->
+  <script>
+    (function(){
+      function closeDemo(){ var h=document.getElementById('popup-demo-host'); if(h) h.remove(); }
+      function openDemo(file){
+        closeDemo();
+        fetch(file).then(function(r){return r.text();}).then(function(html){
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var host = document.createElement('div'); host.id='popup-demo-host';
+          // estilos do popup (namespaced .dsf-*) + a marcação do overlay
+          doc.querySelectorAll('style').forEach(function(s){ host.appendChild(s.cloneNode(true)); });
+          doc.querySelectorAll('.dsf-exit-ov, .dsf-cap').forEach(function(el){ host.appendChild(el.cloneNode(true)); });
+          document.body.appendChild(host);
+          // re-executa os scripts do template (innerHTML não roda sozinho)
+          doc.querySelectorAll('script').forEach(function(old){ var s=document.createElement('script'); s.textContent=old.textContent; host.appendChild(s); });
+          // abre imediatamente, sem esperar o gatilho (timer/exit-intent/scroll)
+          var ov=host.querySelector('.dsf-exit-ov'); if(ov) ov.classList.add('dsf-on');
+          var cap=host.querySelector('.dsf-cap'); if(cap) cap.classList.add('dsf-on');
+        }).catch(function(){ window.open(file, '_blank'); }); // fallback: abre o arquivo
+      }
+      document.addEventListener('click', function(e){
+        var card = e.target.closest('[data-popup-demo]');
+        if(card){ e.preventDefault(); openDemo(card.getAttribute('href')); }
+      });
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDemo(); });
     })();
   </script>
 </body>
