@@ -153,7 +153,7 @@
   function genStats(ns,id,c,items,head){
     var css=gridCss(ns,c)+'\n'+
 '.'+ns+' .st{text-align:center}\n'+
-'.'+ns+' .st .n{font-family:"menco","Nunito",sans-serif;font-weight:800;font-size:44px;background:linear-gradient(135deg,'+c+',#3BBFF0);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}\n'+
+'.'+ns+' .st .n{font-family:"menco","Nunito",sans-serif;font-weight:800;font-size:44px;color:'+c+';line-height:1.1}\n'+
 '.'+ns+' .st .l{color:'+subColor(state.bg)+';font-size:14px;margin-top:4px}';
     var inner='<div class="'+ns+'">\n'+items.map(function(it){
       return '    <div class="st"><div class="n">'+esc(it.num)+'</div><div class="l">'+esc(it.text)+'</div></div>';
