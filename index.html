@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="css/builder.css" />
 <script src="js/ds-auth.js"></script><script>DSAuth.guard();</script>
 <style>
+  /* Oculta os blocos de código cru dos componentes (mantém CSS Base e saída do builder). Botões "Copiar" das demos continuam funcionando. */
+  .ds-code:has(> code[id^="c-"]){display:none}
   .tpl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
   .tpl-card{display:block;border:1px solid #ECECF2;border-radius:18px;overflow:hidden;background:#FFFFFF;transition:transform .28s,box-shadow .28s}
   .tpl-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -22px rgba(13,0,59,.22)}
