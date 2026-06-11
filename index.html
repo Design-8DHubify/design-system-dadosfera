@@ -609,12 +609,17 @@
                 <div class="bld__field"><label>Fundo da seção</label><select id="bld-bg"><option value="transparent">Transparente</option><option value="soft">Cinza claro</option><option value="dark">Escuro</option><option value="gradient">Gradiente</option></select></div>
               </div>
             </div>
-            <div>
-              <h4 style="margin-bottom:.6rem">Pré-visualização (isolada)</h4>
-              <iframe id="bld-frame" class="bld__preview" style="width:100%;border:0;min-height:380px;border-radius:18px" title="Pré-visualização"></iframe>
-              <div class="bld__output">
-                <div class="bld__output-bar"><h4>Código plug &amp; play</h4><button class="ds-copy-btn" data-copy-target="#bld-output">Copiar código</button></div>
-                <pre class="ds-code" style="max-height:380px"><code id="bld-output"></code></pre>
+            <div class="bld__view">
+              <div class="bld__viewbar">
+                <div class="bld__tabs" role="tablist">
+                  <button type="button" class="bld__tab is-active" data-view="preview" role="tab">Pré-visualização</button>
+                  <button type="button" class="bld__tab" data-view="code" role="tab">Código</button>
+                </div>
+                <button class="ds-copy-btn bld__copy" data-copy-target="#bld-output">Copiar código</button>
+              </div>
+              <div class="bld__stage" id="bld-stage" data-view="preview">
+                <iframe id="bld-frame" class="bld__preview" title="Pré-visualização (isolada)"></iframe>
+                <pre class="ds-code bld__code"><code id="bld-output"></code></pre>
               </div>
             </div>
           </div>

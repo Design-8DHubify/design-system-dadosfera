@@ -292,6 +292,15 @@
     if(el.bg) el.bg.addEventListener('change',function(){ state.bg=el.bg.value; render(); });
     if(el.secTitle) el.secTitle.addEventListener('input',function(){ state.secTitle=el.secTitle.value; render(); });
     if(el.secSub) el.secSub.addEventListener('input',function(){ state.secSub=el.secSub.value; render(); });
+    // abas Pré-visualização | Código (rolagem interna, sem esticar a página)
+    var tabs = d.querySelectorAll('.bld__tab');
+    [].forEach.call(tabs, function(t){
+      t.addEventListener('click', function(){
+        var v = t.getAttribute('data-view');
+        [].forEach.call(tabs, function(x){ x.classList.toggle('is-active', x===t); });
+        if(el.stage) el.stage.setAttribute('data-view', v);
+      });
+    });
   }
 
   d.addEventListener('DOMContentLoaded',function(){
@@ -300,6 +309,7 @@
     el.color=$('#bld-color'); el.cols=$('#bld-cols'); el.colsWrap=$('#bld-cols-wrap');
     el.bg=$('#bld-bg'); el.secTitle=$('#bld-sectitle'); el.secSub=$('#bld-secsub');
     el.output=$('#bld-output'); el.frame=$('#bld-frame');
+    el.stage=$('#bld-stage'); el.copyBtn=d.querySelector('.bld__copy');
     bind(); reset('cards');
   });
 })(window, document);
