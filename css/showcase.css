@@ -19,8 +19,8 @@
 /* ---------- LAYOUT DOCS ---------- */
 .docs { display:flex; min-height:100vh; }
 .docs-side {
-  width:268px; flex-shrink:0; position:sticky; top:0; align-self:flex-start;
-  height:100vh; overflow-y:auto; background: #F7F8FC;
+  width:268px; flex-shrink:0; position:sticky; top:34px; align-self:flex-start;
+  height:calc(100vh - 34px); overflow-y:auto; background: #F7F8FC;
   border-right:1px solid #ECECF2; padding: 1.5rem 1rem;
   display:flex; flex-direction:column; gap: 1.5rem;
 }
@@ -48,7 +48,7 @@
 .ds-logout:hover { background: #E00A69; color:#fff; border-color: #E00A69; }
 
 .docs-main { flex:1; min-width:0; }
-.docs-topbar { display:flex; justify-content:space-between; align-items:center; padding: 1rem 2rem; border-bottom:1px solid #ECECF2; position:sticky; top:0; background: color-mix(in srgb, #FFFFFF 88%, transparent); backdrop-filter: blur(8px); z-index: 100; }
+.docs-topbar { display:flex; justify-content:space-between; align-items:center; padding: 1rem 2rem; border-bottom:1px solid #ECECF2; position:sticky; top:34px; background: color-mix(in srgb, #FFFFFF 88%, transparent); backdrop-filter: blur(8px); z-index: 100; }
 .docs-content { padding: 3rem 2rem; max-width:1080px; }
 
 .docs-hero { margin-bottom: 3rem; }
