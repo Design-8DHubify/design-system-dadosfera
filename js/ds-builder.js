@@ -28,7 +28,7 @@
   };
 
   var seed = {
-    cards: function(i){ return { title:'Recurso '+i, text:'Descrição breve do benefício para o usuário.', seal:String(i), cta:'Saiba mais', url:'#', target:'_self' }; },
+    cards: function(i){ return { title:'Recurso '+i, text:'Descrição breve do benefício para o usuário.', seal:String(i), sealIcon:'', cta:'Saiba mais', url:'#', target:'_self' }; },
     pricing: function(i){ return { title:['Starter','Pro','Enterprise'][i-1]||('Plano '+i), price:['49','99','—'][i-1]||'99', period:'/mês', features:'Recurso A\nRecurso B\nRecurso C', cta:'Assinar', url:'#', target:'_self' }; },
     stats: function(i){ return { num:['20+','+18%','3x'][i-1]||'10+', text:['Integrações','Eficiência','Velocidade'][i-1]||'Métrica' }; },
     steps: function(i){ return { title:'Passo '+i, text:'O que acontece nesta etapa.' }; },
@@ -66,7 +66,7 @@
     var fs = TYPES[state.type].fields;
     state.items.forEach(function(it,i){
       var h='<div class="bld__item-head"><strong>Item '+(i+1)+'</strong><button class="bld__del" data-del="'+i+'">remover</button></div>';
-      if (fs.indexOf('seal')>-1) h+= field('Selo (nº ou letra)','seal',i,it.seal);
+      if (fs.indexOf('seal')>-1) h+= '<div class="bld__row">'+field('Selo · texto','seal',i,it.seal)+field('ou ícone Lucide (ex: rocket)','sealIcon',i,it.sealIcon||'')+'</div>';
       if (fs.indexOf('num')>-1) h+= field('Número (ex: 20+)','num',i,it.num);
       if (fs.indexOf('title')>-1) h+= field('Título','title',i,it.title);
       if (fs.indexOf('price')>-1) h+= '<div class="bld__row">'+field('Preço','price',i,it.price)+field('Período','period',i,it.period)+'</div>';
@@ -85,6 +85,18 @@
   /* ---------- UTIL ---------- */
   function uid(){ return Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36); }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  // Gera o SVG inline de um ícone Lucide (selo dos cards). Vazio se nome inválido/indisponível → cai no texto.
+  function lucideSvg(name){
+    if(!name || !w.lucide || !w.lucide.createIcons) return '';
+    var holder=d.createElement('span'); holder.style.cssText='position:absolute;left:-9999px;top:-9999px';
+    holder.innerHTML='<i data-lucide="'+esc(String(name).trim())+'"></i>';
+    d.body.appendChild(holder);
+    try{ w.lucide.createIcons(); }catch(e){}
+    var svg=holder.querySelector('svg'), out='';
+    if(svg){ svg.removeAttribute('class'); svg.setAttribute('width','24'); svg.setAttribute('height','24'); out=svg.outerHTML; }
+    if(holder.parentNode) holder.parentNode.removeChild(holder);
+    return out;
+  }
   function bgCss(bg){
     if(bg==='soft') return 'background:#F7F8FC;padding:48px 24px;border-radius:20px;';
     if(bg==='dark') return 'background:#0D003B;padding:48px 24px;border-radius:20px;';
@@ -122,13 +134,14 @@
 '.'+ns+' .card{background:#fff;border:1px solid #E1E3EF;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(13,0,59,.08);transition:transform .25s,box-shadow .25s}\n'+
 '.'+ns+' .card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(13,0,59,.14)}\n'+
 '.'+ns+' .seal{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:'+c+';color:#fff;font-family:"menco","Nunito",sans-serif;font-weight:800;font-size:20px;margin-bottom:16px}\n'+
+'.'+ns+' .seal svg{width:24px;height:24px}\n'+
 '.'+ns+' h3{font-size:18px;margin:0 0 8px;color:#212121}\n'+
 '.'+ns+' p{font-size:14px;color:#6B7280;margin:0 0 16px;line-height:1.6}\n'+
 '.'+ns+' a.cta{display:inline-block;font-weight:700;font-size:14px;color:'+c+';text-decoration:none}\n'+
 '.'+ns+' a.cta:hover{text-decoration:underline}';
     var inner='<div class="'+ns+'">\n'+items.map(function(it){
       var cta=it.cta&&it.url?'<a class="cta" href="'+esc(it.url)+'" target="'+esc(it.target)+'">'+esc(it.cta)+' →</a>':'';
-      return '    <div class="card"><div class="seal">'+esc(it.seal||'•')+'</div><h3>'+esc(it.title)+'</h3><p>'+esc(it.text)+'</p>'+cta+'</div>';
+      return '    <div class="card"><div class="seal">'+(lucideSvg(it.sealIcon)||esc(it.seal||'•'))+'</div><h3>'+esc(it.title)+'</h3><p>'+esc(it.text)+'</p>'+cta+'</div>';
     }).join('\n')+'\n  </div>';
     return shell(ns,css,inner,'',head);
   }
