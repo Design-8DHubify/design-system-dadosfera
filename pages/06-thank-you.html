@@ -130,6 +130,9 @@ a:hover { color: #1700A2; }
 .ds-btn--dark:hover { background: #1700A2 !important; transform: translateY(-2px) !important; }
 .ds-btn--light { background: #fff !important; color: #1700A2 !important; }
 .ds-btn--light:hover { transform: translateY(-2px) !important; box-shadow: 0 10px 22px -12px rgba(13,0,59,.18) !important; }
+/* Botão de contorno para FUNDO ESCURO (contraste AA): texto e borda brancos */
+.ds-btn--outline-light { background: transparent !important; color: #fff !important; border-color: rgba(255,255,255,.6) !important; }
+.ds-btn--outline-light:hover { background: #fff !important; color: #1700A2 !important; border-color: #fff !important; transform: translateY(-2px) !important; }
 .ds-btn--orange { background: #FF9900 !important; color: #fff !important; border-color: #FF9900 !important; }
 .ds-btn--orange:hover { transform: translateY(-2px) !important; box-shadow: 0 10px 20px -5px rgba(255,153,0,.4) !important; color:#fff !important; }
 .ds-btn--lg { padding: 17px 36px !important; font-size: 16px !important; }
@@ -382,7 +385,7 @@ a:hover { color: #1700A2; }
     <p>Sua solicitação foi enviada. Nosso time entrará em contato em breve. Enquanto isso, que tal explorar nossos conteúdos?</p>
     <div class="ty__links">
       <a class="ds-btn ds-btn--light ds-btn--lg" href="05-landing-page.html">Voltar ao site</a>
-      <a class="ds-btn ds-btn--ghost ds-btn--lg" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#">Ver blog</a>
+      <a class="ds-btn ds-btn--outline-light ds-btn--lg" href="#">Ver blog</a>
     </div>
   </div>
 </body>
