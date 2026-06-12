@@ -4,7 +4,7 @@ Documento único com **todas as regras** do design system. Identidade extraída 
 código-fonte oficial de `dadosfera.ai` (bloco `#ddf-custom-home`, formulário HubSpot e
 footer). Fonte da verdade em código: `css/dadosfera-base.css` — **arquivo único, simples e
 sem variáveis CSS** (valores em HEX direto, com `!important` onde necessário), pensado para
-colar em LPs do RD Station. Sem modo escuro.
+colar em landing pages. Sem modo escuro.
 
 ---
 
@@ -114,7 +114,6 @@ Tema único **claro** (sem modo escuro). Variáveis semânticas (legado, apenas 
 
 CSS em `css/dadosfera-base.css` (arquivo único). Prefixo de classe **`.ds-`** + utilitários
 genéricos (`.grid`, `.grid-2/3/4`, `.bento-grid`, `.col-span-*`, `.flex`, `.items-center`…).
-Os botões também respondem à classe nativa do RD (`.rd-button`).
 
 | Componente | Classe base | Variações |
 |-----------|-------------|-----------|
@@ -154,7 +153,7 @@ sidebar mobile (`data-burger`), scrollspy (`data-spy`). Clipboard em `js/ds-clip
 
 ---
 
-## 6. RD Station Builder
+## 6. Construtor de Componentes
 
 `pages` → seção `#builder` (na home) · lógica em `js/ds-builder.js`.
 
@@ -163,7 +162,7 @@ sidebar mobile (`data-burger`), scrollspy (`data-spy`). Clipboard em `js/ds-clip
 - Opções globais: cor de destaque, nº de colunas, fundo da seção
   (transparente/soft/escuro/gradiente), título e subtítulo de seção.
 - **Namespacing obrigatório:** `.ds-dadosfera-[tipo]-[uid]`, com `uid = Date.now()+random`
-  (base36). Garante múltiplos componentes na mesma página do RD Station **sem conflito**
+  (base36). Garante múltiplos componentes na mesma página **sem conflito**
   de CSS/JS.
 - Código **autocontido**: traz `<style>` próprio + `<script>` em IIFE com
   `document.currentScript.previousElementSibling` (sem IDs globais, sem libs externas).
@@ -203,7 +202,7 @@ sidebar mobile (`data-burger`), scrollspy (`data-spy`). Clipboard em `js/ds-clip
 
 ## 9. Convenções e publicação
 
-- **Prefixos:** componentes `.ds-*`; código gerado para RD `.ds-dadosfera-*`; pop-ups `.dsf-*`.
+- **Prefixos:** componentes `.ds-*`; código gerado `.ds-dadosfera-*`; pop-ups `.dsf-*`.
 - **Idioma:** pt-BR. **`<meta robots noindex,nofollow>`** em todas as páginas internas.
 - **Sem dependências externas** além de: Google Fonts (Nunito), Adobe Typekit (Menco) e,
   só no login, GSAP + Three.js (3D). Nada de framework CSS.

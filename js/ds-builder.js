@@ -1,6 +1,6 @@
 /* ============================================================
-   DADOSFERA DS — RD STATION BUILDER (v2)
-   Gera HTML+CSS+JS plug & play para colar em LPs do RD Station.
+   DADOSFERA DS — CONSTRUTOR DE COMPONENTES (v2)
+   Gera HTML+CSS+JS plug & play para colar em landing pages.
    - 9 componentes: cards, accordion, tabs, carousel, pricing,
      steps, testimonials, cta, stats
    - Namespacing .ds-dadosfera-[tipo]-[uid] + IDs únicos (Date.now)

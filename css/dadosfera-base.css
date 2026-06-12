@@ -1,8 +1,8 @@
 /* ============================================================
-   DADOSFERA — CSS BASE (único, simples, RD Station-friendly) v2
+   DADOSFERA — CSS BASE (único, simples, compatível com qualquer plataforma) v2
    Cole TODO este arquivo dentro de uma tag <style> no <head> da
-   landing page (ou no CSS global do RD Station).
-   - SEM variáveis CSS (RD não lida bem) — valores em HEX direto.
+   landing page (ou no CSS global da sua plataforma).
+   - SEM variáveis CSS (muitos editores não lidam bem) — valores em HEX direto.
    - Tipografia responsiva (mobile-first) com !important.
    - Sem modo escuro.
    Fontes da marca — adicione também no <head> da LP:
@@ -24,7 +24,7 @@ hr { border: none; border-top: 1px solid #ECECF2; margin: 1.5rem 0; }
 .ds-skip:focus { top: 8px; color: #fff; }
 
 /* ===== TIPOGRAFIA ===== */
-body, p, li, span, a, label, input, select, textarea, button, .ds-btn, .rd-button {
+body, p, li, span, a, label, input, select, textarea, button, .ds-btn {
   font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
 }
 h1, h2, h3, h4, h5, h6, .ds-display {
@@ -70,7 +70,7 @@ a:hover { color: #1700A2; }
 .ds-text-grad { color: #1700A2; }
 .ds-overline { display:inline-block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #0B6E94; font-weight: 800; }
 
-/* ===== UTILITÁRIOS DE LAYOUT (essencial p/ RD) ===== */
+/* ===== UTILITÁRIOS DE LAYOUT (essencial) ===== */
 .ds-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .ds-section { padding: 96px 0; }
 .ds-section--neutral { background: #F2EFF4; }
@@ -98,7 +98,7 @@ a:hover { color: #1700A2; }
 }
 
 /* ===== BOTÕES ===== */
-.ds-btn, .rd-button {
+.ds-btn {
   display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: .5em;
   font-weight: 700 !important; font-size: 15px !important; line-height: 1;
   padding: 14px 28px !important; border-radius: 999px !important; border: 2px solid transparent !important;

@@ -1,6 +1,6 @@
 # Design System Dadosfera
 
-Design System oficial da **Dadosfera**, com foco em **RD Station**. Desenvolvido pela
+Design System oficial da **Dadosfera**, para **landing pages e e-mail marketing**. Desenvolvido pela
 **8D Hubify**. Tudo em HTML, CSS e JavaScript nativos — sem build e **sem bibliotecas
 externas** (nem fontes de ícones). A tela de login usa GSAP + Three.js apenas para o 3D.
 
@@ -23,7 +23,7 @@ externas** (nem fontes de ícones). A tela de login usa GSAP + Three.js apenas p
 | `js/` | `ds-auth` · `ds-clipboard` · `ds-ui` · `ds-builder` |
 | `assets/logotipos/` | Logo oficial Dadosfera (SVG, PNG colorida e branca) |
 
-## CSS base (use em TODA LP do RD Station)
+## CSS base (use em TODA landing page)
 
 Arquivo **único e autossuficiente** `css/dadosfera-base.css` (reset + tokens + tipografia +
 todos os componentes `.ds-*`). Cole o conteúdo dele dentro de um `<style>` no `<head>` da LP
@@ -40,7 +40,7 @@ copiar/baixar.
 
 > No design system (site de doc) os estilos ficam divididos em
 > `css/dadosfera-base.css` é **arquivo único, sem variáveis CSS e sem modo escuro** (valores
-> em HEX direto, com `!important` onde necessário) — feito para colar nas LPs do RD Station.
+> em HEX direto, com `!important` onde necessário) — feito para colar nas suas landing pages.
 > `showcase.css` e `builder.css` são exclusivos do site de documentação.
 
 ## Componentes (25+)
@@ -51,12 +51,12 @@ feature card · Accordion · Tabs · Carousel · Preços · Passos / timeline ·
 avatares · Stats / statcards · Progress · Tabela · Paginação · List group · Tooltip · Modal ·
 CTA banner · Quote · Divider · Logo cloud.
 
-## RD Station Builder
+## Construtor de Componentes
 
 9 tipos (cards, preços, números, passos, depoimentos, accordion, tabs, carousel, CTA) com
 opções de **cor, colunas, fundo e título de seção**. Gera código **autocontido e namespaced**
 (`.ds-dadosfera-[tipo]-[id]`) com IDs únicos por bloco — vários componentes na mesma página
-do RD Station sem conflito de CSS/JS. Sem ícones e sem dependências externas.
+na mesma página sem conflito de CSS/JS. Sem ícones e sem dependências externas.
 
 ## Marca
 
