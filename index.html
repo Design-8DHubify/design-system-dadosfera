@@ -646,7 +646,7 @@
     (function(){
       var el = document.getElementById('css-base-code');
       if (!el) return;
-      fetch('css/dadosfera-base.css').then(function(r){return r.text();}).then(function(t){
+      fetch('css/dadosfera-base.css?cb=' + Date.now(), { cache: 'no-store' }).then(function(r){return r.text();}).then(function(t){
         el.textContent = t;
         var info = document.getElementById('css-base-info');
         if (info) info.textContent = 'css/dadosfera-base.css · ' + Math.round(t.length/1024) + ' KB';
